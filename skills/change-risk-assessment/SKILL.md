@@ -1,20 +1,15 @@
 ---
 name: change-risk-assessment
 description: >
-  Use when the user needs to identify what could stop an organisational change
-  landing with people — competing changes and saturation, capacity, weak
-  sponsorship, change fatigue, complexity, a history of failed change,
-  resistance, timing against peak periods, and manager capability. Fires even when the user never says "risk
-  register": "what could stop this change landing?", "what could go wrong with
-  adoption?", "is the timing a problem for the teams?", "why might people not
-  take this up?". Writes the change risk register to
-  docs/change/risk-register.md with likelihood x consequence ratings,
-  mitigations, owners and triggers. Covers people/organisational change only.
-  Do NOT use for IT/ITIL change risk, CAB risk ratings or release approvals,
-  for project delivery, technical, financial or schedule risk registers, for
-  scoring sponsorship, project and change management health
-  (sponsor-assessment), for cross-initiative load (portfolio-saturation), or
-  for impacts by role (change-impact-assessment).
+  Identifies what could stop a people change landing — competing changes,
+  capacity, weak sponsorship, change fatigue, complexity, timing, manager
+  capability — with likelihood × consequence, mitigations and owners. Use for
+  "what could stop this landing?", "what could go wrong with adoption?", "is
+  the timing a problem for the teams?". Writes docs/change/risk-register.md.
+  Do NOT use for project, technical or IT change risk, for an early read on
+  whether the organisation can take the change on (business-readiness
+  --organisational), sponsorship health (sponsor-assessment), or
+  cross-initiative load (portfolio-saturation).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[risk area to focus on] [--refresh]"
