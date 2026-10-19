@@ -1,20 +1,15 @@
 ---
 name: training-needs-analysis
 description: >
-  Use when the user needs to work out what each affected role must learn to
-  work the new way after an organisational change — the gap between current
-  and required proficiency per task, the right learning method, timing, and
-  how ability will be checked — or needs a quick reference guide or job aid.
-  Fires even when the user never says "TNA": "what training does each team
-  need?", "who needs to learn what before go-live?", "do the agents need a
-  classroom session or is a cheat sheet enough?", "write a quick reference
-  guide for the new approval step", "estimate training hours", "build the
-  training schedule", "how will we know the training worked?". Writes
-  tna.md with a CSV, training-plan.md with a schedule, and job aids to
-  qrg/. People/organisational change only. Do NOT use for go-live readiness
-  (business-readiness), go/no-go (readiness-review), mapping impacts
-  (change-impact-assessment), building LMS or e-learning courses, HR
-  capability frameworks, or IT admin runbooks.
+  Works out what each role must learn to work the new way — proficiency gap
+  per task, learning method, timing and how ability is checked — plus the
+  training plan (--plan) and quick reference guides. Use for "what training
+  does each team need?", "is a cheat sheet enough or do they need a classroom
+  session?", "write a quick reference guide for the new approval step", "build
+  the training schedule". Writes tna.md and CSV, training-plan.md,
+  training-schedule.csv and qrg/. Do NOT use for readiness sign-off
+  (business-readiness), impacts (change-impact-assessment), or building
+  e-learning courses.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep Bash(node:*)
 argument-hint: "[role or scope] [--plan] [--job-aid <task>] [--refresh]"
