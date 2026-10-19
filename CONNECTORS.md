@@ -3,8 +3,8 @@
 ## How tool references work
 
 Plugin files use `~~category` as a placeholder for whatever tool the user
-connects in that category. For example, `~~chat` might mean Slack or Microsoft
-Teams.
+connects in that category. For example, `~~chat` might mean Microsoft
+Teams or Slack.
 
 The plugin is **tool-agnostic** and **works with no connectors at all** — every
 skill falls back to the user pasting or uploading material. Connectors save
@@ -12,18 +12,16 @@ re-typing; they are never required.
 
 ## Bundled defaults
 
-The plugin bundles the three most reliable read sources for change work:
+The plugin bundles Microsoft's [Work IQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/overview) server. One endpoint covers Microsoft 365 and Teams. Microsoft's separate Teams server is per-tenant and kept for older setups, so it is not packaged.
 
 | Category | Server | How it's provided | Notes |
 | --- | --- | --- | --- |
-| `~~office suite` | Microsoft 365 (Outlook, Teams, SharePoint, OneDrive) | **Claude connector** — enable it in Claude's connector settings. It has no server URL that can go in `.mcp.json`. | Its write tools (when your admin turns them on) can send mail, post Teams chat and channel messages, start chats, change calendar events and write SharePoint files. The `draft_guard` hook treats Microsoft 365 as ask-first: searches, reads and Outlook drafts run; every other Microsoft 365 tool asks you before it runs. |
-| `~~chat` | Slack | `.mcp.json` → `https://mcp.slack.com/mcp` (official, Slack-hosted) | Each user signs in with OAuth; a workspace admin must approve the app. |
-| `~~project tracker` | Atlassian (Jira, Confluence) | `.mcp.json` → `https://mcp.atlassian.com/v1/mcp/authv2` (official remote server) | Each user signs in with OAuth to their own Atlassian site. |
+| `~~office suite` | Microsoft 365 (Outlook, calendar, SharePoint, OneDrive) | `.mcp.json` → `https://workiq.svc.cloud.microsoft/mcp` (official, Microsoft-hosted) | Each user signs in with their work account. A tenant admin may need to allow Work IQ the first time. |
+| `~~chat` | Microsoft Teams | The same server. Chats and channels are paths on it (`/me/chats`, `/teams/…`), not a second URL. | Posts, replies and new chats are ask-first. |
 
-If your organisation uses different tools in these categories (Google
-Workspace, Teams instead of Slack, monday.com instead of Jira), replace or
-remove the entries in `.mcp.json`. Every skill still works with nothing
-connected.
+Write tools can send mail, post Teams chat and channel messages, start chats, change calendar events and write SharePoint files. The `draft_guard` hook treats this server as ask-first: searches, reads and Outlook drafts run; every other tool asks you before it runs.
+
+If your organisation uses different tools (Google Workspace, Slack, monday.com or Jira), replace or remove the entry in `.mcp.json`. Every skill still works with nothing connected.
 
 ## Policy
 
@@ -41,10 +39,10 @@ For the other categories. Availability checked in the October 2026 research; re-
 
 | Category | Placeholder | Examples (status at research date) |
 | --- | --- | --- |
-| Office suite, email, calendar, files | `~~office suite` | Microsoft 365 (official Claude connector), Google Workspace |
-| Chat | `~~chat` | Slack (official server, `https://mcp.slack.com/mcp`, needs workspace-admin approval); Microsoft Teams via Microsoft 365 |
-| Project tracker / wiki | `~~project tracker` | Atlassian Jira and Confluence (official), monday.com, Asana, Smartsheet (official) |
-| Cloud storage | `~~cloud storage` | SharePoint / OneDrive (via Microsoft 365), Google Drive |
+| Office suite, email, calendar, files | `~~office suite` | Microsoft 365 (bundled, Work IQ), Google Workspace |
+| Chat | `~~chat` | Microsoft Teams (bundled, same Work IQ server); Slack (official server, `https://mcp.slack.com/mcp`, needs workspace-admin approval) |
+| Project tracker / wiki | `~~project tracker` | Atlassian Jira and Confluence (`https://mcp.atlassian.com/v1/mcp/authv2`), monday.com, Asana, Smartsheet (official) |
+| Cloud storage | `~~cloud storage` | SharePoint / OneDrive (via the bundled Microsoft 365 server), Google Drive |
 | IT service management | `~~itsm` | ServiceNow (official, Zurich release) |
 | Survey / pulse | `~~survey` | Culture Amp (official, limited scope); Qualtrics (API — treat as manual); Microsoft Forms / Viva Glint (no server — paste exports) |
 | HR information system | `~~hris` | Workday, SAP SuccessFactors (third-party servers only, e.g. StackOne, CData — read-only, least privilege) |

@@ -33,7 +33,7 @@ interface HookPayload {
   tool_name?: string;
 }
 
-const M365_SERVER_RE = /microsoft|m365|office|outlook|teams|sharepoint|onedrive|graph/i;
+const M365_SERVER_RE = /microsoft|m365|workiq|office|outlook|teams|sharepoint|onedrive|graph/i;
 
 const SEND_VERBS = new Set([
   "send", "post", "publish", "reply", "replyall", "forward", "broadcast",

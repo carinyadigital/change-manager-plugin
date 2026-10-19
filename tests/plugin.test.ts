@@ -96,7 +96,10 @@ test("draft guard asks before send-type MCP tools", () => {
     "mcp__claude_ai_Microsoft_365__reply_to_channel_message", "mcp__claude_ai_Microsoft_365__create_chat",
     "mcp__claude_ai_Microsoft_365__outlook_create_event", "mcp__claude_ai_Microsoft_365__delete_calendar_event",
     "mcp__claude_ai_Microsoft_365__sharepoint_upload_file", "mcp__claude_ai_Microsoft_365__set_automatic_replies",
-    "mcp__claude_ai_Microsoft_365__create_inbox_rule", "mcp__claude_ai_Microsoft_365__send_draft"]) {
+    "mcp__claude_ai_Microsoft_365__create_inbox_rule", "mcp__claude_ai_Microsoft_365__send_draft",
+    // Work IQ (the bundled Microsoft 365 and Teams server): generic write tools ask
+    "mcp__microsoft-365__do_action", "mcp__microsoft-365__create_entity",
+    "mcp__workiq__update_entity", "mcp__workiq__delete_entity"]) {
     const out = hookDecision("draft_guard.ts", { tool_name: tool, tool_input: { body: "secret" } });
     assert.equal((JSON.parse(out) as { hookSpecificOutput: { permissionDecision: string } }).hookSpecificOutput.permissionDecision, "ask", tool);
     assert.ok(!out.includes("secret"));
@@ -110,7 +113,8 @@ test("draft guard lets drafts and reads through", () => {
     "mcp__claude_ai_Microsoft_365__outlook_email_search", "mcp__claude_ai_Microsoft_365__chat_message_search",
     "mcp__claude_ai_Microsoft_365__find_meeting_availability", "mcp__claude_ai_Microsoft_365__read_resource",
     "mcp__claude_ai_Microsoft_365__sharepoint_search", "mcp__claude_ai_Microsoft_365__outlook_calendar_search",
-    "mcp__claude_ai_Microsoft_365__create_draft", "mcp__claude_ai_Microsoft_365__updateDraft"]) {
+    "mcp__claude_ai_Microsoft_365__create_draft", "mcp__claude_ai_Microsoft_365__updateDraft",
+    "mcp__microsoft-365__fetch", "mcp__workiq__get_schema", "mcp__workiq__search_paths"]) {
     assert.equal(hookDecision("draft_guard.ts", { tool_name: tool }), "", tool);
   }
   assert.equal(hookDecision("draft_guard.ts", "not json"), "");
