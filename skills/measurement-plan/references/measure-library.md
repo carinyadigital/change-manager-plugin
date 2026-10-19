@@ -106,10 +106,3 @@ points are plugin defaults; use the organisation's own if it has them.
 | Email opens, intranet views | Reach | Understanding (pulse), questions asked |
 | Attendance at town halls | Activity | Understanding and confidence (pulse) |
 | A single month's spike | Novelty | The level at 90 and 180 days |
-
-## Further reading
-
-The Queensland Government's *Benefits Management Guide* (CC BY 4.0 AU)
-explains benefit profiles and dependency maps in more depth:
-https://www.statedevelopment.qld.gov.au/__data/assets/pdf_file/0020/55028/further-guidance-02-benefits-management-guides.pdf
-The measures above are the plugin's own and do not reproduce it.
