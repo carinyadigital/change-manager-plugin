@@ -6,7 +6,7 @@ Usage: node scripts/validate.ts [--warn-only]
 
 Checks:
   1. All JSON files parse
-  2. Plugin manifest (Claude <-> Cursor parity, required fields, root files)
+  2. Plugin manifests (Claude <-> Codex identity, Codex listing fields, root files)
   3. .mcp.json shape
   4. hooks/hooks.json shape; referenced scripts exist
   5. SKILL.md frontmatter, budgets, metadata enums, required headings,
@@ -158,19 +158,81 @@ function checkJsonFiles(): void {
   for (const p of FILES.filter((f) => f.endsWith(".json"))) if (loadJson(p) !== undefined) ok();
 }
 
+function authorName(manifest: Record<string, unknown>): string {
+  const author = manifest.author;
+  if (!author || typeof author !== "object" || Array.isArray(author)) return "";
+  const name = (author as Record<string, unknown>).name;
+  return typeof name === "string" ? name : "";
+}
+
+/** Codex compatibility paths are plugin-root relative and must exist. */
+function codexPath(value: unknown, label: string): void {
+  if (typeof value !== "string" || !value.startsWith("./") || value.includes("..")) {
+    fail(`.codex-plugin/plugin.json ${label} must be a ./ path inside the plugin`);
+    return;
+  }
+  if (!existsSync(join(ROOT, value.slice(2)))) fail(`.codex-plugin/plugin.json ${label} missing: ${value}`);
+}
+
 function checkManifest(): void {
+  if (existsSync(join(ROOT, ".cursor-plugin"))) fail(".cursor-plugin is retired; use .codex-plugin/plugin.json");
   const claudePath = join(ROOT, ".claude-plugin/plugin.json");
-  const cursorPath = join(ROOT, ".cursor-plugin/plugin.json");
+  const codexFile = join(ROOT, ".codex-plugin/plugin.json");
   if (!existsSync(claudePath)) return fail(".claude-plugin/plugin.json missing");
   const a = loadJson(claudePath) as Record<string, unknown> | undefined;
-  const b = existsSync(cursorPath) ? loadJson(cursorPath) : undefined;
   if (!a) return;
-  if (b === undefined) fail(".cursor-plugin/plugin.json missing");
-  else if (JSON.stringify(a) !== JSON.stringify(b)) fail("plugin.json differs between .claude-plugin and .cursor-plugin");
+  if (!existsSync(codexFile)) fail(".codex-plugin/plugin.json missing");
+  const b = existsSync(codexFile) ? loadJson(codexFile) as Record<string, unknown> | undefined : undefined;
   for (const field of ["name", "version", "description", "author", "license"]) if (!a[field]) fail(`.claude-plugin/plugin.json missing ${field}`);
   if (a.name !== PLUGIN_NAME) fail(`plugin name must be '${PLUGIN_NAME}'`);
+  if (b) {
+    if ("$schema" in b) fail(".codex-plugin/plugin.json omits $schema; that field belongs on a portable root plugin.json");
+    for (const field of ["name", "version", "description", "license", "skills", "keywords"]) {
+      if (JSON.stringify(a[field]) !== JSON.stringify(b[field])) fail(`plugin.json ${field} differs between .claude-plugin and .codex-plugin`);
+    }
+    if (authorName(a) !== authorName(b)) fail("plugin.json author.name differs between .claude-plugin and .codex-plugin");
+    const face = b.interface;
+    const iface = face && typeof face === "object" && !Array.isArray(face) ? face as Record<string, unknown> : undefined;
+    if (!iface) fail(".codex-plugin/plugin.json missing interface");
+    else {
+      const limit = (key: string, max: number): void => {
+        const value = iface[key];
+        if (typeof value !== "string" || !value.trim()) fail(`.codex-plugin/plugin.json interface.${key} missing`);
+        else if (value.length > max) fail(`.codex-plugin/plugin.json interface.${key} is ${value.length} chars (max ${max})`);
+      };
+      limit("displayName", 30);
+      limit("shortDescription", 30);
+      limit("longDescription", 4000);
+      limit("developerName", 80);
+      if (iface.displayName !== a.displayName) fail("interface.displayName must match .claude-plugin displayName");
+      if (iface.developerName !== authorName(b)) fail("interface.developerName must match author.name");
+      if (typeof iface.category !== "string" || !iface.category.trim()) fail(".codex-plugin/plugin.json interface.category missing");
+      const caps = iface.capabilities;
+      if (!Array.isArray(caps) || caps.length < 1 || caps.length > 20) fail(".codex-plugin/plugin.json interface.capabilities must list 1–20 labels");
+      else for (const cap of caps) if (typeof cap !== "string" || !cap.trim() || cap.length > 120) fail(".codex-plugin/plugin.json capability labels must be 1–120 characters");
+      const prompts = iface.defaultPrompt;
+      if (!Array.isArray(prompts) || prompts.length < 1 || prompts.length > 3) fail(".codex-plugin/plugin.json interface.defaultPrompt must list 1–3 prompts");
+      else for (const prompt of prompts) {
+        if (typeof prompt !== "string" || !prompt.trim() || prompt.length > 128) fail(".codex-plugin/plugin.json default prompts must be 1–128 characters");
+        else if (prompt.includes("@")) fail(".codex-plugin/plugin.json default prompts omit @mentions");
+      }
+      for (const key of ["composerIcon", "logo"]) codexPath(iface[key], `interface.${key}`);
+    }
+    if (b.mcpServers !== "./.mcp.json") fail('.codex-plugin/plugin.json mcpServers must be "./.mcp.json"');
+    if (b.hooks !== "./hooks/hooks.json") fail('.codex-plugin/plugin.json hooks must be "./hooks/hooks.json"');
+    codexPath(b.skills, "skills");
+    codexPath(b.mcpServers, "mcpServers");
+    codexPath(b.hooks, "hooks");
+    const ext = b.extensions;
+    const openai = ext && typeof ext === "object" && !Array.isArray(ext) ? (ext as Record<string, unknown>)["com.openai"] : undefined;
+    const onboarding = openai && typeof openai === "object" && !Array.isArray(openai) ? (openai as Record<string, unknown>).onboardingSkill : undefined;
+    if (onboarding !== "./skills/setup/SKILL.md") fail('.codex-plugin/plugin.json onboarding skill must be "./skills/setup/SKILL.md"');
+    codexPath(onboarding, "onboardingSkill");
+  }
   for (const f of ["README.md", "CONNECTORS.md", "CLAUDE.md", ".mcp.json", "LICENSE"]) if (!existsSync(join(ROOT, f))) fail(`missing ${f}`);
-  if (existsSync(join(ROOT, ".claude-plugin/marketplace.json"))) fail("single plugin: .claude-plugin/marketplace.json should not exist");
+  for (const extra of [".claude-plugin/marketplace.json", ".codex-plugin/marketplace.json"]) {
+    if (existsSync(join(ROOT, extra))) fail(`single plugin: ${extra} should not exist`);
+  }
   const pkg = existsSync(join(ROOT, "package.json")) ? (loadJson(join(ROOT, "package.json")) as Record<string, unknown> | undefined) : undefined;
   if (pkg && pkg.version !== a.version) fail("package.json version differs from plugin.json");
   ok();

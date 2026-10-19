@@ -1,10 +1,10 @@
-# Change Manager Plugin for Agents
+# Change Practice
 
-A single, multi-persona **practice plugin** for organisational change managers,
-for Claude Code, Claude (Cowork) and Cursor. One install gives a change lead
-and their team a skill library for the full Prepare → Manage → Sustain
-lifecycle, writing to one shared **change record** in `docs/change/` so each
-piece of work builds on the last.
+A practice plugin for change managers working in **Claude Cowork** and
+**ChatGPT Work**. One install gives you and your team a skill library for the
+full Prepare → Manage → Sustain lifecycle. Each piece of work writes to one
+shared **change record** in `docs/change/`, so the next conversation builds on
+the last.
 
 It covers **people change** — helping groups of people adopt a new system,
 process, structure or policy. It does **not** cover IT change control (change
@@ -15,28 +15,61 @@ or customers by the plugin.
 
 ## Install
 
-This repo is one plugin; the repo root is the plugin root. Add it to a
-marketplace you already use with an entry whose `source` points at this repo,
-or load it locally while developing:
+Add Change Practice inside the app you already use. There is nothing to install
+on your computer.
 
-```bash
-claude --plugin-dir ~/Projects/change-manager-plugin
-```
+### Claude Cowork
 
-Bundled scripts and hooks are TypeScript that Node 22.18+ runs directly (Claude
-Cowork runs Node natively). Users install nothing.
+When Change Practice is available for your organisation:
 
-## First run
+1. Open Claude and select the **Cowork** tab.
+2. In the sidebar, open **Customize**, then **Plugins**.
+3. Open **Discover**, select **Change Practice**, and select **Install**.
+4. Slack and similar tools are optional. If you use them, open the plugin and
+   connect them on the **Connectors** tab. You can skip this and paste
+   documents, emails and plans instead.
+5. Start a new Cowork task. Ask in plain language — for example, "Help me
+   understand the rostering change" — or type `/` and choose a skill.
 
-```
-/change-practice:setup          # quick interview, or --full
-```
+If it is not in Discover, ask your Claude administrator to add it for your
+organisation, or to send you the plugin file. On the Plugins page, use the
+upload option and select that file.
 
-Setup records your method (method-neutral by default), whether you hold a
-Prosci licence, people-data jurisdiction, thresholds, cadence, comms approval
-chain and whether you want distinct personas or one merged role, in a personal
-practice profile. Every other skill reads it and falls back to
-[defaults](references/rating-scales.md) if it is missing.
+### ChatGPT Work
+
+When Change Practice is available in your workspace:
+
+1. Open ChatGPT and switch to **Work**.
+2. Open **Plugins**.
+3. Find **Change Practice** under your workspace name, or under **Personal** if
+   it was shared with you. Open it and select **+**.
+4. If it asks you to connect Slack or another tool, connect only what you use.
+   You can skip this and paste material instead.
+5. Start a **new** Work chat. Describe what you need, or type `@` and choose
+   Change Practice or one of its skills.
+
+The first install offers a short setup conversation. That records how your team
+works, and later skills follow it.
+
+If it is not listed, ask a workspace admin to publish Change Practice to your
+workspace from [ChatGPT Plugins](https://chatgpt.com/plugins). It stays inside
+your organisation.
+
+## First session
+
+Run setup before the other skills. It asks how your team works: your change
+method (method-neutral unless you say otherwise), whether you hold a Prosci
+licence, how people data should be handled, reporting thresholds, how often you
+update leaders, who approves employee messages, and whether one person covers
+every role or you split the work. Later skills read those answers. If you skip
+setup, they use the [defaults](references/rating-scales.md).
+
+- **Claude Cowork:** `/change-practice:setup`
+- **ChatGPT Work:** accept the setup conversation after install, or ask "Set up
+  my change practice."
+
+Not sure which skill to use next? Ask "What should I do next on this change?"
+or, in Claude, run `/change-practice:skills-index`.
 
 ## Personas
 
@@ -112,6 +145,10 @@ The record's structure, front block and writing rules:
 | Read-only gates | `sponsor-assessment`, `business-readiness`, `readiness-review`, `portfolio-saturation` and `adoption-measurement` write only their own verdict and name the skill that fixes each finding. Decisions stay with named people. |
 | Method IP | Prosci (ADKAR, PCT), Kotter, Bridges, ACMP and others are described in our own words with attribution — see [methods.md](references/methods.md). |
 
+In Claude Cowork, the hooks above ask before a send, before personal contact
+details are written, and before the practice profile is changed. ChatGPT Work
+on the web does not run those hooks, so read every draft before you share it.
+
 ## Bundled scripts
 
 Deterministic helpers so scores are consistent from run to run. They are
@@ -140,8 +177,10 @@ Follows the [Agent Skills](https://agentskills.io/specification) standard:
 each skill is a self-contained folder.
 
 ```
-.claude-plugin/plugin.json      # manifest (identical copy in .cursor-plugin/)
+.claude-plugin/plugin.json      # Claude Cowork manifest
+.codex-plugin/plugin.json       # ChatGPT Work and Codex manifest
 .mcp.json                       # bundled connectors: Slack, Atlassian
+assets/                         # listing icon for ChatGPT
 CLAUDE.md                       # practice profile TEMPLATE (setup writes a personal copy)
 CONNECTORS.md                   # ~~category map and connector policy
 agents/                         # five persona agents
@@ -162,6 +201,18 @@ tests/                          # node:test suite (development only)
 
 ## Develop
 
+This repo is one plugin; the repo root is the plugin root. Load it locally
+while developing:
+
+```bash
+claude --plugin-dir ~/Projects/change-manager-plugin
+```
+
+Bundled scripts and hooks are TypeScript that Node 22.18+ runs directly. Claude
+Cowork runs Node natively. ChatGPT Work on the web does not run hook scripts.
+The public ChatGPT plugin directory does not accept a plugin that bundles
+lifecycle hooks, so ChatGPT distribution is a workspace publish.
+
 ```bash
 npm install          # dev only: TypeScript + Node types for type-checking
 npm run sync         # copy shared references into the skills that link them
@@ -175,6 +226,8 @@ Contributor rules: [AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Licence
 
-MIT — see [LICENSE](LICENSE). Third-party frameworks are referenced, not
-reproduced; see [ATTRIBUTION.md](ATTRIBUTION.md) and
-[TRADEMARKS.md](TRADEMARKS.md).
+Licenced under the [MIT Licence](LICENSE).
+
+Third-party frameworks are referenced, not reproduced; see [ATTRIBUTION.md](ATTRIBUTION.md) and [TRADEMARKS.md](TRADEMARKS.md).
+
+Copyright (c) 2026 Carinya Digital

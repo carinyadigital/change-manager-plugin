@@ -8,8 +8,10 @@
 4. Prefer real, anonymised practitioner corrections over general knowledge.
 5. Edit shared references only in root `references/`, then run `npm run sync`.
 6. Run `npm install` once (dev only), then `npm run check` (typecheck, validate, tests).
-7. Bump the version in both `plugin.json` files and `package.json`, and add a
-   CHANGELOG entry.
+7. Bump the version in `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`
+   and `package.json`, and add a CHANGELOG entry. Keep the shared identity
+   fields (`name`, `version`, `description`, `license`, `keywords`, `skills`,
+   `author.name`) the same in both manifests.
 
 ## Third-party material
 

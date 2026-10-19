@@ -1,7 +1,7 @@
 # Change Practice plugin — contributor guide
 
 A single, multi-persona practice plugin — `change-practice` — for
-organisational change management in Claude Code, Claude (Cowork) and Cursor.
+organisational change management in Claude Cowork and ChatGPT Work.
 The repo root is the plugin root; there is no marketplace manifest.
 
 `CLAUDE.md` at the root is the practice-profile **template** shipped to users,
@@ -11,6 +11,8 @@ not contributor guidance. This file is the contributor guide.
 
 | Path | What it holds |
 | --- | --- |
+| `.claude-plugin/plugin.json` | Claude Cowork manifest |
+| `.codex-plugin/plugin.json` | ChatGPT Work and Codex manifest. Listing text is `interface`; setup is `extensions.com.openai.onboardingSkill`. No `.cursor-plugin/` |
 | `skills/<name>/` | Self-contained [Agent Skills](https://agentskills.io/specification): `SKILL.md`, `references/`, `assets/`, `scripts/`, `evals/` |
 | `agents/` | Five persona agents; each lists the skills it owns and its least-privilege scope |
 | `hooks/` | `hooks.json` and the TypeScript guards it runs |

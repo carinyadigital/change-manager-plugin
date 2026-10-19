@@ -12,3 +12,5 @@
 - Slack and Atlassian bundled in `.mcp.json`; Microsoft 365 via Claude connector.
 - Seven scoring scripts, hooks, validator, reference sync and tests in
   TypeScript (Node 22.18+, no runtime dependencies).
+- ChatGPT Work and Codex manifest in `.codex-plugin/plugin.json` (the Cursor
+  manifest is retired). Install notes lead with Claude Cowork and ChatGPT Work.

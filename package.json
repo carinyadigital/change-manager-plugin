@@ -2,7 +2,7 @@
   "name": "change-practice",
   "version": "0.1.0",
   "private": true,
-  "description": "Change Practice \u2014 a single, multi-persona organisational change management plugin for Claude Code, Claude (Cowork) and Cursor.",
+  "description": "Change Practice — a single, multi-persona organisational change management plugin for Claude Cowork and ChatGPT Work.",
   "type": "module",
   "license": "MIT",
   "engines": {
