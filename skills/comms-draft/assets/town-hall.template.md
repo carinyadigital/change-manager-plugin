@@ -70,6 +70,14 @@ About <n> minutes of speaking, then <n> minutes of questions.*
 
 <One sentence the speaker closes on.>
 
+## Making it work for everyone
+
+- **Anonymous questions:** <route — e.g. a form or moderated Q&A — open
+  before and during the event>
+- **Access:** <captions, interpreters, room access, materials in advance>
+- **Shift and remote staff:** <repeat sessions, recording, manager-led
+  replay at shift start>
+
 ## After the event
 
 - Recording and slides posted to <location> by <date>
