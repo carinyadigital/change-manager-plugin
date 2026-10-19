@@ -15,5 +15,6 @@
   {"query": "set up the change advisory board membership", "should_trigger": false,"note": "IT change control"},
   {"query": "start an employee wellbeing ambassador program", "should_trigger": false,"note": "general HR program, not a change network"},
   {"query": "what training does each role need?", "should_trigger": false,"note": "training-needs-analysis"},
-  {"query": "who are the stakeholders and how much influence do they have?", "should_trigger": false,"note": "stakeholder-analysis"}
+  {"query": "who are the stakeholders and how much influence do they have?", "should_trigger": false,"note": "stakeholder-analysis"},
+  {"query": "what are champions, chat and the survey telling us this week?", "should_trigger": false,"note": "stakeholder-pulse"}
 ]

@@ -49,7 +49,8 @@ then fortnightly, then monthly> · **Format:** <in person / online>
 - What are people saying about the change — the good and the bad?
 - What questions came up that you couldn't answer?
 - Is anyone working around the new way? What makes the old way easier?
-- What has your manager done or said about the change recently?
+- How are leaders in your area talking about the change? (By area, never
+  about one identifiable manager.)
 - What one thing should we fix or explain next?
 
 **After every huddle:** log feedback in `network-feedback.csv` by group and

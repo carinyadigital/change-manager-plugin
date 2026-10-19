@@ -27,32 +27,42 @@ across initiatives.
 | Artefact | Path (under artefact root) | Written by | Read by |
 | --- | --- | --- | --- |
 | Change definition | `scope.md` | understand-change | everything |
+| Organisational readiness (early) | `org-readiness.md` | business-readiness (`--organisational`) | risk, strategy |
 | Stakeholder register | `stakeholder-register.md` | stakeholder-analysis | engagement, sponsor, network, comms, resistance |
 | Impact register | `impact-register.md` (+ `impact-register.csv`) | change-impact-assessment | risk, strategy, TNA, readiness, saturation |
 | Change risk register | `risk-register.md` | change-risk-assessment | strategy, sponsor-assessment, weekly-status |
-| Change health check (PCT-style) | `pct-assessment.md` | sponsor-assessment | strategy, sponsor-engagement |
+| Change health check (sponsorship / project management / change management) | `pct-assessment.md` (file name kept for compatibility; titled "Change health check") | sponsor-assessment | strategy, sponsor-engagement |
 | Change strategy and plan | `strategy.md` | change-strategy | every Manage-phase skill |
-| Measurement plan | `measurement-plan.md` | measurement-plan | readiness, readiness-review, adoption-measurement |
+| Case for change and vision (leaders) | `case-for-change.md` | change-strategy | sponsor-engagement, communications-plan |
+| Forces for and against | `force-field.md` | change-strategy | change-risk-assessment, resistance-management |
+| Measurement plan | `measurement-plan.md` (+ `measurement-plan.csv`) | measurement-plan | readiness, readiness-review, adoption-measurement |
 | Sponsor roadmap | `sponsor-plan.md` | sponsor-engagement | comms, weekly-status |
 | Engagement plan | `engagement-plan.md` | stakeholder-engagement | comms, weekly-status |
-| Change network | `change-network.md` (+ `network-feedback.csv`; `champions.csv` working file for the coverage script) | change-network | resistance, readiness |
-| Communications plan | `comms-plan.md` | communications-plan | comms-draft |
+| Change network | `change-network.md` (+ `network-feedback.csv`; `champions.csv` working file for the coverage script, kept at `docs/change/champions.csv`) | change-network | resistance, readiness, stakeholder-pulse |
+| Champion pack drafts | `network/champion-role.md`, `network/nomination-note.md`, `network/champion-sessions.md` | change-network | — |
+| Change story (core narrative, key messages) | `change-story.md` | communications-plan | comms-draft, sponsor-engagement, change-network |
+| Communications plan | `comms-plan.md` (+ `comms-plan.csv`; comms-draft may update only an item's `status`, on a yes) | communications-plan | comms-draft |
 | Communication drafts | `comms/<YYYY-MM-DD>-<slug>.md` | comms-draft | weekly-status |
 | Training needs analysis | `tna.md` (+ `tna.csv`), job aids in `qrg/` | training-needs-analysis | readiness, readiness-review |
-| Readiness assessment | `readiness-checklist.md` (+ `readiness-checklist.csv`) | business-readiness | readiness-review, weekly-status |
+| Training plan | `training-plan.md` (+ `training-schedule.csv`) | training-needs-analysis | readiness, golive-transition |
+| Readiness assessment | `readiness-checklist.md` (+ `readiness-checklist.csv`, and `readiness-checklist.previous.csv` snapshot for the trend; history in the checklist's History table) | business-readiness | readiness-review, weekly-status |
 | Go/no-go verdict | `go-no-go.md` | readiness-review | golive-transition |
-| Resistance log | `resistance-log.md` | resistance-management | weekly-status, reinforcement |
+| Resistance log | `resistance-log.md` | resistance-management, stakeholder-pulse (rows on approval) | weekly-status, reinforcement |
+| Transition plan (groups facing loss) | `transition-plan.md` | resistance-management | communications-plan, golive-transition |
+| Pulse summaries and survey designs | `pulse/<YYYY-MM-DD>.md`, `pulse/survey-<YYYY-MM-DD>.md` | stakeholder-pulse | business-readiness, weekly-status |
 | Go-live support plan | `golive-plan.md` | golive-transition | adoption-measurement |
-| Portfolio heatmap | `portfolio-heatmap.md` (+ `portfolio.csv`) | portfolio-saturation | change-risk-assessment |
+| Hypercare issue themes and daily check-ins | `hypercare-issues.csv`, `hypercare/<YYYY-MM-DD>.md` | golive-transition | adoption-measurement, lessons-learned |
+| Portfolio heatmap | `portfolio-heatmap.md` (+ `portfolio.csv`) — kept in the portfolio owner's working folder, not an initiative's | portfolio-saturation | change-risk-assessment |
 | Adoption review | `adoption-report.md` | adoption-measurement | reinforcement, bau-handover |
 | Reinforcement plan | `reinforcement-plan.md` | reinforcement | bau-handover |
 | BAU handover pack | `handover-pack.md` | bau-handover | — |
 | Lessons learned log | `lessons-learned.md` | lessons-learned | bau-handover, weekly-status |
+| Retrospective session sheets | `retros/<YYYY-MM-DD>-<phase>.md` | lessons-learned | — |
 | Status reports | `status/<YYYY-Www>.md` | weekly-status | meeting-prep |
 | Meeting briefs (optional) | `meetings/<YYYY-MM-DD>-<slug>.md` | meeting-prep | — |
 
-`stakeholder-pulse` writes no file of its own; on approval it appends rows to
-`resistance-log.md`.
+`stakeholder-pulse` writes its summary to `pulse/` and appends rows to
+`resistance-log.md`, both only on approval.
 
 Templates for every artefact live in the owning skill's `assets/` folder.
 This file and the other shared references are maintained once in the plugin's
@@ -79,7 +89,12 @@ sources: [interviews, ~~project tracker, pasted business case]
 
 `artefact` is the file's slug — the path's file name without date or
 extension (`scope`, `stakeholder-register`, `risk-register`, `comms-plan`,
-`comms-draft`, `tna`, `qrg`, `pct-assessment`, `readiness-checklist`, `go-no-go`, …). Skills
+`comms-draft`, `tna`, `qrg`, `pct-assessment`, `readiness-checklist`, `go-no-go`, …).
+Dated or foldered files use a fixed slug: `pulse` and `pulse-survey`
+(`pulse/`), `hypercare-checkin` (`hypercare/`), `retro-session` (`retros/`),
+`weekly-status` (`status/`), `meeting-brief` (`meetings/`), and for the
+champion pack `champion-role`, `nomination-note`, `champion-sessions`
+(`network/`). Skills
 may add extra keys their template needs (for example `audience`, `sender`,
 `approver` on comms drafts); other skills ignore keys they don't know.
 
@@ -110,7 +125,8 @@ A skill that reads an artefact older than the profile's `stale_after_days`
    disciplinary information. Report sentiment in aggregate (minimum group size
    from the profile, default 5).
 6. **Read-only gates stay read-only.** `sponsor-assessment`, `readiness-review`,
-   `portfolio-saturation` and `adoption-measurement` write only their own verdict file.
+   `portfolio-saturation` and `adoption-measurement` write only their own
+   files (`portfolio-saturation` writes its heatmap and its `portfolio.csv`).
    They never edit the artefacts they assess — they name the fixing skill.
 
 ## 5. Phase order and hand-offs
@@ -118,6 +134,8 @@ A skill that reads an artefact older than the profile's `stale_after_days`
 Prepare → Manage → Sustain. Recommended order, not a hard lock:
 
 1. `understand-change` → `stakeholder-analysis` → `change-impact-assessment`
+   (and `business-readiness --organisational` for an early view of whether the
+   organisation is ready to take the change on)
 2. `change-risk-assessment`, `sponsor-assessment`, `portfolio-saturation` (if other changes hit the same groups)
 3. `change-strategy` → `measurement-plan`
 4. Plans: `sponsor-engagement`, `stakeholder-engagement`, `change-network`, `communications-plan`, `training-needs-analysis`

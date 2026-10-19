@@ -4,17 +4,17 @@ description: >
   Use when the user needs to design or run a network of change champions —
   local, peer-level people in each impacted team or site who carry the change
   into their area and bring feedback back: coverage against a target ratio,
-  selection criteria, role and time, cadence, toolkit, and a feedback log with
-  aggregated sentiment. Fires on "we need people on the ground in each depot", "who will
-  help us at the sites?", "set up super users for the rollout", "are we
-  covering every team?", "what are the champions hearing?". Writes
-  docs/change/change-network.md and network-feedback.csv, and drafts the
-  champion role description, manager nomination note and session plans.
-  Covers
-  people/organisational change only. Do NOT use for sponsors and senior leaders
-  (sponsor-engagement), one-off workshops (stakeholder-engagement), diagnosing
-  resistance (resistance-management), go-live floor-walker rotas
-  (golive-transition), or IT/ITIL change control.
+  selection criteria, role and time, cadence, toolkit, a champion pack (role
+  description, nomination note, session plans), and logging champion feedback.
+  Fires on "we need people on the ground in each depot", "set up super users
+  for the rollout", "are we covering every team?", "log what the champions
+  said at today's huddle", "draft the champion role description". Writes
+  change-network.md, network-feedback.csv and pack drafts in
+  docs/change/network/. People/organisational change only. Do NOT use for
+  reading sentiment across champions, chat and surveys (stakeholder-pulse),
+  sponsors and senior leaders (sponsor-engagement), one-off workshops
+  (stakeholder-engagement), diagnosing resistance (resistance-management),
+  go-live floor-walker rotas (golive-transition), or IT/ITIL change control.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep Bash(node:*)
 argument-hint: "[design | feedback | coverage | pack] [--per N]"
@@ -95,7 +95,8 @@ Say if any artefact is older than the profile's `stale_after_days`.
   roles, redundancies or pay — that belongs to line managers with HR. Toolkit
   material uses plain English and does not overstate benefits.
 - **Blast radius.** Writes only `docs/change/change-network.md`,
-  `docs/change/network-feedback.csv` and the champion pack drafts in
+  `docs/change/network-feedback.csv`, the working file
+  `docs/change/champions.csv`, and the champion pack drafts in
   `docs/change/network/`. Pack drafts are never sent; a person shares them
   after approval. Runs only the bundled coverage script.
 
@@ -103,7 +104,7 @@ Say if any artefact is older than the profile's `stale_after_days`.
 
 1. **Load context.** Read the profile, `strategy.md`, `impact-register.csv`,
    `stakeholder-register.md` and any existing network files. Pick the mode:
-   design, coverage or feedback.
+   design, coverage, feedback or pack.
 2. **Set the target.** Default one champion per 25 people, at least one per
    impacted group and one per location or shift that experiences the change
    differently. Agree a different ratio with the user where the change is
@@ -116,10 +117,10 @@ Say if any artefact is older than the profile's `stale_after_days`.
 4. **Set selection criteria.** Respected by peers, credible in the work,
    willing, able to be released, mix of enthusiasts and constructive sceptics,
    spread across shifts and sites. Seniority is not a criterion.
-5. **Check coverage.** Build a champions CSV from the roster using the columns
+5. **Check coverage.** Build `docs/change/champions.csv` from the roster using the columns
    in [champions.csv](assets/champions.csv) (keep it as a working file; the
    roster of record is the table in `change-network.md`), then run:
-   `node ${CLAUDE_PLUGIN_ROOT}/skills/change-network/scripts/coverage.ts docs/change/impact-register.csv <champions.csv> --per 25`
+   `node ${CLAUDE_PLUGIN_ROOT}/skills/change-network/scripts/coverage.ts docs/change/impact-register.csv docs/change/champions.csv --per 25`
    Use its output for the coverage table — do not hand-count. Groups with no
    champion are the first finding.
 6. **Plan cadence and toolkit.** Cadence by phase (e.g. fortnightly in
