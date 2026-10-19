@@ -72,7 +72,17 @@ function hookDecision(script: string, payload: unknown): string {
 
 test("draft guard asks before send-type MCP tools", () => {
   for (const tool of ["mcp__Gmail__send_message", "mcp__Slack__slack_send_message",
-    "mcp__Google_Calendar__create_event", "mcp__Gmail__reply", "mcp__x__publish_post"]) {
+    "mcp__Google_Calendar__create_event", "mcp__Gmail__reply", "mcp__x__publish_post",
+    // camelCase and PascalCase names
+    "mcp__x__sendMail", "mcp__x__postMessage", "mcp__x__chat_postMessage", "mcp__x__replyAll",
+    "mcp__x__createEvent", "mcp__x__SendEmail", "mcp__x__send_draft",
+    // Microsoft 365 and Teams: anything not a read or a draft asks
+    "mcp__claude_ai_Microsoft_365__send_email", "mcp__claude_ai_Microsoft_365__sendMail",
+    "mcp__claude_ai_Microsoft_365__teams_send_chat_message", "mcp__claude_ai_Microsoft_365__post_channel_message",
+    "mcp__claude_ai_Microsoft_365__reply_to_channel_message", "mcp__claude_ai_Microsoft_365__create_chat",
+    "mcp__claude_ai_Microsoft_365__outlook_create_event", "mcp__claude_ai_Microsoft_365__delete_calendar_event",
+    "mcp__claude_ai_Microsoft_365__sharepoint_upload_file", "mcp__claude_ai_Microsoft_365__set_automatic_replies",
+    "mcp__claude_ai_Microsoft_365__create_inbox_rule", "mcp__claude_ai_Microsoft_365__send_draft"]) {
     const out = hookDecision("draft_guard.ts", { tool_name: tool, tool_input: { body: "secret" } });
     assert.equal((JSON.parse(out) as { hookSpecificOutput: { permissionDecision: string } }).hookSpecificOutput.permissionDecision, "ask", tool);
     assert.ok(!out.includes("secret"));
@@ -81,7 +91,12 @@ test("draft guard asks before send-type MCP tools", () => {
 
 test("draft guard lets drafts and reads through", () => {
   for (const tool of ["mcp__Gmail__create_draft", "mcp__Slack__slack_send_message_draft",
-    "mcp__Linear__list_issues", "Write", "mcp__Gmail__search_threads"]) {
+    "mcp__Linear__list_issues", "Write", "mcp__Gmail__search_threads",
+    // Microsoft 365 reads and drafts
+    "mcp__claude_ai_Microsoft_365__outlook_email_search", "mcp__claude_ai_Microsoft_365__chat_message_search",
+    "mcp__claude_ai_Microsoft_365__find_meeting_availability", "mcp__claude_ai_Microsoft_365__read_resource",
+    "mcp__claude_ai_Microsoft_365__sharepoint_search", "mcp__claude_ai_Microsoft_365__outlook_calendar_search",
+    "mcp__claude_ai_Microsoft_365__create_draft", "mcp__claude_ai_Microsoft_365__updateDraft"]) {
     assert.equal(hookDecision("draft_guard.ts", { tool_name: tool }), "", tool);
   }
   assert.equal(hookDecision("draft_guard.ts", "not json"), "");

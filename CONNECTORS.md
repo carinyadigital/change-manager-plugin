@@ -16,7 +16,7 @@ The plugin bundles the three most reliable read sources for change work:
 
 | Category | Server | How it's provided | Notes |
 | --- | --- | --- | --- |
-| `~~office suite` | Microsoft 365 (Outlook, Teams, SharePoint, OneDrive) | **Claude connector** — enable it in Claude's connector settings. It has no server URL that can go in `.mcp.json`. | Its write tools can send email and create events; the `draft_guard` hook asks before any of them run. |
+| `~~office suite` | Microsoft 365 (Outlook, Teams, SharePoint, OneDrive) | **Claude connector** — enable it in Claude's connector settings. It has no server URL that can go in `.mcp.json`. | Its write tools (when your admin turns them on) can send mail, post Teams chat and channel messages, start chats, change calendar events and write SharePoint files. The `draft_guard` hook treats Microsoft 365 as ask-first: searches, reads and Outlook drafts run; every other Microsoft 365 tool asks you before it runs. |
 | `~~chat` | Slack | `.mcp.json` → `https://mcp.slack.com/mcp` (official, Slack-hosted) | Each user signs in with OAuth; a workspace admin must approve the app. |
 | `~~project tracker` | Atlassian (Jira, Confluence) | `.mcp.json` → `https://mcp.atlassian.com/v1/mcp/authv2` (official remote server) | Each user signs in with OAuth to their own Atlassian site. |
 

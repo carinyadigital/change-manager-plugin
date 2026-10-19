@@ -138,7 +138,7 @@ The record's structure, front block and writing rules:
 
 | Guardrail | How |
 | --- | --- |
-| Draft, never send | Comms are saved to `docs/change/comms/`. The `draft_guard.ts` hook asks for confirmation before any connected tool sends, posts, publishes or creates calendar events. |
+| Draft, never send | Comms are saved to `docs/change/comms/`. The `draft_guard.ts` hook asks for confirmation before any connected tool sends, posts, publishes or changes a calendar. For Microsoft 365 and Teams it asks before anything other than a search, read or Outlook draft. |
 | People data | Groups and roles, not individuals. The `people_data_guard.ts` hook asks before personal emails or phone numbers are written to the record. Sentiment is reported only for groups at or above the minimum size. |
 | Profile writes | Only `setup` writes the practice profile. The `profile_guard.ts` hook asks before any write to it. |
 | Grounded output | Unknowns are asked or marked `[ASSUMPTION — confirm with …]`. No invented names, numbers or quotes. |
