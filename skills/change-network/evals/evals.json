@@ -1,0 +1,38 @@
+{
+  "skill_name": "change-network",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Set up a champion network for the CRM rollout. 120 agents over Brisbane and Sydney, day and night shifts, plus 14 team leaders.",
+      "expected_output": "Sets a target ratio and minimum per group, site and shift, defines the role and selection criteria including sceptics, runs coverage.ts for the coverage table, flags the night shifts if uncovered, plans cadence and toolkit, and proposes before writing.",
+      "assertions": [
+        "Requires at least one champion per site and per shift that experiences the change differently",
+        "Runs coverage.ts rather than hand-counting",
+        "Selection criteria include constructive sceptics and exclude seniority as a criterion",
+        "States what champions do not do, including delivering HR news",
+        "Waits for yes before writing"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Draft the champion pack — role description, the note to managers, and the onboarding session.",
+      "expected_output": "Drafts champion-role.md, nomination-note.md and champion-sessions.md in docs/change/network/ from the agreed design, routes them through the comms approval chain, and does not send anything.",
+      "assertions": [
+        "Writes the three pack files under docs/change/network/ only after a yes",
+        "Time commitment in the role description matches the network design",
+        "The nomination note asks managers to agree release time",
+        "Session plan includes champions hearing news before their teams",
+        "Does not send or post any pack item"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Who are the sponsors and how committed are the executives?",
+      "expected_output": "Routes to stakeholder-analysis or sponsor-engagement rather than designing a champion network.",
+      "assertions": [
+        "Does not write change-network.md",
+        "Names sponsor-engagement or stakeholder-analysis as the right skill"
+      ]
+    }
+  ]
+}

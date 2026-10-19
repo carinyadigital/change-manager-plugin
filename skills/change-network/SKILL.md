@@ -3,24 +3,24 @@ name: change-network
 description: >
   Use when the user needs to design or run a network of change champions —
   local, peer-level people in each impacted team or site who carry the change
-  into their area and bring feedback back. Covers a coverage map (champions per
-  impacted group and location against a target ratio), selection criteria,
-  role and time commitment, meeting cadence, a champion toolkit, and a two-way
-  feedback log with aggregated local sentiment. Fires even when the user never
-  says "champions": "we need people on the ground in each depot", "who will
+  into their area and bring feedback back: coverage against a target ratio,
+  selection criteria, role and time, cadence, toolkit, and a feedback log with
+  aggregated sentiment. Fires on "we need people on the ground in each depot", "who will
   help us at the sites?", "set up super users for the rollout", "are we
   covering every team?", "what are the champions hearing?". Writes
-  docs/change/change-network.md and network-feedback.csv. Covers
+  docs/change/change-network.md and network-feedback.csv, and drafts the
+  champion role description, manager nomination note and session plans.
+  Covers
   people/organisational change only. Do NOT use for sponsors and senior leaders
   (sponsor-engagement), one-off workshops (stakeholder-engagement), diagnosing
-  resistance (resistance-management), floor-walker rotas at go-live
+  resistance (resistance-management), go-live floor-walker rotas
   (golive-transition), or IT/ITIL change control.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep Bash(node:*)
-argument-hint: "[design | feedback | coverage] [--per N]"
+argument-hint: "[design | feedback | coverage | pack] [--per N]"
 metadata:
   author: Carinya Digital
-  version: "0.1.0"
+  version: "0.2.0"
   owner: change-practice
   review_cadence: quarterly
   work_shape: generate-draft
@@ -94,8 +94,10 @@ Say if any artefact is older than the profile's `stale_after_days`.
 - **Brand and audience safety.** Champions are not asked to deliver news about
   roles, redundancies or pay — that belongs to line managers with HR. Toolkit
   material uses plain English and does not overstate benefits.
-- **Blast radius.** Writes only `docs/change/change-network.md` and
-  `docs/change/network-feedback.csv`. Runs only the bundled coverage script.
+- **Blast radius.** Writes only `docs/change/change-network.md`,
+  `docs/change/network-feedback.csv` and the champion pack drafts in
+  `docs/change/network/`. Pack drafts are never sent; a person shares them
+  after approval. Runs only the bundled coverage script.
 
 ## Workflow
 
@@ -134,7 +136,19 @@ Say if any artefact is older than the profile's `stale_after_days`.
 9. **Write** `docs/change/change-network.md` from
    [change-network.template.md](assets/change-network.template.md), and
    `docs/change/network-feedback.csv`.
-10. **Hand off.** Suggest resistance-management
+10. **Champion pack** (design or `pack` mode). Draft, from the agreed role,
+    time commitment and cadence, into `docs/change/network/`:
+    - `champion-role.md` — the shareable role description, from
+      [champion-role.template.md](assets/champion-role.template.md);
+    - `nomination-note.md` — the note asking managers to nominate and release
+      champions, from [nomination-note.template.md](assets/nomination-note.template.md);
+    - `champion-sessions.md` — the onboarding session plan, regular huddle
+      agenda with rotating prompts, and closing session, from
+      [champion-sessions.template.md](assets/champion-sessions.template.md).
+    Use `change-story.md` for the why and what, if it exists. Each pack item is
+    an employee-facing draft: follow the comms approval chain in the practice
+    profile and never send it.
+11. **Hand off.** Suggest resistance-management
     for concentrated negative themes, `business-readiness` to use champion
     input as evidence, and `golive-transition` to draw floor-walkers from the
     network.
@@ -157,6 +171,7 @@ Say if any artefact is older than the profile's `stale_after_days`.
 | --- | --- |
 | Network design, coverage map, roster, cadence, toolkit, feedback summary | `docs/change/change-network.md` |
 | Feedback log | `docs/change/network-feedback.csv` |
+| Champion pack drafts (role, nomination note, session plans) | `docs/change/network/champion-role.md`, `nomination-note.md`, `champion-sessions.md` |
 
 Chat summary: groups without a champion, champions still needed, top feedback
 themes, open items, and the recommended next skill.
