@@ -1,19 +1,14 @@
 ---
 name: portfolio-saturation
 description: >
-  Use when the user needs to see how much change is landing on the same teams
-  at the same time across several initiatives — change load by group and
-  month against capacity, where it collides, and options to re-sequence. Fires
-  even when the user never says "saturation" or "heatmap": "are our teams
-  overloaded with change this quarter?", "what else is hitting the branches in
-  March?", "can the call centre take another change before Christmas?",
-  "which projects clash for finance?", "change fatigue across the portfolio".
-  Writes docs/change/portfolio-heatmap.md and portfolio.csv as a
-  read-only portfolio view and recommends sequencing options for
-  decision-makers. Covers people/organisational change only. Do NOT use for
-  one initiative's impacts (change-impact-assessment), for change risks on one
-  initiative (change-risk-assessment), for IT/ITIL change calendars, freeze
-  periods or CAB scheduling, or for project resource capacity planning.
+  Shows how much change is landing on the same teams at the same time across
+  several initiatives — load by group and month against capacity, collisions,
+  and re-sequencing options. Use for "are our teams overloaded with change
+  this quarter?", "what else is hitting the branches in March?", "can the call
+  centre take another change?", "change fatigue across the portfolio". Writes
+  a read-only docs/change/portfolio-heatmap.md and portfolio.csv. Do NOT use
+  for one initiative's impacts (change-impact-assessment) or risks (change-
+  risk-assessment), or IT change calendars.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep Bash(node:*)
 argument-hint: "[period, e.g. 2026-11..2027-06] [--capacity N] [--group <name>]"
@@ -65,7 +60,7 @@ Read [change-conventions.md](references/change-conventions.md) and
 | Initiatives in scope with active months | `~~project tracker`, other initiatives' `docs/change/scope.md`, or the user | Ask for a list: initiative, groups, months of activity |
 | Load per group | each initiative's `impact-register.csv` (headline score per group) | Ask the user for a 0–4 estimate and mark it `[ASSUMPTION — confirm with <initiative owner>]` |
 | Group names that line up across initiatives | `~~hris` org structure or the user | Propose a common group list and confirm before scoring |
-| Capacity per group per month | practice profile, else `rating-scales.md` (default 6) | Use the default and say so |
+| Capacity per group per month | practice profile (`~/change-practice/CLAUDE.md`), else `rating-scales.md` (default 6) | Use the default and say so |
 | Blackout or peak periods | the user (e.g. end of financial year, peak trading) | Ask once; note as context |
 
 ## Trust spine
