@@ -77,10 +77,5 @@ give legal advice.
 
 ## Further reading
 
-- Queensland Public Service Commission, *Communicating for change* — principles
-  and a plan structure for change communication:
-  https://www.forgov.qld.gov.au/__data/assets/pdf_file/0023/182615/change-communication-guide.pdf
-  (licence presumed CC BY 4.0 from the site default; confirm before reusing
-  text). The plugin paraphrases ideas only.
 - See [methods.md](methods.md) for how the plugin cites
   frameworks.
