@@ -7,8 +7,8 @@ description: >
   "how do we tell staff?", "who should announce this?", "build the comms
   calendar", "leaders need to hear before their teams". Writes
   docs/change/comms-plan.md with a CSV and change-story.md. Do NOT use to
-  draft one message (comms-draft), sponsor talking points (sponsor-
-  engagement), or two-way sessions (stakeholder-engagement).
+  draft one message (comms-draft), sponsor talking points
+  (sponsor-engagement), or two-way sessions (stakeholder-engagement).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[audience or phase to plan] [--refresh]"
