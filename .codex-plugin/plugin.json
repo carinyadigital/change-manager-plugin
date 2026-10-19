@@ -1,0 +1,59 @@
+{
+  "name": "change-practice",
+  "version": "0.1.0",
+  "description": "Single, multi-persona organisational change management practice — setup interview, change definition, stakeholder and impact analysis, change risks, sponsor health check, strategy and measurement plan, sponsor and stakeholder engagement, champion network, communications (draft-never-send), training needs, business readiness and go/no-go review, resistance, go-live transition, portfolio saturation, adoption, reinforcement, BAU handover, lessons learned, weekly status, meeting prep and stakeholder pulse. Five personas over one shared change record in docs/change/. People change only — not IT change control.",
+  "author": {
+    "name": "Carinya Digital"
+  },
+  "repository": "https://github.com/carinyadigital/change-manager-plugin",
+  "license": "MIT",
+  "keywords": [
+    "change-practice",
+    "change-management",
+    "organisational-change",
+    "ocm",
+    "people-change",
+    "stakeholder-analysis",
+    "change-impact-assessment",
+    "business-readiness",
+    "go-no-go",
+    "communications",
+    "change-champions",
+    "training-needs-analysis",
+    "resistance",
+    "change-saturation",
+    "adoption",
+    "reinforcement",
+    "sponsorship",
+    "adkar",
+    "setup"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "Change Practice",
+    "shortDescription": "Plan people change end to end",
+    "longDescription": "For change managers helping people adopt a new system, process, structure or policy. It covers the work from defining the change through stakeholders, impacts, communications, training, readiness, go-live and adoption, and keeps one shared record the team builds on. Every plan and message is a draft for you to review. Nothing is sent to employees, leaders or customers. IT change control — requests, advisory boards and release approvals — is out of scope.",
+    "developerName": "Carinya Digital",
+    "category": "Productivity",
+    "capabilities": [
+      "Stakeholder and impact analysis",
+      "Communications you review first",
+      "Readiness and go-live checks",
+      "Adoption, handover and status"
+    ],
+    "defaultPrompt": [
+      "Help me understand a change we are about to make.",
+      "Draft an employee update I can review before it is sent.",
+      "Check whether this group is ready to go live."
+    ],
+    "composerIcon": "./assets/composer-icon.png",
+    "logo": "./assets/logo.png"
+  },
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/setup/SKILL.md"
+    }
+  }
+}
