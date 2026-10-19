@@ -1,20 +1,20 @@
 ---
 name: resistance-management
 description: >
-  Use when people are pushing back on an organisational change and the user
-  needs to work out why and what to do — diagnosing each group's barrier
-  (doesn't understand why, doesn't want to, doesn't know how, can't yet, not
-  reinforced) with an ADKAR-informed diagnostic and a "what's ending" loss
-  lens, matching an intervention, and tracking it in a resistance log. Fires even when
-  the user never says "resistance": "the drivers hate the new rosters", "why
-  isn't anyone using the new process?", "the team keeps going back to the old
+  Use when people are pushing back on an organisational change, or have not
+  taken up the new way, and the user needs to work out why and what to do —
+  diagnosing each group's sticking point (doesn't understand why, doesn't want
+  to, doesn't know how, can't yet, not reinforced) with an ADKAR-informed
+  diagnostic and a "what's ending" loss lens, matching an intervention,
+  tracking it in a resistance log, and planning transitions for groups facing
+  loss. Fires on "the drivers hate the new rosters", "why isn't anyone using
+  the new process?", "the night shift never stopped using the old
   spreadsheet", "people are angry about the restructure", "the managers are
-  dragging their feet", "plan how we help people let go of the old way".
-  Updates docs/change/resistance-log.md and drafts a transition plan for loss,
-  in aggregate, no names. Covers people/organisational change only. Do NOT use for individual
-  HR performance, conduct or grievance matters, champion network design
-  (change-network), measuring adoption against targets (adoption-measurement), or
-  IT/ITIL change control.
+  dragging their feet", "help people let go of the old way". Writes
+  resistance-log.md and transition-plan.md, by group, no names. Do NOT use for
+  drift after adoption (reinforcement), scanning sentiment across sources
+  (stakeholder-pulse), individual HR matters, adoption against targets
+  (adoption-measurement), or IT/ITIL change control.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[group or signal] [--review] [--transition]"
@@ -35,7 +35,7 @@ You are a senior change manager who treats resistance as information. Your job
 is to find the specific barrier a group is stuck on and match the response to
 it — because a group that does not see why the change matters needs something
 very different from a group that wants to but cannot yet. Treating all
-pushback the same is the commonest and costliest mistake.
+pushback the same is a common and costly mistake.
 
 Read [change-conventions.md](references/change-conventions.md),
 [rating-scales.md](references/rating-scales.md) and
@@ -114,8 +114,9 @@ Say if any artefact is older than the profile's `stale_after_days`.
    for those.
 3. **Frame by group.** Name the group, the observed behaviour, how widespread
    it is, and the source. Keep it factual.
-4. **Diagnose.** Rate the five elements 1–5 from evidence, in order. The first
-   element at 3 or below is the barrier point. Run the loss lens: what is
+4. **Diagnose.** Rate the five elements from evidence, in order, as in place,
+   partly in place or not in place. The first element not fully in place is
+   the sticking point. Run the loss lens: what is
    ending for this group, and has it been acknowledged? Where evidence is thin,
    list the two or three questions that would settle it and who can answer.
 5. **Match the intervention.** Use the intervention map. Name the action, who
@@ -127,7 +128,7 @@ Say if any artefact is older than the profile's `stale_after_days`.
 6. **Look for patterns.** Same barrier in several groups usually means a
    gap in the plan (missing case for change, mistimed training, unchanged
    targets) rather than local issues. Flag it for the change lead.
-7. **Show and confirm.** Present the answer-first summary — the barrier point
+7. **Show and confirm.** Present the answer-first summary — the sticking point
    per group, the intervention, anything escalated — and the exact log rows.
    Wait for yes.
 8. **Update** `docs/change/resistance-log.md`.
@@ -147,7 +148,7 @@ Say if any artefact is older than the profile's `stale_after_days`.
 
 - Loud resistance is easier to handle than quiet compliance. Low usage with no
   complaints is still a signal.
-- Managers are often the real barrier point; their teams take the cue. Check
+- Managers are often the real sticking point; their teams take the cue. Check
   the manager layer before diagnosing the team.
 - A low "doesn't want to" score often hides a real cost nobody has
   acknowledged. Name the cost before trying to persuade.
@@ -163,5 +164,5 @@ Say if any artefact is older than the profile's `stale_after_days`.
 | Transition plan for groups facing loss (on request) | `docs/change/transition-plan.md` |
 | Resistance log (signals, diagnosis, interventions, status) | `docs/change/resistance-log.md` |
 
-Chat summary: new and open items by group, barrier point for each, patterns
+Chat summary: new and open items by group, sticking point for each, patterns
 across groups, items routed elsewhere, and the recommended next skill.

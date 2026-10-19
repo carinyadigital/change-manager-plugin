@@ -14,10 +14,12 @@ of transition described by William Bridges Associates, in our own words.
 1. Work with a **group**, not a person. Use evidence: what people say in
    sessions, champion feedback, survey comments, questions to the help desk,
    behaviour (workarounds, non-attendance, low usage).
-2. Rate each element 1 (absent) to 5 (strong) from that evidence, in order.
+2. Rate each element from that evidence, in order: **in place**, **partly in
+   place** or **not in place**.
    Write the evidence next to every score. No evidence = do not score; mark it
    as a gap to find out.
-3. The **barrier point** is the first element, in sequence, rated 3 or below.
+3. The **sticking point** is the first element, in sequence, that is not
+   fully in place.
    Act there first. Training people who do not yet see why the change matters
    rarely works; nor does asking for commitment from people who have not been
    told what is changing.

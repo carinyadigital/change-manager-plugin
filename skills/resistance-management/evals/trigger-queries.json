@@ -15,5 +15,6 @@
   {"query": "the CAB rejected our change request, how do we push back?", "should_trigger": false,"note": "IT change control"},
   {"query": "what risks could stop this change landing?", "should_trigger": false,"note": "change-risk-assessment"},
   {"query": "get the sponsor to show up more", "should_trigger": false,"note": "sponsor-engagement"},
-  {"query": "the customers are resisting the price increase", "should_trigger": false,"note": "customer/commercial issue, not organisational change"}
+  {"query": "the customers are resisting the price increase", "should_trigger": false,"note": "customer/commercial issue, not organisational change"},
+  {"query": "adoption was strong but it has slipped since hypercare ended", "should_trigger": false,"note": "reinforcement — drift after adoption"}
 ]

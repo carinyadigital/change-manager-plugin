@@ -16,12 +16,12 @@ Prosci, Inc.). Recorded by group, not by individual.
 
 ## Summary
 
-<Answer first: where resistance is concentrated, the main barrier points, any
+<Answer first: where resistance is concentrated, the main sticking points, any
 pattern across groups, and what is escalated. Three to five sentences.>
 
 ## Log
 
-| # | Date raised | Group | Signal (observed behaviour) | Source | Barrier point | What's ending | Intervention | Owner | Check by | Status |
+| # | Date raised | Group | Signal (observed behaviour) | Source | Sticking point | What's ending | Intervention | Owner | Check by | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | | | | | | | | | | | open |
 
@@ -31,7 +31,8 @@ Status: open / in progress / resolved / escalated / routed elsewhere.
 
 ### <#> — <Group>
 
-Individual change barrier diagnostic (ADKAR-informed). 1 absent – 5 strong.
+Individual change barrier diagnostic (ADKAR-informed). In place / partly in
+place / not in place / not known.
 
 | Element | Rating | Evidence |
 | --- | --- | --- |
@@ -41,7 +42,7 @@ Individual change barrier diagnostic (ADKAR-informed). 1 absent – 5 strong.
 | Able to do it | | |
 | Reinforced | | |
 
-- **Barrier point:** <first element rated 3 or below>
+- **Sticking point:** <first element not fully in place>
 - **Loss lens:** <what is ending for this group; has it been acknowledged?>
 - **Questions still to answer:** <and who can answer them>
 

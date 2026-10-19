@@ -4,10 +4,10 @@
     {
       "id": 1,
       "prompt": "The Brisbane agents keep using the old refund spreadsheet. Team leaders say nobody complains, they just don't use the new screen.",
-      "expected_output": "Frames the signal by group, rates the five elements from evidence in order, finds the first element at 3 or below as the barrier point, runs the loss lens, matches an intervention with owner and check date, and shows the exact log rows before writing.",
+      "expected_output": "Frames the signal by group, rates the five elements from evidence in order, finds the first element not fully in place as the sticking point, runs the loss lens, matches an intervention with owner and check date, and shows the exact log rows before writing.",
       "assertions": [
         "Treats quiet non-use as a signal, not as support",
-        "Rates elements in sequence and names the first at 3 or below as the barrier point",
+        "Rates elements in sequence and names the first not fully in place as the sticking point",
         "Checks whether the old spreadsheet is still available and easier (reinforcement)",
         "Names an owner and a date to check the intervention",
         "Records the group, not individuals",
