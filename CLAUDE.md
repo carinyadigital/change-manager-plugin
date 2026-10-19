@@ -5,7 +5,7 @@ This file ships with the plugin and shows the structure the practice profile sho
 It is replaced on every plugin update. Never write user data here.
 
 The `setup` skill copies or updates the user profile at:
-  ~/.claude/plugins/config/digital-agency/change-practice/CLAUDE.md
+  ~/change-practice/CLAUDE.md
 
 Instance-wide org facts (if the Carinya instance layer is used) live at:
   <instance-repo>/config/instance.json

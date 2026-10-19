@@ -55,7 +55,7 @@ Honour flags: `--quick`, `--full`, `--redo`, `--resume`, `--check-integrations`.
 
 | Input | If missing |
 | --- | --- |
-| Existing profile at `~/.claude/plugins/config/digital-agency/change-practice/CLAUDE.md` | Start a new interview |
+| Existing profile at `~/change-practice/CLAUDE.md` | Start a new interview |
 | `config/instance.json` (optional Carinya instance layer) | Ask organisation name and sector only; do not bootstrap an instance repo |
 
 ## Trust spine
@@ -116,7 +116,7 @@ Show the filled profile in plain language, list deliberate skips, and ask:
 
 ### Step 5 — Write
 
-Write `~/.claude/plugins/config/digital-agency/change-practice/CLAUDE.md`
+Write `~/change-practice/CLAUDE.md`
 from the template with answers filled and `Status: complete`. Delete the resume
 file if present.
 
@@ -129,7 +129,7 @@ file if present.
 ## Pause and resume
 
 On pause, write
-`~/.claude/plugins/config/digital-agency/change-practice/setup-resume.json`:
+`~/change-practice/setup-resume.json`:
 
 ```json
 {
@@ -147,5 +147,5 @@ On pause, write
 
 | Artefact | Path |
 | --- | --- |
-| Practice profile | `~/.claude/plugins/config/digital-agency/change-practice/CLAUDE.md` |
-| Resume file (only if paused) | `~/.claude/plugins/config/digital-agency/change-practice/setup-resume.json` |
+| Practice profile | `~/change-practice/CLAUDE.md` |
+| Resume file (only if paused) | `~/change-practice/setup-resume.json` |

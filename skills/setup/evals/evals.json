@@ -9,7 +9,7 @@
         "Asks whether the organisation holds a Prosci licence",
         "Labels default scales as defaults from rating-scales.md",
         "Shows a summary and asks before writing",
-        "Writes only ~/.claude/plugins/config/digital-agency/change-practice/CLAUDE.md"
+        "Writes only ~/change-practice/CLAUDE.md"
       ]
     },
     {

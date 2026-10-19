@@ -5,7 +5,7 @@ import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import type { SpawnSyncReturns } from "node:child_process";
 import { mkdtempSync, readdirSync, existsSync, writeFileSync } from "node:fs";
-import { tmpdir } from "node:os";
+import { homedir, tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -103,10 +103,12 @@ test("people-data guard ignores dates, counts and files outside the record", () 
 
 test("profile guard asks before writing the practice profile", () => {
   const out = hookDecision("profile_guard.ts", { tool_name: "Write",
-    tool_input: { file_path: "/Users/x/.claude/plugins/config/digital-agency/change-practice/CLAUDE.md", content: "x" } });
+    tool_input: { file_path: join(homedir(), "change-practice/CLAUDE.md"), content: "x" } });
   assert.match(out, /"ask"/);
   assert.equal(hookDecision("profile_guard.ts", { tool_name: "Write",
     tool_input: { file_path: "/w/docs/change/scope.md", content: "x" } }), "");
+  assert.equal(hookDecision("profile_guard.ts", { tool_name: "Write",
+    tool_input: { file_path: "/w/skills/change-practice/notes.md", content: "x" } }), "");
 });
 
 test("repository passes the structural validator", () => {
