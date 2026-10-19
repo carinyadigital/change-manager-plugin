@@ -1,17 +1,14 @@
 ---
 name: change-impact-assessment
 description: >
-  Use when the user needs to work out how an organisational change affects
-  people — what changes for each team or role across process, systems, roles,
-  skills, behaviours, structure, location, data, customers and controls, and
-  how severe it is. Fires even when the user never says "impact assessment":
-  "who does this affect?", "what's changing for staff?", "what does the new
-  system mean for the call centre?", "rate the people impacts". Writes the
-  impact register to docs/change/impact-register.md with a scored CSV. Covers
-  people/organisational change only. Do NOT use for IT/ITIL change requests or
-  CAB approvals, for cross-initiative change load (portfolio-saturation), for
-  change risks (change-risk-assessment), or for training design
-  (training-needs-analysis).
+  Works out what an organisational change means for each team or role —
+  process, systems, roles, skills, behaviours, structure, location, data,
+  customers, controls — and how severe it is (0–4). Use for "who does this
+  affect?", "what's changing for staff?", "what does the new system mean for
+  the call centre?", "rate the people impacts". Writes docs/change/impact-
+  register.md with a scored CSV. Do NOT use for change load across initiatives
+  (portfolio-saturation), landing risks (change-risk-assessment), or training
+  design (training-needs-analysis).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep Bash(node:*)
 argument-hint: "[group or scope to assess] [--refresh]"
@@ -66,7 +63,7 @@ probing.
 | Change definition | `docs/change/scope.md` | Offer `understand-change`, or ask for a three-line summary (why, what's changing, when) and mark it as an assumption |
 | Impacted groups | `docs/change/stakeholder-register.md`, `~~hris` | Ask the user to list groups and rough headcounts |
 | Current and future state | business case, process maps, solution design via `~~cloud storage` / `~~project tracker` or upload | Ask for whatever exists; do not invent future-state detail |
-| Scales | practice profile, else `rating-scales.md` | Use defaults and say so |
+| Scales | practice profile (`~/change-practice/CLAUDE.md`), else `rating-scales.md` | Use defaults and say so |
 
 ## Trust spine
 
