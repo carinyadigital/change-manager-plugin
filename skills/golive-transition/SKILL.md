@@ -94,7 +94,9 @@ see [bridges.md](references/bridges.md).
 ## Workflow
 
 1. **Load context.** Read the profile, `scope.md`, `go-no-go.md`, impact
-   register, latest readiness assessment, comms plan, TNA, change network.
+   register, latest readiness assessment, comms plan, TNA, training plan,
+   change network, and `transition-plan.md` if present (its in-between
+   arrangements — adjusted targets, extra support — belong in hypercare).
    Flag stale artefacts.
 2. **Confirm the shape of launch.** Date(s), waves, sites, shifts, and how
    long hypercare is expected to last. Ask once if unknown.
