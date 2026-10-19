@@ -36,8 +36,6 @@ missing.
 ## What this skill does not do
 
 - **Does not scope an initiative** — that is `understand-change`.
-- **Does not re-ask instance facts** when a Carinya `config/instance.json` is
-  complete; it references them.
 - **Does not install connectors or plugins** — it reports status and points to
   the plugin's `CONNECTORS.md`.
 - **Does not write without an explicit yes** after showing the summary.
@@ -56,15 +54,14 @@ Honour flags: `--quick`, `--full`, `--redo`, `--resume`, `--check-integrations`.
 | Input | If missing |
 | --- | --- |
 | Existing profile at `~/change-practice/CLAUDE.md` | Start a new interview |
-| `config/instance.json` (optional Carinya instance layer) | Ask organisation name and sector only; do not bootstrap an instance repo |
 
 ## Trust spine
 
 - **Accountability.** The user decides every value; the skill proposes defaults
   from `rating-scales.md` and labels them as defaults.
 - **Scope.** Writes one file only — the practice profile at the personal config
-  path — plus a resume file if paused. Never writes into the plugin directory,
-  the change record, or `config/instance.json`.
+  path — plus a resume file if paused. Never writes into the plugin directory
+  or the change record.
 - **Integration honesty.** Reports a connector as connected only after a
   successful read call; otherwise "configured, not verified" or "not found".
 - **Licensing.** If the user says they have no Prosci licence, the profile
@@ -74,10 +71,9 @@ Honour flags: `--quick`, `--full`, `--redo`, `--resume`, `--check-integrations`.
 
 ### Step 0 — Detect existing state
 
-1. Read `config/instance.json` if present; note organisation facts.
-2. Read the existing profile unless `--redo`. If complete, summarise it and
+1. Read the existing profile unless `--redo`. If complete, summarise it and
    offer refresh, `--redo` or `--check-integrations`. Stop unless chosen.
-3. If a resume file exists, summarise progress and offer to continue.
+2. If a resume file exists, summarise progress and offer to continue.
 
 ### Step 1 — Mode
 
