@@ -68,6 +68,9 @@ Run it within two weeks of the phase ending — detail fades fast.
 
 ## Turning notes into entries
 
+*Illustrative examples of the shape only — don't copy their content; each
+real lesson comes from this initiative's notes and evidence.*
+
 | Raw note | Usable lesson |
 | --- | --- |
 | "Comms could have been better" | "Brief team leaders two days before all-staff messages so they can answer questions on the day." |
