@@ -1,14 +1,12 @@
 ---
 name: setup
 description: >
-  Change management setup interview — captures the organisation's change
-  method, Prosci licence status, people-data jurisdiction, rating scales and
-  thresholds, status and readiness cadence, comms approval chain and house
-  style, and connector status, then writes the change practice profile. Use on
-  first install, when the user says "set up change management", "configure the
-  change practice", "set our readiness thresholds", or "which method do we
-  use", or to redo practice defaults. Do NOT use to scope a specific initiative
-  (understand-change).
+  Setup interview for the change practice — method, Prosci licence,
+  people-data jurisdiction, scales and thresholds, cadence, comms approval
+  chain, house style and connector status — written to the practice profile at
+  ~/change-practice/CLAUDE.md. Run on first install or to redo defaults
+  (--redo, --check-integrations). Do NOT use to scope an initiative
+  (understand-change) or for IT change control.
 license: MIT
 argument-hint: "[--quick|--full] [--redo] [--resume] [--check-integrations]"
 allowed-tools: Read Write Glob Grep
