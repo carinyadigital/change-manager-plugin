@@ -6,6 +6,9 @@ full Prepare → Manage → Sustain lifecycle. Each piece of work writes to one
 shared **change record** in `docs/change/`, so the next conversation builds on
 the last.
 
+Built from leading change management practice across the private and public
+sectors.
+
 It covers **people change** — helping groups of people adopt a new system,
 process, structure or policy. It does **not** cover IT change control (change
 requests, change advisory boards, release approvals).
