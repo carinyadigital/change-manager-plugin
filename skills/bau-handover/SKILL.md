@@ -1,19 +1,13 @@
 ---
 name: bau-handover
 description: >
-  Use when the user needs to close out the people side of a change and hand
-  it to business-as-usual owners — what keeps being monitored and by whom,
-  open actions, measures handed to named BAU owners, where the comms,
-  training and job-aid assets live, the ongoing support model, and sign-off
-  fields for the BAU owner to accept. Fires even when the user never says
-  "handover": "the project closes next month — who owns this after?", "wrap
-  up the change work", "close out the change and hand it to operations",
-  "who looks after the job aids once we've gone?", "transition to BAU".
-  Writes docs/change/handover-pack.md as a draft for review. Covers
-  people/organisational change only. Do NOT use for capturing lessons
-  (lessons-learned), for judging whether adoption is on track
-  (adoption-measurement), for reinforcement design (reinforcement), for IT service
-  transition or ITIL handover to operations, or for project financial closure.
+  Closes out the people side of a change and hands it to business-as-usual
+  owners — what stays monitored and by whom, open actions, measures, where
+  comms and training assets live, support model, and sign-off. Use for "the
+  project closes next month, who owns this after?", "transition to BAU", "wrap
+  up the change work". Writes docs/change/handover-pack.md as a draft. Do NOT
+  use for lessons (lessons-learned), adoption results (adoption-measurement),
+  or IT service transition.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[BAU owner or close date] [--refresh]"
