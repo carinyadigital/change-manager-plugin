@@ -8,9 +8,10 @@ wording is the plugin's own and does not reproduce any Prosci instrument.
 
 ## How to build a pulse
 
-1. **Five to eight questions, under three minutes.** Long pulses lose
-   response rate after the first wave.
-2. **Keep the core six every wave** (C1–C6). Trends only mean something when
+1. **No more than ten items, under three minutes** — the six core
+   questions, one or two phase questions, at most one open question, and the
+   group question. Keep it short so people keep answering wave after wave.
+2. **Keep the core six every wave** (P-C1–P-C6). Trends only mean something when
    the question is identical each time.
 3. **Rotate one or two phase questions** from the bank below to fit where the
    change is.
@@ -40,12 +41,12 @@ a finding (usually an awareness gap).
 
 | ID | Question | Element | A low score usually means |
 | --- | --- | --- | --- |
-| C1 | I understand why this change is happening. | Awareness | Reasons not explained, or not by someone credible |
-| C2 | I know what will be different for me and my team. | Awareness / knowledge | Impacts not translated to this group |
-| C3 | I can see how this change will help our customers, our team or me. | Desire | Benefits unclear, or real costs unacknowledged |
-| C4 | My manager has talked with our team about this change. | Desire (sponsorship down the line) | Manager not briefed, or not leading locally |
-| C5 | I know where to go with questions or problems about this change. | Knowledge | Support route not set up or not publicised |
-| C6 | I feel confident I will be able to work the new way when it starts. | Ability | Training timing, practice, or access gaps |
+| P-C1 | I understand why this change is happening. | Awareness | Reasons not explained, or not by someone credible |
+| P-C2 | I know what will be different for me and my team. | Awareness / knowledge | Impacts not translated to this group |
+| P-C3 | I can see how this change will help our customers, our team or me. | Desire | Benefits unclear, or real costs unacknowledged |
+| P-C4 | My manager has talked with our team about this change. | Desire (sponsorship down the line) | Manager not briefed, or not leading locally |
+| P-C5 | I know where to go with questions or problems about this change. | Knowledge | Support route not set up or not publicised |
+| P-C6 | I feel confident I will be able to work the new way when it starts. | Ability | Training timing, practice, or access gaps |
 
 ## Phase questions (rotate one or two)
 
@@ -53,29 +54,29 @@ a finding (usually an awareness gap).
 
 | ID | Question | Element |
 | --- | --- | --- |
-| E1 | I have had a chance to give input on how this change will work for my team. | Desire |
-| E2 | I trust that the information I am getting about this change is accurate. | Awareness |
-| E3 | I know when the change will affect me. | Awareness |
+| P-E1 | I have had a chance to give input on how this change will work for my team. | Desire |
+| P-E2 | I trust that the information I am getting about this change is accurate. | Awareness |
+| P-E3 | I know when the change will affect me. | Awareness |
 
 ### Build-up to go-live (Manage)
 
 | ID | Question | Element |
 | --- | --- | --- |
-| M1 | The training I have had (or have booked) covers what I need for my actual work. | Knowledge |
-| M2 | I have had enough time to practise the new way before go-live. | Ability |
-| M3 | I have the access, equipment and information I need for day one. | Ability |
-| M4 | My workload allows me time to prepare for this change. | Ability |
-| M5 | Concerns my team has raised are being listened to and answered. | Desire |
+| P-M1 | The training I have had (or have booked) covers what I need for my actual work. | Knowledge |
+| P-M2 | I have had enough time to practise the new way before go-live. | Ability |
+| P-M3 | I have the access, equipment and information I need for day one. | Ability |
+| P-M4 | My workload allows me time to prepare for this change. | Ability |
+| P-M5 | Concerns my team has raised are being listened to and answered. | Desire |
 
 ### After go-live (Sustain)
 
 | ID | Question | Element |
 | --- | --- | --- |
-| S1 | I am using the new way for most or all of my work. | Ability (self-reported adoption) |
-| S2 | When I get stuck, I can get help quickly. | Ability |
-| S3 | The new way is working better than the old way. | Reinforcement |
-| S4 | My manager notices and recognises when the team uses the new way. | Reinforcement |
-| S5 | Old forms, systems or workarounds are still easier to use than the new way. *(reverse — agreement is a warning)* | Reinforcement |
+| P-S1 | I am using the new way for most or all of my work. | Ability (self-reported adoption) |
+| P-S2 | When I get stuck, I can get help quickly. | Ability |
+| P-S3 | The new way is working better than the old way. | Reinforcement |
+| P-S4 | My manager notices and recognises when the team uses the new way. | Reinforcement |
+| P-S5 | Old forms, systems or workarounds are still easier to use than the new way. *(reverse — agreement is a warning)* | Reinforcement |
 
 ## Open question (pick one)
 
@@ -92,21 +93,25 @@ not only about the topic of the week:
   and the bad?
 - What questions came up that you could not answer?
 - Is anyone working around the new way? What is making the old way easier?
-- What has your manager done or said about the change recently?
+- How are leaders in your area talking about the change? (Report by area,
+  never about a named or identifiable manager.)
 - What one thing should the change team fix or explain next?
 
 ## Reading the results
 
 | Pattern | Likely barrier | Suggested next step |
 | --- | --- | --- |
-| C1 low, or high "don't know" on C1–C2 | Awareness | Sponsor or senior leader explains why; manager-led team discussion (`sponsor-engagement`, `communications-plan`) |
-| C1 fine, C3 low | Desire | Acknowledge real costs; involve the group; diagnose in `resistance-management` |
-| C4 low in one group only | Manager not leading locally | Manager briefing and conversation prep (`sponsor-engagement`) |
-| C5 low | Support route unclear | Publicise the route; FAQ (`comms-draft`) |
-| C6 or M1–M3 low close to go-live | Knowledge / ability | Training and access fixes (`training-needs-analysis`, `business-readiness`) |
-| S5 agreement rising | Reinforcement | Remove the old way; align measures (`reinforcement`) |
+| P-C1 low, or high "don't know" on P-C1–P-C2 | Awareness | Sponsor or senior leader explains why; manager-led team discussion (`sponsor-engagement`, `communications-plan`) |
+| P-C1 fine, P-C3 low | Desire | Acknowledge real costs; involve the group; diagnose in `resistance-management` |
+| P-C4 low in one group only | Manager not leading locally | Manager briefing and conversation prep (`sponsor-engagement`) |
+| P-C5 low | Support route unclear | Publicise the route; FAQ (`comms-draft`) |
+| P-C6 or P-M1–P-M3 low close to go-live | Knowledge / ability | Training and access fixes (`training-needs-analysis`, `business-readiness`) |
+| P-S5 agreement rising | Reinforcement | Remove the old way; align measures (`reinforcement`) |
 | Response rate falling | Fatigue or "nobody reads it" | Shorten the pulse; close the loop with "you said, we did" |
 
-A change of under 10 percentage points between waves, or any result from
-fewer than 20 responses, should be reported as "no clear change" rather than
-as a trend.
+**Trend rule (plugin default — the practice profile may change it).** A
+change of under 10 percentage points between waves, or any result from fewer
+than 20 responses, is reported as "no clear change" rather than as a trend.
+Groups of 5–19 responses can still be reported for the current wave (at or
+above the minimum group size), but never as a trend on their own; combine
+them with a neighbouring group or wait for more waves.

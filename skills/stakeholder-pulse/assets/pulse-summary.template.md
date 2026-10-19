@@ -51,7 +51,7 @@ Prosci, Inc.).
 <Rows to append to `resistance-log.md` on approval. Only themes that need an
 intervention; positive signals stay here.>
 
-| Date raised | Group | Signal (observed behaviour) | Source | Barrier point | Intervention | Owner | Check by |
+| Date raised | Group | Signal (observed behaviour) | Source | Sticking point | Intervention | Owner | Check by |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | | | | | | | | |
 

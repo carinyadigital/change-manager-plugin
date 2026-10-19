@@ -2,18 +2,19 @@
 name: stakeholder-pulse
 description: >
   Use for the regular (often daily or weekly) stakeholder pulse on an
-  organisational change — scanning champion feedback, nominated chat channels
-  and pulse survey results for emerging barriers, grouped by impacted team and
-  reported in aggregate — and for designing the pulse survey itself. Triggers
-  on "run the daily pulse", "what are people saying about the change", "any
-  new pushback this week", "check the champion feedback", "how is sentiment
-  tracking", "write pulse survey questions", "what should we ask staff in the
-  pulse". Proposes resistance-log rows and engagement follow-ups; writes only
-  on approval. Covers people/organisational change only. Do NOT use for
-  diagnosing and planning interventions for a known resistance issue in depth
-  (resistance-management), designing the champion network (change-network),
-  adoption metrics after go-live (adoption-measurement), a go-live readiness
-  status (business-readiness), or monitoring IT incidents or service tickets.
+  organisational change — reading across champion feedback, nominated chat
+  channels and pulse survey results for emerging barriers, grouped by impacted
+  team and reported in aggregate — and for designing the pulse survey itself.
+  Triggers on "run the daily pulse", "what are people saying about the
+  change", "any new pushback this week", "what's coming through from champions
+  and the survey", "how is sentiment tracking", "write pulse survey
+  questions", "what should we ask staff in the pulse". Writes a pulse summary
+  and proposes resistance-log rows, only on approval. People/organisational
+  change only. Do NOT use for logging champion meeting notes into the network
+  log (change-network), diagnosing and planning interventions for a known
+  resistance issue in depth (resistance-management), adoption metrics after
+  go-live (adoption-measurement), go-live readiness status
+  (business-readiness), or monitoring IT incidents or service tickets.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[--since YYYY-MM-DD] [--design-survey]"
