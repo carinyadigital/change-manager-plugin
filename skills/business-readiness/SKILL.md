@@ -1,20 +1,14 @@
 ---
 name: business-readiness
 description: >
-  Use when the user needs to know whether the business — the people, not the
-  system — is ready for an organisational change: group by group before
-  go-live (understands why, trained, leader briefed, access ready, support
-  route known — RAG with evidence and trend), or, early on, whether the
-  organisation is ready to take the change on at all (change history,
-  capacity, culture, leadership, alignment). Fires on "are the teams ready
-  for Monday?", "which groups aren't ready yet?", "run this week's readiness
-  check", "is the organisation ready for this change?", "how have past
-  changes gone here?". Writes readiness-checklist.md with a CSV, or
-  org-readiness.md. People/organisational change only. Do NOT use for the
-  go/no-go recommendation (readiness-review), fixing the gaps it finds
-  (training-needs-analysis, comms-draft and others), adoption after go-live
-  (adoption-measurement), technical readiness (environments, data
-  migration, cutover), or IT change approval and CAB readiness.
+  Checks whether the people — not the system — are ready for a change: group
+  by group before go-live (understands why, trained, leader briefed, access,
+  support route; RAG with evidence and trend), or early on whether the
+  organisation can take the change on at all (--organisational). Use for "are
+  the teams ready?", "is the business ready?", "run this week's readiness
+  check", "how have past changes gone here?". Writes readiness-checklist.md
+  and CSV, or org-readiness.md. Do NOT use for the go/no-go recommendation
+  (readiness-review) or technical cutover readiness.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep Bash(node:*)
 argument-hint: "[group or criterion focus] [--date YYYY-MM-DD] [--organisational]"
@@ -73,7 +67,7 @@ for an organisational readiness assessment.
 | Input | Source | If missing |
 | --- | --- | --- |
 | Impacted groups and scores | `docs/change/impact-register.md` / `.csv` | Offer `change-impact-assessment`, or ask for groups; flag that criticality can't be weighted |
-| Criteria and critical set | practice profile, else `rating-scales.md` defaults | Use defaults and say so |
+| Criteria and critical set | practice profile (`~/change-practice/CLAUDE.md`), else `rating-scales.md` defaults | Use defaults and say so |
 | Evidence | `docs/change/tna.md`, `~~lms` completions, `~~survey` pulse results, `~~project tracker` / `~~itsm` (access), `comms/` drafts sent, `sponsor-plan.md`, user | Ask; criteria without evidence stay Amber at best |
 | Previous assessments | History table in `docs/change/readiness-checklist.md` and `readiness-checklist.previous.csv` | First assessment — no trend; say so |
 | Go-live date | `docs/change/scope.md` | Ask; "days to go-live" frames urgency |
@@ -130,12 +124,14 @@ ask once.
    quality (observed, reported or asserted). Note gaps. If no pulse is
    running, offer the four confidence questions there for the user to run.
 4. **Rate.** Apply the RAG definitions in `rating-scales.md`. Amber needs an
-   action with an owner and date; Red means not met or no owner. If a
-   `readiness-checklist.csv` already exists, keep it as
-   `readiness-checklist.previous.csv` first, then write the new CSV from
-   [readiness-checklist.csv](assets/readiness-checklist.csv).
-5. **Roll up.** Run:
-   `node ${CLAUDE_PLUGIN_ROOT}/skills/business-readiness/scripts/readiness_rag.ts docs/change/readiness-checklist.csv --previous docs/change/readiness-checklist.previous.csv`
+   action with an owner and date; Red means not met or no owner. Build the
+   candidate CSV in the layout of
+   [readiness-checklist.csv](assets/readiness-checklist.csv) as a scratch
+   file outside the record (for example `/tmp/readiness-candidate.csv`) —
+   nothing in `docs/change/` changes until step 7.
+5. **Roll up.** Run the script on the candidate, comparing against the
+   current CSV if one exists:
+   `node ${CLAUDE_PLUGIN_ROOT}/skills/business-readiness/scripts/readiness_rag.ts /tmp/readiness-candidate.csv --previous docs/change/readiness-checklist.csv`
    (omit `--previous` on the first run). Use its output for status, blocking
    items, downgrades, gaps and trend — do not hand-calculate.
 6. **Actions.** For each Red and Amber: action, owner, due date, and the skill
@@ -143,7 +139,10 @@ ask once.
 7. **Show and confirm.** Present the answer-first summary: overall RAG and
    why, blocking items, groups getting worse, top actions, evidence gaps.
    Name the files you will write. Wait for yes.
-8. **Write** `docs/change/readiness-checklist.md` from
+8. **Write.** On yes only: if `docs/change/readiness-checklist.csv` exists,
+   keep it as `readiness-checklist.previous.csv`; then write the candidate
+   as `docs/change/readiness-checklist.csv` and write
+   `docs/change/readiness-checklist.md` from
    [readiness-checklist.template.md](assets/readiness-checklist.template.md) and the CSV,
    appending this run (date, overall RAG, blocking count) to its History table.
 9. **Hand off.** If within the go/no-go window, suggest `readiness-review`. Suggest
