@@ -7,9 +7,6 @@ It is replaced on every plugin update. Never write user data here.
 The `setup` skill copies or updates the user profile at:
   ~/change-practice/CLAUDE.md
 
-Instance-wide org facts (if the Carinya instance layer is used) live at:
-  <instance-repo>/config/instance.json
-
 Change artefacts live in the working folder under docs/change/ —
 see references/change-conventions.md.
 
