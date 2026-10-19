@@ -43,7 +43,7 @@ and what is recommended.>
 
 ### Likely causes by group
 
-| Group | Barrier point (ADKAR-informed) | Evidence | Workarounds or old way still in use? |
+| Group | Sticking point (ADKAR-informed) | Evidence | Workarounds or old way still in use? |
 | --- | --- | --- | --- |
 | | | | |
 
