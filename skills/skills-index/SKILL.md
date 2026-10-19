@@ -80,26 +80,27 @@ what already exists in their change record.
 | Work out what changes for each team and how badly | `change-impact-assessment` |
 | Spot what could stop the change landing | `change-risk-assessment` |
 | Check whether sponsorship and the initiative are healthy | `sponsor-assessment` |
-| Set the overall approach | `change-strategy` |
+| Judge early whether the organisation is ready to take the change on | `business-readiness` (`--organisational`) |
+| Set the overall approach, size the change, write the case for change or a force-field | `change-strategy` |
 | Decide how success and adoption will be measured | `measurement-plan` |
 | Equip sponsors and leaders | `sponsor-engagement` |
 | Plan workshops, showcases, feedback sessions | `stakeholder-engagement` |
 | Set up or run change champions | `change-network` |
-| Plan who hears what, when | `communications-plan` |
-| Write a specific message, FAQ or briefing | `comms-draft` |
-| Work out training and job aids | `training-needs-analysis` |
+| Plan who hears what, when, or write the change story and key messages | `communications-plan` |
+| Write a specific message, FAQ, briefing, town-hall notes or shift briefing | `comms-draft` |
+| Work out training and job aids, or plan training sessions | `training-needs-analysis` |
 | Check whether the business is ready | `business-readiness` |
 | Make the go/no-go call on people readiness | `readiness-review` |
-| Deal with pushback or stalled adoption | `resistance-management` |
-| Plan go-live and hypercare support for people | `golive-transition` |
+| Deal with pushback or stalled adoption, or help groups through loss | `resistance-management` |
+| Plan go-live and hypercare support, or run the daily hypercare check-in | `golive-transition` |
 | See whether teams have too much change at once | `portfolio-saturation` |
 | Check whether people are actually using it | `adoption-measurement` |
 | Make the change stick | `reinforcement` |
 | Hand over to business as usual | `bau-handover` |
-| Capture what we learned | `lessons-learned` |
+| Capture what we learned, or run a retrospective | `lessons-learned` |
 | Write this week's change status | `weekly-status` |
 | Prepare for, or follow up, a sponsor or steering meeting | `meeting-prep` |
-| Check what people are saying / today's pulse | `stakeholder-pulse` |
+| Check what people are saying / today's pulse, or write pulse survey questions | `stakeholder-pulse` |
 | Configure the practice | `setup` |
 
 **Next-step defaults when the user asks "what next?"** — follow the phase
