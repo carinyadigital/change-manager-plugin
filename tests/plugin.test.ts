@@ -64,6 +64,20 @@ test("score_impacts ignores example rows", () => {
   assert.match(res.stdout, /No groups/);
 });
 
+test("score_impacts --portfolio expands active months into portfolio rows", () => {
+  const p = tmpCsv("group,headcount,dimension,score,starts,ends\n" +
+    "Agents,120,process,3,2026-11,2027-01\nAgents,120,systems,2,2026-12,2027-01\nLeaders,14,roles,2,,\n");
+  const res = run([SCORE, p, "--portfolio", "CRM"]);
+  assert.equal(res.status, 0, res.stderr);
+  assert.equal(res.stdout.trim(), "initiative,group,month,load\nCRM,Agents,2026-11,3\nCRM,Agents,2026-12,3\nCRM,Agents,2027-01,3");
+  assert.match(res.stderr, /Leaders/);
+});
+
+test("score_impacts rejects malformed months", () => {
+  const res = run([SCORE, tmpCsv("group,headcount,dimension,score,starts,ends\nA,1,process,3,2027-05,2027-02\n")]);
+  assert.notEqual(res.status, 0);
+});
+
 function hookDecision(script: string, payload: unknown): string {
   const res = run([join(HOOKS, script)], typeof payload === "string" ? payload : JSON.stringify(payload));
   assert.equal(res.status, 0);

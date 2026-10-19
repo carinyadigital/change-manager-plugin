@@ -33,6 +33,17 @@
         "Identifies the request as IT/ITIL change control",
         "Does not write docs/change/impact-register.md"
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "Here are the impacts from Tuesday's workshop with the payments team. Add them to the register — training is in February, go-live is 1 March, hypercare runs to the end of April.",
+      "expected_output": "Adds rows with today/after statements and 0-4 scores, records starts 2027-02 and ends 2027-04 for the payments team, notes one-off versus lasting impacts, reruns score_impacts.ts, and records the workshop under 'How this was assessed'; proposes before writing.",
+      "assertions": [
+        "Records starts and ends as YYYY-MM for the group",
+        "Reruns score_impacts.ts and uses its active-months output",
+        "Lists the workshop in 'How this was assessed' with roles, not names",
+        "Shows the changed lines and waits for yes before writing"
+      ]
     }
   ]
 }

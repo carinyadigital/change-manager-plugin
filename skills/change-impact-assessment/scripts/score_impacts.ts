@@ -3,9 +3,17 @@
 Roll up an impact register CSV into group scores.
 
 Usage: node score_impacts.ts <impact-register.csv> [--json]
+       node score_impacts.ts <impact-register.csv> --portfolio <initiative>
 
 Input columns: group, headcount, dimension, today, future, score, evidence
+Optional columns: starts, ends (YYYY-MM) — the months the group is actively
+asked to do something for this change.
 Score is 0-4 (see references/rating-scales.md).
+
+--portfolio prints portfolio.csv rows (initiative,group,month,load) for the
+portfolio-saturation skill: each group's headline score in every month from
+its earliest start to its latest end. Groups without dates are listed on
+stderr and skipped.
 
 Per group:
   headline = highest dimension score
@@ -27,6 +35,23 @@ interface GroupScore {
   breadth: number;
   dimensions: number;
   priority?: Priority;
+  starts?: string;
+  ends?: string;
+}
+
+const MONTH_RE = /^\d{4}-(0[1-9]|1[0-2])$/;
+
+/** Months from start to end inclusive, as YYYY-MM. */
+export function monthsBetween(start: string, end: string): string[] {
+  const out: string[] = [];
+  let [y, m] = start.split("-").map(Number);
+  const [ey, em] = end.split("-").map(Number);
+  while (y < ey || (y === ey && m <= em)) {
+    out.push(`${y}-${String(m).padStart(2, "0")}`);
+    m += 1;
+    if (m > 12) { m = 1; y += 1; }
+  }
+  return out;
 }
 
 interface Csv {
@@ -91,6 +116,16 @@ export function score(rows: Row[]): GroupScore[] {
       g = { group: name, headcount: row.headcount.trim(), headline: 0, breadth: 0, dimensions: 0 };
       groups.set(name, g);
     }
+    const st = (row.starts ?? "").trim();
+    const en = (row.ends ?? "").trim() || st;
+    if (st) {
+      if (!MONTH_RE.test(st) || !MONTH_RE.test(en) || en < st) {
+        errors.push(`line ${idx + 2}: starts/ends '${st}'/'${en}' must be YYYY-MM with ends on or after starts`);
+        return;
+      }
+      if (!g.starts || st < g.starts) g.starts = st;
+      if (!g.ends || en > g.ends) g.ends = en;
+    }
     g.headline = Math.max(g.headline, s);
     g.dimensions += 1;
     if (s >= 3) g.breadth += 1;
@@ -112,6 +147,20 @@ function main(argv: string[]): void {
     return;
   }
   const result = score(load(argv[0]));
+  const pi = argv.indexOf("--portfolio");
+  if (pi !== -1) {
+    const initiative = argv[pi + 1];
+    if (!initiative) die("error: --portfolio needs an initiative name");
+    const undated = result.filter((g) => !g.starts).map((g) => g.group);
+    if (undated.length) process.stderr.write(`no starts/ends for: ${undated.join(", ")}\n`);
+    console.log("initiative,group,month,load");
+    const q = (v: string): string => (/[",\n]/.test(v) ? `"${v.replaceAll('"', '""')}"` : v);
+    for (const g of result) {
+      if (!g.starts || !g.ends) continue;
+      for (const month of monthsBetween(g.starts, g.ends)) console.log(`${q(initiative)},${q(g.group)},${month},${g.headline}`);
+    }
+    return;
+  }
   if (argv.includes("--json")) {
     console.log(JSON.stringify(result, null, 2));
     return;
@@ -120,10 +169,11 @@ function main(argv: string[]): void {
     console.log("No groups found (example rows are ignored).");
     return;
   }
-  console.log("| Group | People | Headline | Dimensions at 3+ | Dimensions changed | Priority |");
-  console.log("| --- | --- | --- | --- | --- | --- |");
+  console.log("| Group | People | Headline | Dimensions at 3+ | Dimensions changed | Priority | Active months |");
+  console.log("| --- | --- | --- | --- | --- | --- | --- |");
   for (const g of result) {
-    console.log(`| ${g.group} | ${g.headcount} | ${g.headline} | ${g.breadth} | ${g.dimensions} | ${g.priority} |`);
+    const active = g.starts ? (g.starts === g.ends ? g.starts : `${g.starts} to ${g.ends}`) : "not dated";
+    console.log(`| ${g.group} | ${g.headcount} | ${g.headline} | ${g.breadth} | ${g.dimensions} | ${g.priority} | ${active} |`);
   }
 }
 

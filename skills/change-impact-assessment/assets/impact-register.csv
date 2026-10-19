@@ -1,4 +1,4 @@
-group,headcount,dimension,today,future,score,evidence
-Example — Contact centre agents,120,systems and tools,Log calls in legacy CRM,Log calls in new CRM with guided scripts,3,Solution design v2 s4.1
-Example — Contact centre agents,120,process,Supervisor approves refunds over $50,Agents approve refunds up to $200,3,Policy draft 12 Aug
-Example — Team leaders,14,roles and responsibilities,Approve refunds daily,Review refund exceptions weekly,2,Policy draft 12 Aug
+group,headcount,dimension,today,future,score,evidence,starts,ends
+Example — Contact centre agents,120,systems and tools,Log calls in legacy CRM,Log calls in new CRM with guided scripts,3,Solution design v2 s4.1,2027-02,2027-04
+Example — Contact centre agents,120,process,Supervisor approves refunds over $50,Agents approve refunds up to $200,3,Policy draft 12 Aug,2027-02,2027-04
+Example — Team leaders,14,roles and responsibilities,Approve refunds daily,Review refund exceptions weekly,2,Policy draft 12 Aug,2027-01,2027-04

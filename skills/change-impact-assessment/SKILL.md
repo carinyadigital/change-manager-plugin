@@ -17,7 +17,7 @@ allowed-tools: Read Write Edit Glob Grep Bash(node:*)
 argument-hint: "[group or scope to assess] [--refresh]"
 metadata:
   author: Carinya Digital
-  version: "0.1.0"
+  version: "0.2.0"
   owner: change-practice
   review_cadence: quarterly
   work_shape: generate-draft
@@ -35,7 +35,10 @@ strategy, training, readiness and saturation all build on it, so precision and
 honesty about gaps matter more than polish.
 
 Read [change-conventions.md](references/change-conventions.md) and
-[rating-scales.md](references/rating-scales.md) before starting.
+[rating-scales.md](references/rating-scales.md) before starting. Read
+[impact-workshop.md](references/impact-workshop.md) when planning how to
+gather impacts (workshop, interviews or desk review) or when a dimension needs
+probing.
 
 ## When to use
 
@@ -85,29 +88,40 @@ Read [change-conventions.md](references/change-conventions.md) and
 1. **Load context.** Read the profile, `scope.md`, `stakeholder-register.md`
    and any existing impact register. If refreshing, note what changed in scope
    since `last_updated`.
-2. **Confirm groups.** List the groups you will assess (team, role, location,
+2. **Choose the way in.** Use the table in `impact-workshop.md` to propose a
+   desk review, interviews or workshops, and who should take part. If the user
+   wants to run a workshop, give them the outline and the dimension prompts for
+   their groups, then continue once they bring the outputs back.
+3. **Confirm groups.** List the groups you will assess (team, role, location,
    or customer segment) with headcounts. Ask the user to confirm or adjust
    before going deeper. Keep groups at the level where the change is
    experienced differently — split a group if half of it is affected
    differently from the other half.
-3. **Map current → future state.** For each group, for each dimension in
+4. **Map current → future state.** For each group, for each dimension in
    `rating-scales.md` that changes, write one line for today and one for after
-   go-live. Skip dimensions that don't change rather than writing "no change".
-4. **Rate.** Score each changed dimension 0–4 using the scale definitions.
-   Note the evidence for any 3 or 4.
-5. **Score and sort.** Write the CSV from the template in
+   go-live, using the dimension prompts to look for what is easy to miss. Skip
+   dimensions that don't change rather than writing "no change".
+5. **Rate and date.** Score each changed dimension 0–4 using the scale
+   definitions. Note the evidence for any 3 or 4, and whether it is one-off or
+   lasting. Record `starts` and `ends` (YYYY-MM) — the months the group is
+   actively asked to do something — from the plan, or leave blank and list as
+   an assumption.
+6. **Score and sort.** Write the CSV from the template in
    [impact-register.csv](assets/impact-register.csv), then run:
    `node ${CLAUDE_PLUGIN_ROOT}/skills/change-impact-assessment/scripts/score_impacts.ts docs/change/impact-register.csv`
-   It prints group scores (headline, breadth, priority) in markdown. Use its
-   output for the summary table — do not hand-calculate.
-6. **Propose support.** For each high-priority group, suggest the kind of
+   It prints group scores (headline, breadth, priority, active months) in
+   markdown. Use its output for the summary table and heatmap — do not
+   hand-calculate. For `portfolio-saturation`, the same script with
+   `--portfolio "<initiative>"` prints this initiative's rows for
+   `portfolio.csv`.
+7. **Propose support.** For each high-priority group, suggest the kind of
    support (briefing, training, job aids, local champion, manager coaching,
    workforce/HR process) and who needs to agree it.
-7. **Show and confirm.** Present the answer-first summary (top three impacted
+8. **Show and confirm.** Present the answer-first summary (top three impacted
    groups and why, open assumptions) and the files you will write. Wait for yes.
-8. **Write** `docs/change/impact-register.md` from
+9. **Write** `docs/change/impact-register.md` from
    [impact-register.template.md](assets/impact-register.template.md) and the CSV.
-9. **Hand off.** Suggest next skills: `change-risk-assessment`,
+10. **Hand off.** Suggest next skills: `change-risk-assessment`,
    `training-needs-analysis`, and `portfolio-saturation` if other initiatives hit
    the same groups.
 
@@ -119,6 +133,10 @@ Read [change-conventions.md](references/change-conventions.md) and
 - Managers are their own group: they experience the change and must lead it.
 - A small group with a 4 matters more than a large group with many 1s.
 - Don't merge impacts across locations if timing or local process differs.
+- Workshop groups rate their own change higher than neighbouring groups do;
+  sense-check scores across groups before writing.
+- Restructure and role impacts may be confidential until consultation allows;
+  ask who may see the register before writing it.
 
 ## Outputs
 
