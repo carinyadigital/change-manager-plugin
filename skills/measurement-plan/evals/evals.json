@@ -1,0 +1,37 @@
+{
+  "skill_name": "measurement-plan",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "How will we know the new claims system has worked? The business case says 20% faster processing. We'll track logins and training completion.",
+      "expected_output": "Links the faster-processing benefit to what people must do differently, proposes adoption measures such as claims processed in the new system and old-system use, reclassifies logins and completion as activity or leading measures, takes the 20% target from the business case without adding targets of its own, and proposes before writing.",
+      "assertions": [
+        "Explains that logins and training completion are activity, not adoption",
+        "Includes at least one measure of work done in the new system and one of old-way use",
+        "Fills the benefit-to-behaviour table for the faster-processing benefit",
+        "Does not invent targets, baselines or benchmark figures beyond the 20% from the business case",
+        "Every measure has a source, owner and threshold with an action, or is listed as an open item"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Suggest measures for our restructure of the regional offices.",
+      "expected_output": "Draws on the restructure section of the measure library (roles confirmed, decision rights used, retention of key roles, service continuity), keeps every measure at group level, and flags HR and privacy review for any data on individuals.",
+      "assertions": [
+        "Proposes measures that fit a restructure rather than system usage measures",
+        "Reports retention and HR data only in aggregate by group",
+        "Leaves targets as 'target to agree' or assumptions",
+        "Keeps to roughly two to four measures per tier"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "What are the CAB success criteria for Friday's release?",
+      "expected_output": "Identifies IT change control and does not produce a measurement plan.",
+      "assertions": [
+        "Identifies the request as IT change control",
+        "Does not write docs/change/measurement-plan.md"
+      ]
+    }
+  ]
+}

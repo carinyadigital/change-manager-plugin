@@ -20,7 +20,7 @@ allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[measure type to focus on: leading | adoption | outcome] [--refresh]"
 metadata:
   author: Carinya Digital
-  version: "0.1.0"
+  version: "0.2.0"
   owner: change-practice
   review_cadence: quarterly
   work_shape: generate-draft
@@ -38,7 +38,9 @@ judge against agreed thresholds instead of moving goalposts. The test of every
 measure: if it moved, would someone do something differently?
 
 Read [change-conventions.md](references/change-conventions.md) and
-[rating-scales.md](references/rating-scales.md) before starting.
+[rating-scales.md](references/rating-scales.md) before starting. Read
+[measure-library.md](references/measure-library.md) when drafting measures —
+start from its shapes for the change type rather than inventing measures.
 
 ## When to use
 
@@ -99,10 +101,11 @@ Read [change-conventions.md](references/change-conventions.md) and
 1. **Load context.** Read the profile, `scope.md`, `strategy.md`, the impact
    register and any existing plan. Note anything older than
    `stale_after_days`.
-2. **Start from outcomes.** List the business outcomes from `scope.md`. For
-   each, ask what people must do differently for it to happen — that gives the
-   adoption measures. Then ask what must be true beforehand — that gives the
-   leading measures.
+2. **Start from outcomes.** List the business benefits and outcomes from
+   `scope.md` or the business case, with their owners. For each, ask what
+   people must do differently for it to happen — that gives the adoption
+   measures. Then ask what must be true beforehand — that gives the leading
+   measures. Record the chain in the "From benefit to behaviour" table.
 3. **Draft measures in three tiers.**
    - Leading: sponsor and leader activity, readiness, training effectiveness
      (assessed ability, not completion), sentiment and feedback themes.
@@ -111,14 +114,16 @@ Read [change-conventions.md](references/change-conventions.md) and
    - Outcome: the business results, plus sustained adoption at 90 and 180 days
      after go-live.
    Keep it to the few measures someone will act on — usually two to four per
-   tier.
+   tier. Pick from the change-type sections of `measure-library.md` and
+   rewrite each in the organisation's terms; prefer data already collected.
 4. **Specify each measure.** Definition, groups, baseline (or date to capture
    it), target, threshold that triggers action, what action, data source,
    owner, frequency. Write the CSV from
    [measurement-plan.csv](assets/measurement-plan.csv).
 5. **Check quality.** For each measure: does it have a source? A baseline
    plan? A threshold with an action? An owner? Is it activity dressed as
-   adoption? List failures as open items.
+   adoption? Use the watch-outs table in `measure-library.md`. Fill the
+   template's quality-check table and list failures as open items.
 6. **Show and confirm.** Present the answer-first summary (the outcome
    measures, the main adoption measures, baselines still to capture, and
    targets needing agreement) and the files you will write. Wait for yes.

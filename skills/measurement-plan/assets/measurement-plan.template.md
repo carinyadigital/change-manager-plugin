@@ -17,6 +17,18 @@ sources: []
 three adoption measures that matter most, baselines still to capture before
 go-live, and targets still to agree. Three to five sentences.>
 
+## From benefit to behaviour
+
+Each business benefit depends on people doing something differently. This
+chain is what the adoption measures test.
+
+| Business benefit (from scope or business case) | Benefit owner | What people must do differently | Which groups | Adoption measure | Leading measure |
+| --- | --- | --- | --- | --- | --- |
+| | | | | | |
+
+*A benefit with no people behaviour behind it is a project measure, not a
+change measure — leave it to the benefit owner.*
+
 ## Outcome measures
 
 | Measure | Definition | Groups | Baseline | Target | Threshold → action | Source | Owner | Frequency |
@@ -53,6 +65,12 @@ Training completion and message opens are activity, not adoption.*
 | # | Item (missing source, target to agree, no owner) | Confirm with | By |
 | --- | --- | --- | --- |
 | | | | |
+
+## Quality check
+
+| Measure | Source? | Baseline plan? | Threshold and action? | Owner? | Activity or adoption? |
+| --- | --- | --- | --- | --- | --- |
+| | yes / no | yes / no | yes / no | yes / no | |
 
 ## Reporting
 
