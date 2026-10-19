@@ -16,14 +16,16 @@ One person moves through a change in sequence. They need to:
 | **A**bility | Be able to do it in the real job | "I tried and it doesn't work for me." |
 | **R**einforcement | Have it recognised and kept in place | Drift back to old workarounds |
 
-The first weak element is the **barrier point**. Acting on a later element
+The first weak element is where the person is stuck — the plugin calls it the
+**sticking point**. Acting on a later element
 first (training people who don't see why) wastes effort.
 
 ## How the plugin uses it
 
 - `resistance-management` — the "individual change barrier diagnostic
-  (ADKAR-informed)": rate each element 1–5 per group from evidence; the first
-  element at 3 or below is where to act. Questions live in
+  (ADKAR-informed)": rate each element per group from evidence as in place,
+  partly in place or not in place; the first element not fully in place is
+  where to act. Questions live in
   `skills/resistance-management/references/barrier-diagnostic.md` (original).
 - `adoption-measurement` — maps adoption gaps to a likely barrier.
 - Front blocks record an artefact's `focus` (which elements it mainly serves).
