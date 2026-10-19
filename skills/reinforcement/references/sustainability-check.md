@@ -23,11 +23,4 @@ reinforcement plan. Rate per group where groups differ.
 | 9 | People involved | Have the people affected had a say in fixing what wasn't working after go-live? | Feedback loop records, changes made |
 | 10 | Fits what's next | Is the change protected from being undone by upcoming changes or restructures? | Portfolio heatmap, upcoming initiatives |
 
-## Further reading
-
-The NHS Sustainability Model offers a fuller self-assessment of whether a
-healthcare improvement will last; it is published by NHS England and appears
-to be under the Open Government Licence (verify per document before reuse).
-The questions above are this plugin's own and do not reproduce it. See
-[methods.md](methods.md) for citation guidance and the
-link: https://www.england.nhs.uk/publication/the-change-model-guide/
+See [methods.md](methods.md) for how the plugin names and cites methods.
