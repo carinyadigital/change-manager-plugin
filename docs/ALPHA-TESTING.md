@@ -7,27 +7,31 @@ four sessions of an hour each, spread over a week or two.
 ## What we want to learn
 
 1. **Is the output something you would use?** Would you hand it to a sponsor
+
    or a team leader after your normal review, or would you rewrite it?
 2. **Does it pick the right skill?** When you ask in your own words, does the
+
    right skill start, and does it stay out of things it shouldn't do?
 3. **Does it stay honest?** Does it ask when it doesn't know, mark
+
    assumptions, and avoid inventing names, numbers or quotes?
 4. **What's missing?** Artefacts, questions or steps you expected and didn't
+
    get.
 
 ## Before you start
 
 - **Use a real change, made safe.** A recent or current initiative you know
-  well works best. Remove names, replace the organisation's name, and leave
-  out anything confidential (restructure details before consultation, pay,
-  individual performance). Group names and rough headcounts are fine.
+well works best. Remove names, replace the organisation's name, and leave
+out anything confidential (restructure details before consultation, pay,
+individual performance). Group names and rough headcounts are fine.
 - **Use a fresh working folder** for the test. Everything the plugin writes
-  goes into `docs/change/` in that folder.
+goes into `docs/change/` in that folder.
 - **Run setup first** (`/change-practice:setup` in Claude Cowork, or "Set up
-  my change practice" in ChatGPT Work). Answer as your real team would.
+my change practice" in ChatGPT Work). Answer as your real team would.
 - **Nothing is sent.** Every message is a draft. In Claude Cowork, the plugin
-  asks before anything is sent or posted. ChatGPT Work on the web does not run
-  that check, so do not connect email or chat tools for the test there.
+asks before anything is sent or posted. ChatGPT Work on the web does not run
+that check, so do not connect email or chat tools for the test there.
 
 ## Suggested test journey
 
@@ -106,14 +110,14 @@ At the end, please answer:
 4. Would you use it on your next initiative? What would need to change first?
 
 Send the table, your answers and — if you're comfortable — the `docs/change/`
-folder from the test to <contact> by <date>. Remove anything you would not
+folder from the test to  by . Remove anything you would not
 want shared first.
 
 ## Known limits in this alpha
 
 - No skill has yet been run against a real initiative by anyone other than
-  the build team. Expect rough edges.
+the build team. Expect rough edges.
 - Templates are markdown and CSV. Word, Excel and PowerPoint exports are not
-  included yet.
+included yet.
 - In ChatGPT Work on the web, the safety hooks (ask before sending, people
-  data, profile changes) do not run.
+data, profile changes) do not run.
