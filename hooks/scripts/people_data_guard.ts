@@ -33,7 +33,10 @@ interface HookPayload {
 
 const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
 const PHONE_RE = /(?<![\w.])(?:\+?\d[\d ()-]{7,}\d)(?!\w)/g;
-const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+// Dates, date-times, ISO weeks, year-months and clock times are common in
+// the change record (go-live plans, hypercare check-ins, weekly status) and
+// must not read as phone numbers. They are blanked before phone matching.
+const DATE_LIKE_RE = /\b\d{4}-\d{2}-\d{2}(?:[ T]\d{2}:\d{2}(?::\d{2})?)?\b|\b\d{4}-W\d{2}\b|\b\d{4}-\d{2}\b|\b\d{2}:\d{2}\b/g;
 
 function newText(toolInput: ToolInput): string {
   const parts: Array<string | undefined> = [toolInput.content, toolInput.new_string];
@@ -45,10 +48,9 @@ function newText(toolInput: ToolInput): string {
 
 function countPhones(text: string): number {
   let n = 0;
-  for (const m of text.matchAll(PHONE_RE)) {
-    const token = m[0].trim();
-    const digits = token.replace(/\D/g, "");
-    if (DATE_RE.test(token) || digits.length < 8 || digits.length > 15) continue;
+  for (const m of text.replace(DATE_LIKE_RE, " ").matchAll(PHONE_RE)) {
+    const digits = m[0].replace(/\D/g, "");
+    if (digits.length < 8 || digits.length > 15) continue;
     n += 1;
   }
   return n;

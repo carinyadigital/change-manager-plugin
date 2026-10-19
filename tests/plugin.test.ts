@@ -114,7 +114,9 @@ test("draft guard lets drafts and reads through", () => {
     "mcp__claude_ai_Microsoft_365__find_meeting_availability", "mcp__claude_ai_Microsoft_365__read_resource",
     "mcp__claude_ai_Microsoft_365__sharepoint_search", "mcp__claude_ai_Microsoft_365__outlook_calendar_search",
     "mcp__claude_ai_Microsoft_365__create_draft", "mcp__claude_ai_Microsoft_365__updateDraft",
-    "mcp__microsoft-365__fetch", "mcp__workiq__get_schema", "mcp__workiq__search_paths"]) {
+    "mcp__microsoft-365__fetch", "mcp__microsoft-365__fetch_blob", "mcp__microsoft-365__ask",
+    "mcp__microsoft-365__retrieve", "mcp__microsoft-365__list_agents",
+    "mcp__workiq__get_schema", "mcp__workiq__search_paths"]) {
     assert.equal(hookDecision("draft_guard.ts", { tool_name: tool }), "", tool);
   }
   assert.equal(hookDecision("draft_guard.ts", "not json"), "");
@@ -131,6 +133,15 @@ test("people-data guard flags contact details in the change record", () => {
 test("people-data guard ignores dates, counts and files outside the record", () => {
   assert.equal(hookDecision("people_data_guard.ts", { tool_input: { file_path: "/w/docs/change/scope.md",
     content: "Updated 2026-10-19. 120 people. $1,500,000." } }), "");
+  // Date-times, ISO weeks, year-months and shift times appear in go-live
+  // plans, hypercare check-ins and weekly status; none is a phone number.
+  for (const text of ["Go-live 2026-11-02 08:00 cutover", "Week 42 2026-10-19 report", "2026-10-19 to 2026-11-02",
+    "status/2026-W42.md written 2026-10-19T09:30", "active 2026-11 to 2027-01", "08:00 - 17:00 shifts"]) {
+    assert.equal(hookDecision("people_data_guard.ts", { tool_input: { file_path: "/w/docs/change/golive-plan.md", content: text } }), "", text);
+  }
+  for (const text of ["call 0412 345 678", "(02) 9999 9999", "+61 2 9999 9999"]) {
+    assert.match(hookDecision("people_data_guard.ts", { tool_input: { file_path: "/w/docs/change/golive-plan.md", content: text } }), /1 phone number/, text);
+  }
   assert.equal(hookDecision("people_data_guard.ts", { tool_input: { file_path: "/w/notes.md", content: "jane@acme.com" } }), "");
 });
 

@@ -47,6 +47,8 @@ const SHARED_OBJECTS = new Set(["event", "events", "meeting", "meetings", "calen
 const READ_VERBS = new Set([
   "search", "get", "list", "read", "find", "fetch", "query", "lookup", "view",
   "describe", "download", "summarize", "summarise", "check",
+  // Work IQ (Microsoft 365) question-and-answer and retrieval tools are reads.
+  "ask", "retrieve",
 ]);
 
 export function words(action: string): string[] {
