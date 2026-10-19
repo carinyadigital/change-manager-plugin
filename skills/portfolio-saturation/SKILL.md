@@ -7,8 +7,8 @@ description: >
   this quarter?", "what else is hitting the branches in March?", "can the call
   centre take another change?", "change fatigue across the portfolio". Writes
   a read-only docs/change/portfolio-heatmap.md and portfolio.csv. Do NOT use
-  for one initiative's impacts (change-impact-assessment) or risks (change-
-  risk-assessment), or IT change calendars.
+  for one initiative's impacts (change-impact-assessment) or risks
+  (change-risk-assessment), or IT change calendars.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep Bash(node:*)
 argument-hint: "[period, e.g. 2026-11..2027-06] [--capacity N] [--group <name>]"
