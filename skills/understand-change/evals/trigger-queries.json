@@ -1,7 +1,7 @@
 [
   {"query": "review this business case and tell me what's actually changing", "should_trigger": true},
   {"query": "what is this project actually changing for people?", "should_trigger": true},
-  {"query": "help me write the case for change for the shared services move", "should_trigger": true},
+  {"query": "help me write the case for change for the shared services move", "should_trigger": false, "note": "change-strategy (leader-facing case for change)"},
   {"query": "scope the change for the new rostering system", "should_trigger": true},
   {"query": "I've just been put on the finance transformation, where do I start?", "should_trigger": true},
   {"query": "summarise the charter: why, what, when and what success looks like", "should_trigger": true},
