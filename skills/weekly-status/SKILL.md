@@ -1,20 +1,15 @@
 ---
 name: weekly-status
 description: >
-  Use when the user needs a regular change status update drawn from the
-  change record — overall RAG with the reason, progress since last time,
-  readiness trend, top change risks and resistance themes, decisions needed
-  and what's next — in the cadence, format and audience set in the practice
-  profile. Fires even when the user never says "status report": "draft this
-  week's update for the sponsor", "what do I tell steerco on Thursday?",
-  "where are we up to on the people side?", "fortnightly change update",
-  "one-pager for the project board". Writes a draft to
-  docs/change/status/<YYYY-Www>.md, flags stale artefacts, and never sends.
-  Covers people/organisational change only. Do NOT use for project delivery
-  status on scope, budget and milestones (product-management:stakeholder-update),
-  for exec change strategy (change-strategy), for the go-live recommendation
-  (readiness-review), for IT/ITIL change or release status, or for drafting a staff
-  announcement (comms-draft).
+  Drafts the regular change status update from the change record — overall RAG
+  and why, progress, readiness trend, top risks and resistance themes,
+  decisions needed, what's next — in the cadence, format and audience from the
+  practice profile. Use for "draft this week's update for the sponsor", "where
+  are we up to on the people side?", "fortnightly change update", "one-pager
+  for the project board". Writes docs/change/status/<YYYY-Www>.md; never
+  sends. Do NOT use for a brief for one specific meeting (meeting-prep),
+  project delivery status on scope and budget, or a staff announcement
+  (comms-draft).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[period end date] [--audience <sponsor|steerco|board>]"
@@ -62,7 +57,7 @@ starting.
 
 | Input | Source | If missing |
 | --- | --- | --- |
-| Cadence, format, audience | practice profile | Ask once; default to a one-page RAG for the sponsor |
+| Cadence, format, audience | practice profile (`~/change-practice/CLAUDE.md`) | Ask once; default to a one-page RAG for the sponsor |
 | Previous report | latest `docs/change/status/<YYYY-Www>.md` | First report — no "since last" comparison |
 | Readiness trend | `docs/change/readiness-checklist.md` History table | Say readiness has not been assessed |
 | Change risks | `docs/change/risk-register.md` | Note as missing |

@@ -19,6 +19,17 @@ stop; do not produce a people-change artefact.
 All skills read and write one connected record for one initiative, so context
 flows between skills without re-entry.
 
+**Practice profile:** `~/change-practice/CLAUDE.md` (the user's home folder,
+outside any one app's config, so the same path works in Claude Cowork and
+ChatGPT Work). Read it first in every skill: it sets `artefact_root`,
+`stale_after_days`, the method and Prosci-licence flag, scales and
+thresholds, cadence, the comms approval chain and the minimum group size for
+sentiment. If the file is missing or its Status is `template`, say so once,
+suggest `/change-practice:setup`, and use the defaults in
+[rating-scales.md](rating-scales.md). Never treat the plugin's own root
+`CLAUDE.md` as the profile — it is the unfilled template, and only `setup`
+writes the real one.
+
 **Artefact root:** `docs/change/` in the working folder, unless the practice
 profile sets `artefact_root` to something else. One working folder = one
 initiative. Portfolio views (`portfolio-saturation`) are the only skill that reads
