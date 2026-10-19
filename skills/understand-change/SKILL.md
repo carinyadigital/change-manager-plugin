@@ -1,19 +1,15 @@
 ---
 name: understand-change
 description: >
-  Use when the user needs to get clear on what an organisational change actually
-  is before planning for people — why it is happening, what is changing and
-  what is not, who is broadly affected, key dates, what success looks like in
-  business terms, and what is still undecided. Fires even when the user never
-  says "change definition": "review the business case", "what is this project
-  actually changing?", "help me understand this initiative", "write the case
-  for change", "scope the change", "I've just been put on this program, where
-  do I start?". Writes the change definition to docs/change/scope.md and sets
-  the initiative name every other artefact uses. Covers people/organisational
-  change only. Do NOT use for IT/ITIL change requests or CAB approvals, for
-  impacts by role or team (change-impact-assessment), for the change approach and
-  plan (change-strategy), for stakeholder mapping (stakeholder-analysis), or
-  for writing a business case or project charter from scratch.
+  Gets clear on what a change actually is before planning for people — why,
+  what is changing and what is not, who is broadly affected, key dates,
+  success in business terms, and what is undecided. Use for "review the
+  business case", "what is this project actually changing?", "help me
+  understand this initiative", "scope the change", "I've just been put on this
+  program, where do I start?". Writes docs/change/scope.md and sets the
+  initiative name. Do NOT use for impacts by team (change-impact-assessment),
+  the leader-facing case for change or approach (change-strategy), or
+  stakeholder mapping (stakeholder-analysis).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[path to business case or scope document] [--refresh]"
@@ -68,7 +64,7 @@ starting.
 | --- | --- | --- |
 | Business case, charter, scope or solution design | `~~cloud storage`, `~~project tracker`, `~~office suite`, or upload | Ask the user for whatever exists; if nothing, run a short interview (why, what, who, when, how we'll know) and mark answers as assumptions |
 | Project owner and business owner | user, project documents | Ask; the definition cannot move past `draft` without them |
-| Practice profile | profile `CLAUDE.md` | Use `docs/change/` and the default initiative naming; say so |
+| Practice profile | `~/change-practice/CLAUDE.md` | Use `docs/change/` and the default initiative naming; say so |
 | Existing `scope.md` | `docs/change/scope.md` | None — this skill creates it |
 
 ## Trust spine
