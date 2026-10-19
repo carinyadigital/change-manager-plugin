@@ -1,20 +1,15 @@
 ---
 name: change-strategy
 description: >
-  Use when the user needs the overall approach and high-level plan for the
-  people side of an organisational change — how big it is, the approach per
-  area (sponsorship, engagement, comms, training, champions, readiness,
-  resistance, reinforcement), roles and governance, a phase timeline, success
-  measures in summary, and which method to use. Fires on "how should we
-  approach the people side of this?", "what's our change plan?", "how much
-  change effort does this need?", "pull it together for steering", "which
-  change model should we use?", "write the case for change", "run a force-field analysis". Writes
-  docs/change/strategy.md, plus case-for-change.md and force-field.md when
-  asked. Covers people/organisational change only.
-  Do NOT use for IT/ITIL change requests or release plans, the detailed
-  comms plan (communications-plan), training needs (training-needs-analysis),
-  measures in detail (measurement-plan), the sponsor roadmap
-  (sponsor-engagement), or a project schedule.
+  Sets the overall approach for the people side of a change — size, approach
+  per area (sponsorship, engagement, comms, training, champions, readiness,
+  resistance, reinforcement), roles, governance, timeline and method. Use for
+  "how should we approach the people side?", "what's our change plan?", "pull
+  it together for steering", "write the case for change", "run a force-field
+  analysis". Writes docs/change/strategy.md, plus case-for-change.md and
+  force-field.md on request. Do NOT use for the detailed comms plan
+  (communications-plan), training needs (training-needs-analysis), or measures
+  in detail (measurement-plan).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[--refresh] [--case-for-change] [--force-field] [method, if decided]"
@@ -81,7 +76,7 @@ forces-for-and-against session.
 | Impact register | `docs/change/impact-register.md` | Offer `change-impact-assessment`; without it the size of the change is an assumption |
 | Stakeholder register | `docs/change/stakeholder-register.md` | Offer `stakeholder-analysis`, or ask who the sponsor is and where support is weak |
 | Risk register, health check, heatmap | `docs/change/risk-register.md`, `pct-assessment.md`, `portfolio-heatmap.md` | Proceed; note that risks and health have not been assessed and list it as an open item |
-| Method and governance norms | practice profile, the user | Use method-neutral and say so |
+| Method and governance norms | practice profile (`~/change-practice/CLAUDE.md`), the user | Use method-neutral and say so |
 
 ## Trust spine
 
