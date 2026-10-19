@@ -83,8 +83,10 @@ group per month: **6**. Above 6 = saturated (red); 4–6 = watch (amber).
 
 ## Individual change barrier (ADKAR-informed)
 
-Rate each element 1 (absent) to 5 (strong) for a group, from evidence. The
-first element in sequence rated 3 or below is the barrier point — act there
+Rate each element for a group, from evidence: **in place**, **partly in
+place**, **not in place**, or **not known** (no evidence — a gap to find out,
+not a rating). The first element in sequence that is not fully in place is
+the **sticking point** — act there
 before later elements. Wording of questions is the plugin's own; do not copy
 Prosci instruments.
 

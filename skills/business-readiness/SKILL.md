@@ -75,7 +75,7 @@ for an organisational readiness assessment.
 | Impacted groups and scores | `docs/change/impact-register.md` / `.csv` | Offer `change-impact-assessment`, or ask for groups; flag that criticality can't be weighted |
 | Criteria and critical set | practice profile, else `rating-scales.md` defaults | Use defaults and say so |
 | Evidence | `docs/change/tna.md`, `~~lms` completions, `~~survey` pulse results, `~~project tracker` / `~~itsm` (access), `comms/` drafts sent, `sponsor-plan.md`, user | Ask; criteria without evidence stay Amber at best |
-| Previous assessments | `docs/change/readiness/` | First assessment — no trend; say so |
+| Previous assessments | History table in `docs/change/readiness-checklist.md` and `readiness-checklist.previous.csv` | First assessment — no trend; say so |
 | Go-live date | `docs/change/scope.md` | Ask; "days to go-live" frames urgency |
 | For `--organisational`: change history, capacity, culture, HR context | `lessons-learned.md` from past initiatives, `portfolio-heatmap.md`, staff survey results, HR partner, interviews with leaders | Ask; unrated questions are evidence gaps |
 
@@ -106,6 +106,14 @@ for an organisational readiness assessment.
   artefacts. Runs only the bundled script.
 
 ## Workflow
+
+### Choose the mode
+
+If the user passes `--organisational`, or there is no go-live date or
+`strategy.md` yet, or the question is about the organisation as a whole
+("are we ready to take this on?", "how have past changes gone?"), run
+**organisational readiness**. Otherwise run **group readiness**. If unsure,
+ask once.
 
 ### Group readiness before go-live (default)
 
@@ -147,7 +155,7 @@ for an organisational readiness assessment.
 1. **Load context.** `scope.md`, `stakeholder-register.md`, any
    `pct-assessment.md`, `portfolio-heatmap.md`, and lessons-learned from past
    initiatives the user can share.
-2. **Gather evidence** for the 24 questions in `org-readiness-questions.md`
+2. **Gather evidence** for the 24 questions (IDs OR-A1 to OR-H3) in `org-readiness-questions.md`
    from documents, connectors and short interviews the user runs with
    leaders, HR and two or three frontline people. Offer the user the
    questions to take into those conversations.
@@ -167,13 +175,13 @@ for an organisational readiness assessment.
   assessment result before rating "trained" Green.
 - "Leader briefed" means the leader has briefed their team, not just attended
   a briefing.
-- Access issues are the most common day-one blocker and sit outside the
+- Access issues are a frequent day-one blocker and sit outside the
   change team — chase evidence from IT early.
 - Averages hide trouble: one Red group matters more than a Green overall.
 - Self-reported confidence is useful but is not evidence of ability.
 - Organisational readiness is about the organisation, not one group; don't
   rate it from the view of a single team.
-- A poor change history is the strongest predictor of cynicism. If C1–C3
+- A poor change history breeds cynicism. If OR-C1 to OR-C3
   are low, the strategy needs early proof that this time is different.
 
 ## Outputs

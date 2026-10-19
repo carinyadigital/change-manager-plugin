@@ -45,30 +45,30 @@ questions.*
 
 | ID | Question (short) | Score | Evidence | Source |
 | --- | --- | --- | --- | --- |
-| A1 | Leaders agree why and why now | | | |
-| A2 | Affected people recognise the problem | | | |
-| A3 | Cost of not changing understood | | | |
-| B1 | One sponsor with authority | | | |
-| B2 | Leaders of affected areas committed | | | |
-| B3 | Leaders have time and skill | | | |
-| C1 | Recent changes landed well | | | |
-| C2 | People trust what leaders say | | | |
-| C3 | Earlier changes followed through | | | |
-| D1 | Groups have time alongside other changes | | | |
-| D2 | Experts can be released | | | |
-| D3 | Change team sized to the change | | | |
-| E1 | Safe to raise concerns | | | |
-| E2 | Fits how people like to work | | | |
-| E3 | Used to learning new ways | | | |
-| F1 | Measures support the new way | | | |
-| F2 | Structure and decision rights fit | | | |
-| F3 | Systems, policies, processes line up | | | |
-| G1 | Consultation obligations planned | | | |
-| G2 | HR involved early | | | |
-| G3 | Wellbeing supports ready | | | |
-| H1 | Can train at the scale needed | | | |
-| H2 | Channels reach every group | | | |
-| H3 | Support model can carry go-live | | | |
+| OR-A1 | Leaders agree why and why now | | | |
+| OR-A2 | Affected people recognise the problem | | | |
+| OR-A3 | Cost of not changing understood | | | |
+| OR-B1 | One sponsor with authority | | | |
+| OR-B2 | Leaders of affected areas committed | | | |
+| OR-B3 | Leaders have time and skill | | | |
+| OR-C1 | Recent changes landed well | | | |
+| OR-C2 | People trust what leaders say | | | |
+| OR-C3 | Earlier changes followed through | | | |
+| OR-D1 | Groups have time alongside other changes | | | |
+| OR-D2 | Experts can be released | | | |
+| OR-D3 | Change team sized to the change | | | |
+| OR-E1 | Safe to raise concerns | | | |
+| OR-E2 | Fits how people like to work | | | |
+| OR-E3 | Used to learning new ways | | | |
+| OR-F1 | Measures support the new way | | | |
+| OR-F2 | Structure and decision rights fit | | | |
+| OR-F3 | Systems, policies, processes line up | | | |
+| OR-G1 | Consultation obligations planned | | | |
+| OR-G2 | HR involved early | | | |
+| OR-G3 | Wellbeing supports ready | | | |
+| OR-H1 | Can train at the scale needed | | | |
+| OR-H2 | Channels reach every group | | | |
+| OR-H3 | Support model can carry go-live | | | |
 
 ## What this means for the approach
 
