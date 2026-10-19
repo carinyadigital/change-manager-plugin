@@ -1,0 +1,18 @@
+[
+  {"query": "plan the stakeholder engagement for the new rostering system", "should_trigger": true},
+  {"query": "how do we get the warehouse team involved before we lock the design?", "should_trigger": true},
+  {"query": "plan some sessions so people can see the new system before go-live", "should_trigger": true},
+  {"query": "outline an agenda for a process walkthrough with accounts payable", "should_trigger": true},
+  {"query": "nobody feels consulted on the restructure, what sessions should we run?", "should_trigger": true},
+  {"query": "turn last week's workshop notes into a you said, we did update", "should_trigger": true},
+  {"query": "we need to hear from the nurses about the new handover process", "should_trigger": true},
+  {"query": "what happened to all the feedback from the showcase? set up a feedback loop", "should_trigger": true},
+  {"query": "build the comms calendar with channels and senders", "should_trigger": false, "note": "communications-plan"},
+  {"query": "write the invitation email for Thursday's showcase", "should_trigger": false, "note": "comms-draft"},
+  {"query": "set up a network of change champions in each region", "should_trigger": false, "note": "change-network"},
+  {"query": "what should the executive sponsor say at the town hall?", "should_trigger": false, "note": "sponsor-engagement"},
+  {"query": "who are our stakeholders and how influential are they?", "should_trigger": false, "note": "stakeholder-analysis"},
+  {"query": "book a room and catering for the offsite", "should_trigger": false, "note": "event logistics, not change management"},
+  {"query": "notify stakeholders of the scheduled maintenance window for the change request", "should_trigger": false, "note": "IT change control"},
+  {"query": "the drivers are pushing back hard, work out why", "should_trigger": false, "note": "resistance-management"}
+]

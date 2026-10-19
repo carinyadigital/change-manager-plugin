@@ -1,0 +1,38 @@
+{
+  "skill_name": "understand-change",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Here's the business case for moving our three regional finance teams into one shared services centre. Help me understand what's actually changing and write it up.",
+      "expected_output": "Extracts why, what is changing, what is not changing, who is broadly affected, key dates, success in business terms, decisions and constraints, and open questions from the business case; proposes a short initiative name; shows an answer-first summary and waits for yes before writing docs/change/scope.md.",
+      "assertions": [
+        "Covers what is NOT changing, or flags it as a gap if the source is silent",
+        "States success as business outcomes, not project milestones",
+        "Lists open questions, each with who can answer it",
+        "Proposes an initiative name and asks the user to confirm it",
+        "Shows a summary and waits for yes before writing",
+        "Writes only docs/change/scope.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I don't have a business case, just a two-line email from the COO saying we're moving to a hub model by Q3. Scope the change.",
+      "expected_output": "Runs a short interview or works from the email, marks unknowns as assumptions, does not invent benefits, dates or headcounts, and records the missing business case as an open question.",
+      "assertions": [
+        "Does not invent benefits, figures, dates or headcounts",
+        "Marks unsupported statements as [ASSUMPTION — confirm with ...]",
+        "Records the missing business case or success measures as an open question",
+        "Keeps status as draft and names project and business owners for validation"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Scope the change for the firewall rule update going to CAB tomorrow.",
+      "expected_output": "Recognises this as IT change control, says so in one line, and does not produce a change definition.",
+      "assertions": [
+        "Identifies the request as IT/ITIL change control",
+        "Does not write docs/change/scope.md"
+      ]
+    }
+  ]
+}

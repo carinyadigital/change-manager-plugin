@@ -1,0 +1,18 @@
+[
+  {"query": "who do I need on side for the shared services move?", "should_trigger": true},
+  {"query": "map the stakeholders for the new rostering system", "should_trigger": true},
+  {"query": "who could block this restructure?", "should_trigger": true},
+  {"query": "do an influence and impact grid for the program", "should_trigger": true},
+  {"query": "where is support for this change weakest?", "should_trigger": true},
+  {"query": "list the sponsors, decision-makers and likely resisters", "should_trigger": true},
+  {"query": "the COO left, refresh the stakeholder register", "should_trigger": true},
+  {"query": "who are the key players and how committed are they?", "should_trigger": true},
+  {"query": "who needs to approve this release at CAB?", "should_trigger": false, "note": "IT change control"},
+  {"query": "build a coaching plan for our sponsor", "should_trigger": false, "note": "sponsor-engagement"},
+  {"query": "plan the workshops for each stakeholder group", "should_trigger": false, "note": "stakeholder-engagement"},
+  {"query": "rate how each team's work changes across process and systems", "should_trigger": false, "note": "impact-assessment"},
+  {"query": "set up a champion network across the sites", "should_trigger": false, "note": "change-network"},
+  {"query": "update the org chart in the HR system", "should_trigger": false, "note": "generic HR task"},
+  {"query": "clean up our customer contact list in the CRM", "should_trigger": false, "note": "not people change"},
+  {"query": "why is the warehouse team pushing back?", "should_trigger": false, "note": "resistance-management"}
+]

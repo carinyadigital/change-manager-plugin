@@ -1,0 +1,18 @@
+[
+  {"query": "are we ready to go live with the new rostering system on Monday?", "should_trigger": true},
+  {"query": "prep the people readiness go/no-go for steerco", "should_trigger": true},
+  {"query": "should we delay the launch? half the warehouse hasn't been trained", "should_trigger": true},
+  {"query": "is the business ready for the CRM cutover?", "should_trigger": true},
+  {"query": "give me a go / no-go recommendation based on the latest readiness check", "should_trigger": true},
+  {"query": "can we switch on the new process for the call centre next week?", "should_trigger": true},
+  {"query": "re-check the go-live conditions we set last week", "should_trigger": true},
+  {"query": "what would need to be true for us to proceed with go-live?", "should_trigger": true},
+  {"query": "approve the release for Thursday's deployment window", "should_trigger": false, "note": "IT change control / release approval"},
+  {"query": "CAB go/no-go for the database migration", "should_trigger": false, "note": "IT change control"},
+  {"query": "run this month's readiness check by team", "should_trigger": false, "note": "readiness-assessment"},
+  {"query": "plan floor-walkers and hypercare for go-live week", "should_trigger": false, "note": "go-live-support"},
+  {"query": "is adoption on track three months after launch?", "should_trigger": false, "note": "adoption-review"},
+  {"query": "write the technical cutover runbook", "should_trigger": false, "note": "technical cutover, not people change"},
+  {"query": "draft the weekly change status for the sponsor", "should_trigger": false, "note": "status-report"},
+  {"query": "should we hire another project manager?", "should_trigger": false, "note": "generic resourcing, not a change gate"}
+]

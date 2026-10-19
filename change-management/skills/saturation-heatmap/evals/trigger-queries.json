@@ -1,0 +1,18 @@
+[
+  {"query": "are our teams overloaded with too many changes this quarter?", "should_trigger": true},
+  {"query": "what else is hitting the branches in March?", "should_trigger": true},
+  {"query": "can the call centre take another change before Christmas?", "should_trigger": true},
+  {"query": "build a change saturation heatmap across the portfolio", "should_trigger": true},
+  {"query": "which projects clash for the finance team next year?", "should_trigger": true},
+  {"query": "staff are complaining of change fatigue — show me the load by team", "should_trigger": true},
+  {"query": "we want to add a new initiative in Q2, where is there room?", "should_trigger": true},
+  {"query": "map change load by group and month against capacity", "should_trigger": true},
+  {"query": "who does the new payroll system affect?", "should_trigger": false, "note": "impact-assessment"},
+  {"query": "what could stop this change landing?", "should_trigger": false, "note": "change-risk-assessment"},
+  {"query": "show the release calendar and change freeze dates", "should_trigger": false, "note": "IT change control"},
+  {"query": "do we have enough developers for the roadmap?", "should_trigger": false, "note": "delivery resource planning, not people change load"},
+  {"query": "schedule the CAB for next month's releases", "should_trigger": false, "note": "IT change control"},
+  {"query": "are we ready to go live?", "should_trigger": false, "note": "go-no-go"},
+  {"query": "draft the weekly status for the sponsor", "should_trigger": false, "note": "status-report"},
+  {"query": "build a heatmap of sales by region", "should_trigger": false, "note": "generic analytics, not change management"}
+]

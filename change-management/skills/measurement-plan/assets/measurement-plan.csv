@@ -1,0 +1,4 @@
+tier,measure,definition,groups,baseline,target,threshold,action_if_breached,source,owner,frequency
+Example — leading,Training effectiveness,Share of trained agents passing the practice-environment assessment,Contact centre agents,n/a (new),target to agree,Below agreed level two weeks before go-live,Extra practice sessions via training-needs-analysis,~~lms,Training lead,Weekly from training start
+Example — adoption,Refunds approved in new CRM,Share of refunds approved through the new CRM route rather than the old form,Contact centre agents,0% (old form only),target to agree,Below agreed level at week 4,Barrier diagnosis via resistance-management,~~analytics,Contact centre manager,Weekly for 12 weeks
+Example — outcome,Sustained adoption at 180 days,Share of refunds through the new route 180 days after go-live,Contact centre agents,Captured at go-live,target to agree,Any fall from the 90-day level,Reinforcement review,~~analytics,Business owner,At 90 and 180 days

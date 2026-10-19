@@ -1,0 +1,18 @@
+[
+  {"query": "run a change health check on the finance transformation", "should_trigger": true},
+  {"query": "is this change set up to succeed from a people point of view?", "should_trigger": true},
+  {"query": "is our sponsorship strong enough for the restructure?", "should_trigger": true},
+  {"query": "give me a reality check on the program before steering committee", "should_trigger": true},
+  {"query": "how healthy is the CRM change across sponsorship, project and change management?", "should_trigger": true},
+  {"query": "re-run the health check now the new sponsor is in place", "should_trigger": true},
+  {"query": "are we set up well enough to keep going into planning?", "should_trigger": true},
+  {"query": "rate the change effort's health 1 to 5 with evidence", "should_trigger": true},
+  {"query": "do a post-implementation review for the release that went to CAB", "should_trigger": false, "note": "IT change control"},
+  {"query": "build a coaching plan and roadmap for our sponsor", "should_trigger": false, "note": "sponsor-engagement"},
+  {"query": "list the risks that could stop adoption with owners and triggers", "should_trigger": false, "note": "change-risk-assessment"},
+  {"query": "are the teams ready for go-live next week?", "should_trigger": false, "note": "readiness-assessment"},
+  {"query": "should we go live on Monday?", "should_trigger": false, "note": "go-no-go"},
+  {"query": "write this week's change status report", "should_trigger": false, "note": "status-report"},
+  {"query": "run an employee engagement survey across the company", "should_trigger": false, "note": "generic HR task"},
+  {"query": "check the health of our Jira project and sprint velocity", "should_trigger": false, "note": "project delivery, not people change"}
+]

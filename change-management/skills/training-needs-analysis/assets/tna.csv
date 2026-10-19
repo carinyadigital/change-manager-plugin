@@ -1,0 +1,4 @@
+role,headcount,task,current,required,method,hours_per_learner,timing,assessment,source_impact
+Example — Contact centre agents,120,Log a call in the new CRM,0,3,instructor-led + practice environment,3,2 weeks before go-live,Observed practice scenario,Impact register: systems and tools
+Example — Contact centre agents,120,Approve refunds up to $200,1,3,job aid + team leader coaching,0.5,Go-live week,Supervisor sign-off on first 5 refunds,Impact register: process
+Example — Team leaders,14,Review refund exception report,0,2,self-paced module + job aid,1,1 week before go-live,Walkthrough with change lead,Impact register: roles and responsibilities

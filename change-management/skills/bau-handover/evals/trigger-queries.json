@@ -1,0 +1,18 @@
+[
+  {"query": "the project closes next month — who owns this after?", "should_trigger": true},
+  {"query": "close out the change and hand it over to operations", "should_trigger": true},
+  {"query": "who looks after the job aids once we've gone?", "should_trigger": true},
+  {"query": "prepare the BAU handover pack for the change work", "should_trigger": true},
+  {"query": "wrap up the change management side of the CRM project", "should_trigger": true},
+  {"query": "which measures should the ops manager keep watching after we leave?", "should_trigger": true},
+  {"query": "transition to business as usual — list open actions and owners", "should_trigger": true},
+  {"query": "what happens to the champion network when the project ends?", "should_trigger": true},
+  {"query": "what lessons should we capture before we close?", "should_trigger": false, "note": "lessons-learned"},
+  {"query": "is adoption on track at 90 days?", "should_trigger": false, "note": "adoption-review"},
+  {"query": "plan recognition so the new process sticks", "should_trigger": false, "note": "reinforcement"},
+  {"query": "complete the service transition checklist for the new platform", "should_trigger": false, "note": "IT service transition / ITIL"},
+  {"query": "close the project budget and release the contractors", "should_trigger": false, "note": "project financial closure"},
+  {"query": "write a handover note for my replacement while I'm on leave", "should_trigger": false, "note": "generic personal handover, not change closeout"},
+  {"query": "plan hypercare for go-live week", "should_trigger": false, "note": "go-live-support"},
+  {"query": "draft the final status report for steerco", "should_trigger": false, "note": "status-report"}
+]

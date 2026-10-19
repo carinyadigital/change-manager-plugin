@@ -1,0 +1,18 @@
+[
+  {"query": "how will we know the new CRM has actually been adopted?", "should_trigger": true},
+  {"query": "build a measurement plan for the change before go-live", "should_trigger": true},
+  {"query": "what should we track for adoption of the new rostering app?", "should_trigger": true},
+  {"query": "set KPIs for the people side of the restructure", "should_trigger": true},
+  {"query": "what does success look like in numbers for this change?", "should_trigger": true},
+  {"query": "define leading, adoption and outcome measures with baselines and thresholds", "should_trigger": true},
+  {"query": "is training completion a good enough success measure?", "should_trigger": true},
+  {"query": "what do we need to baseline before cutover so we can show the change stuck at 90 and 180 days?", "should_trigger": true},
+  {"query": "what are the success criteria for this change request at CAB?", "should_trigger": false, "note": "IT change control"},
+  {"query": "we're 6 weeks post go-live — are people actually using the new system?", "should_trigger": false, "note": "adoption-review"},
+  {"query": "are the teams ready for go-live?", "should_trigger": false, "note": "readiness-assessment"},
+  {"query": "what's our overall change approach and plan?", "should_trigger": false, "note": "change-strategy"},
+  {"query": "build a Power BI dashboard of usage", "should_trigger": false, "note": "dashboard build, not a change-management artefact"},
+  {"query": "set individual performance KPIs for each agent", "should_trigger": false, "note": "generic HR performance task"},
+  {"query": "design the company OKRs for next financial year", "should_trigger": false, "note": "business strategy, not people change"},
+  {"query": "write this week's change status report", "should_trigger": false, "note": "status-report"}
+]

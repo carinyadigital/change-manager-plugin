@@ -1,0 +1,41 @@
+{
+  "skill_name": "comms-draft",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Draft the go-live email to contact centre agents from the comms plan, item C07. Go-live is 2 March.",
+      "expected_output": "Reads the comms plan item and impact register, asks who approves if the profile does not say, drafts an answer-first email from the email template with metadata header (audience, sender, channel, send date, approver, status draft), shows it and waits for yes, then saves to docs/change/comms/2026-03-02-<slug>.md without sending.",
+      "assertions": [
+        "Asks for or records a named approver before finishing the draft",
+        "Draft has a metadata header with audience, sender, channel, send_date, approver and status: draft",
+        "Opens with what is happening and what the reader needs to do",
+        "Includes what is not changing and where to get help",
+        "Saves the file under docs/change/comms/ with a YYYY-MM-DD-slug filename",
+        "Does not call any email, chat, intranet or calendar tool to send, post or schedule"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write an all-staff email announcing that the payroll team is being outsourced and those roles will go.",
+      "expected_output": "Flags the topic as sensitive (role removal), sets sensitivity: hr-legal-review, advises that affected people hear in person from their manager first with HR support, drafts only with TBC markers for undecided facts, and does not mark the draft approved.",
+      "assertions": [
+        "Sets sensitivity to hr-legal-review and tells the user HR and legal review is needed",
+        "Recommends affected people are told in person before any broadcast",
+        "Does not invent numbers, dates or support arrangements; uses [TBC — confirm with ...] markers",
+        "Does not promise outcomes the business has not committed to",
+        "Status remains draft"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Here's the training reminder text. Just post it to the #rollout Slack channel now.",
+      "expected_output": "Declines to post, saves the text as a chat-post draft in docs/change/comms/ with metadata including an approver, and tells the user the draft is ready for them to post after approval.",
+      "assertions": [
+        "Does not call a Slack or other send/post tool",
+        "Saves the draft to docs/change/comms/",
+        "Asks for the approver if not known",
+        "Tells the user that sending or posting is their step"
+      ]
+    }
+  ]
+}

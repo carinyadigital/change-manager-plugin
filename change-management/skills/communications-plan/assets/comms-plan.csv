@@ -1,0 +1,4 @@
+id,audience,key_message,channel,sender,send_window,phase,feedback_loop,sensitive,status
+Example C01,Senior leaders,Why we are changing and what we need from you,Leadership meeting,Sponsor,2026-11-03,prepare,Q&A in meeting,n,planned
+Example C02,Team leaders,What changes for your team and how to brief them,Manager briefing pack,Head of operations,2026-11-05,prepare,Leader Q&A call 2026-11-07,n,planned
+Example C03,Contact centre agents,What is changing for you and when,Team huddle,Direct team leader,2026-11-10,prepare,Questions logged by team leaders,n,planned

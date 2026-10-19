@@ -1,0 +1,5 @@
+group,criterion,rag,evidence,critical,owner,action,due
+Example — Contact centre agents,trained,Amber,LMS export 14 Feb: 82 of 120 completed and passed practice scenario,y,Training lead,Catch-up sessions for 38 agents,2026-02-24
+Example — Contact centre agents,access ready,Red,ITSM: 40 accounts not provisioned,y,IT access manager,Bulk provisioning run,2026-02-20
+Example — Contact centre agents,understands why,Green,Pulse 10 Feb: 78% agree (n=96),n,Change lead,,
+Example — Team leaders,leader briefed,Green,Briefing attendance 3 Feb: 14 of 14,y,Head of operations,,

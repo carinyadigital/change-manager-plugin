@@ -1,0 +1,36 @@
+{
+  "skill_name": "setup",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "/change-management:setup --quick",
+      "expected_output": "Asks method, Prosci licence status, jurisdiction, status cadence/audience and comms approver; accepts defaults for the rest; shows the summary and writes the practice profile only on yes.",
+      "assertions": [
+        "Asks whether the organisation holds a Prosci licence",
+        "Labels default scales as defaults from rating-scales.md",
+        "Shows a summary and asks before writing",
+        "Writes only ~/.claude/plugins/config/digital-agency/change-management/CLAUDE.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "/change-management:setup --check-integrations",
+      "expected_output": "Reports connector status per category with manual fallbacks and stops without interviewing.",
+      "assertions": [
+        "Reports a connector as connected only after a successful read",
+        "Gives the manual fallback for each missing category",
+        "Does not start the interview"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "/change-management:setup — we use Prosci but don't have a licence, we're in Australia.",
+      "expected_output": "Records method as ADKAR-informed without licence and jurisdiction AU; profile notes that outputs use plain-English labels.",
+      "assertions": [
+        "Records Prosci licence held: no",
+        "Records jurisdiction AU",
+        "Notes outputs will not be labelled Prosci or ADKAR assessment"
+      ]
+    }
+  ]
+}

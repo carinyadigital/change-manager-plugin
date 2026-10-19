@@ -1,0 +1,30 @@
+{
+  "name": "change-management",
+  "displayName": "Change Management",
+  "version": "0.1.0",
+  "description": "Organisational change management practice in one install — setup interview, change definition, stakeholder and impact analysis, change risks and health check, strategy and measurement plan, sponsor, engagement, champion network, communications (draft-never-send), training needs, readiness and go/no-go, resistance, go-live support, change saturation heatmap, adoption, reinforcement, BAU handover, lessons learned and status reporting. Five personas, one owned skill library, one shared change record under docs/change/. People change only — not IT change control.",
+  "author": {
+    "name": "Carinya Digital"
+  },
+  "license": "MIT",
+  "keywords": [
+    "change-management",
+    "organisational-change",
+    "ocm",
+    "people-change",
+    "stakeholder-analysis",
+    "impact-assessment",
+    "change-readiness",
+    "go-no-go",
+    "communications",
+    "change-champions",
+    "training-needs-analysis",
+    "resistance",
+    "change-saturation",
+    "adoption",
+    "reinforcement",
+    "sponsorship",
+    "setup"
+  ],
+  "skills": "./skills/"
+}
