@@ -16,10 +16,20 @@ connectors and one shared change record under `docs/change/`. Everything passes
 | `commands/` folder (thin wrappers; `meeting-prep`) | No `commands/`. `meeting-prep` and the daily pulse (`stakeholder-pulse`) are skills | Commands are deprecated; skills are the invocable unit and follow the Agent Skills standard |
 | Root `templates/` folder | Templates live in each skill's `assets/` | Agent Skills keep a skill's templates inside the skill so it is self-contained |
 | Root `references/` cheat-sheets | Kept as the canonical copy; `npm run sync` copies what each skill links into `skills/<skill>/references/` | Same reason — a skill only links inside its own folder; the validator blocks drift |
-| `.mcp.json` bundles M365, Slack, Atlassian | Slack and Atlassian in `.mcp.json`; Microsoft 365 via Claude's connector | M365 is a Claude connector with no server URL to put in `.mcp.json` |
+| `.mcp.json` bundles M365, Slack, Atlassian | Microsoft 365 and Teams via Work IQ in `.mcp.json` | Microsoft's current remote server is one endpoint. The separate Teams server needs a tenant id and is kept for older setups |
 | Draft-never-send hook "blocks" sends | Hook asks for human confirmation | Matches the design's human-approval point without breaking a legitimate approved send |
 | `pct-assessment.md` for the sponsor health check | Path kept; the document is titled "Change health check" unless the profile records a Prosci licence | Prosci IP caveat in the design |
 | Validation via a `validate.py`-style script | `scripts/validate.ts`, plus `tsc` and a `node:test` suite | Scripts and hooks are TypeScript (Node runs it directly; Cowork runs Node natively) |
+
+## Where v0.2.0 stands (alpha)
+
+Fourteen skills carry uplifted, original artefacts: reference guides,
+instruments (question banks, worksheets, measure library, risk prompts) and
+extra templates (see `CHANGELOG.md`). Fourteen skills now have output-quality
+`evals.json` cases. The plugin is ready for alpha testing with practising
+change managers using [ALPHA-TESTING.md](ALPHA-TESTING.md). Still not done:
+a worked example run end to end on one anonymised initiative, real-run trigger
+evals, and `.xlsx` exports.
 
 ## Phase 1 — field-test the MVP (next)
 
@@ -28,6 +38,11 @@ connectors and one shared change record under `docs/change/`. Everything passes
 
 - Run each on one real, anonymised initiative; fold corrections into the skill
   bodies and gotchas.
+- Alpha testers follow [ALPHA-TESTING.md](ALPHA-TESTING.md); turn every
+  "wrong skill" row into a trigger query and every "invented" or "wouldn't
+  use" row into an `evals.json` assertion.
+- Build one connected worked example (the contact-centre CRM rollout already
+  seeded in the CSVs) as reference output for each skill.
 - Run the trigger evals 3× per query; tune descriptions that over- or
   under-fire, especially the overlapping Prepare skills.
 - Add 2–3 more `evals.json` cases per MVP skill from real outputs.
@@ -39,7 +54,7 @@ connectors and one shared change record under `docs/change/`. Everything passes
 `change-risk-assessment`, `change-strategy`, `communications-plan`,
 `sponsor-engagement`, `training-needs-analysis`, `business-readiness`,
 `resistance-management`, `weekly-status`, `meeting-prep`, `stakeholder-pulse`;
-sign in to Microsoft 365, Slack and Atlassian and test the read-first paths.
+sign in to Microsoft 365 and Teams and test the read-first paths.
 **Advance when** a full Prepare → Manage record is coherent end to end.
 
 ## Phase 3 — gap-fillers and Sustain

@@ -25,7 +25,7 @@ When Change Practice is available for your organisation:
 1. Open Claude and select the **Cowork** tab.
 2. In the sidebar, open **Customize**, then **Plugins**.
 3. Open **Discover**, select **Change Practice**, and select **Install**.
-4. Slack and similar tools are optional. If you use them, open the plugin and
+4. Microsoft 365 and Teams are optional. If you use them, open the plugin and
    connect them on the **Connectors** tab. You can skip this and paste
    documents, emails and plans instead.
 5. Start a new Cowork task. Ask in plain language — for example, "Help me
@@ -43,7 +43,7 @@ When Change Practice is available in your workspace:
 2. Open **Plugins**.
 3. Find **Change Practice** under your workspace name, or under **Personal** if
    it was shared with you. Open it and select **+**.
-4. If it asks you to connect Slack or another tool, connect only what you use.
+4. If it asks you to connect Microsoft 365 or Teams, connect only what you use.
    You can skip this and paste material instead.
 5. Start a **new** Work chat. Describe what you need, or type `@` and choose
    Change Practice or one of its skills.
@@ -97,28 +97,28 @@ Type: **A** authoring (draft for review) · **R** read-only review or gate · **
 | — | **skills-index** | R | Nothing — recommends the next skill |
 | Prepare | **understand-change** | A | `scope.md` |
 | Prepare | **stakeholder-analysis** | A | `stakeholder-register.md` / `.csv` |
-| Prepare | **change-impact-assessment** | A | `impact-register.md` / `.csv` |
+| Prepare | **change-impact-assessment** | A | `impact-register.md` / `.csv` (with active months) |
 | Prepare | **change-risk-assessment** | A | `risk-register.md` |
 | Prepare | **sponsor-assessment** | R | `pct-assessment.md` |
-| Prepare | **change-strategy** | A | `strategy.md` |
+| Prepare | **change-strategy** | A | `strategy.md`; on request `case-for-change.md`, `force-field.md` |
 | Prepare | **measurement-plan** | A | `measurement-plan.md` / `.csv` |
 | Manage | **sponsor-engagement** | A | `sponsor-plan.md` |
 | Manage | **stakeholder-engagement** | A | `engagement-plan.md` |
-| Manage | **change-network** | A | `change-network.md`, `network-feedback.csv` |
-| Manage | **communications-plan** | A | `comms-plan.md` / `.csv` |
+| Manage | **change-network** | A | `change-network.md`, `network-feedback.csv`, champion pack in `network/` |
+| Manage | **communications-plan** | A | `change-story.md`, `comms-plan.md` / `.csv` |
 | Manage | **comms-draft** | A | `comms/<id>.md` — never sends |
-| Manage | **training-needs-analysis** | A | `tna.md` / `.csv`, `qrg/` |
-| Manage | **business-readiness** | R | `readiness-checklist.md` / `.csv` |
+| Manage | **training-needs-analysis** | A | `tna.md` / `.csv`, `training-plan.md`, `training-schedule.csv`, `qrg/` |
+| Manage | **business-readiness** | R | `readiness-checklist.md` / `.csv`; early `org-readiness.md` |
 | Manage | **readiness-review** | R | `go-no-go.md` |
-| Manage | **resistance-management** | A/F | `resistance-log.md` |
-| Manage | **golive-transition** | R/A | `golive-plan.md` |
+| Manage | **resistance-management** | A/F | `resistance-log.md`, `transition-plan.md` |
+| Manage | **golive-transition** | R/A | `golive-plan.md`, `hypercare-issues.csv`, `hypercare/<date>.md` |
 | Manage | **portfolio-saturation** | R | `portfolio-heatmap.md`, `portfolio.csv` |
-| Manage | **stakeholder-pulse** | R | Proposed rows for `resistance-log.md` |
+| Manage | **stakeholder-pulse** | R | `pulse/<date>.md`, survey designs, proposed `resistance-log.md` rows |
 | Manage | **meeting-prep** | A | Optional `meetings/<date>-<slug>.md` |
 | Sustain | **adoption-measurement** | R | `adoption-report.md` |
 | Sustain | **reinforcement** | A | `reinforcement-plan.md` |
 | Sustain | **bau-handover** | A | `handover-pack.md` |
-| Throughout | **lessons-learned** | A | `lessons-learned.md` (append) |
+| Throughout | **lessons-learned** | A | `lessons-learned.md` (append), `retros/` session sheets |
 | Manage/Sustain | **weekly-status** | A | `status/<YYYY-Www>.md` |
 
 The record's structure, front block and writing rules:
@@ -133,6 +133,8 @@ The record's structure, front block and writing rules:
 | Comms that never send | `communications-plan` → `comms-draft`; you approve and send |
 | Readiness check | `business-readiness` on cadence; `readiness-review` at the gate |
 | Weekly status | `weekly-status` drafts the RAG report from the record |
+| Hypercare check-in | `golive-transition --daily` reads the issue-theme log and drafts the day's check-in |
+| Alpha testing | See [docs/ALPHA-TESTING.md](docs/ALPHA-TESTING.md) |
 
 ## Guardrails
 
@@ -156,7 +158,7 @@ TypeScript, standard library only, run with `node <file>.ts`:
 
 | Script | Skill |
 | --- | --- |
-| `score_impacts.ts` | change-impact-assessment |
+| `score_impacts.ts` | change-impact-assessment (also `--portfolio` rows for portfolio-saturation) |
 | `grid.ts` | stakeholder-analysis |
 | `coverage.ts` | change-network |
 | `gap_summary.ts` | training-needs-analysis |
@@ -166,10 +168,10 @@ TypeScript, standard library only, run with `node <file>.ts`:
 
 ## Connectors
 
-The plugin bundles Slack and Atlassian in `.mcp.json` and expects Microsoft 365
-through Claude's connector. All are optional: every skill degrades to paste or
-upload. See [CONNECTORS.md](CONNECTORS.md) for categories, suggested servers
-and the read-first / draft-never-send policy.
+The plugin bundles Microsoft 365 and Teams in `.mcp.json` through Microsoft's
+Work IQ server. Both are optional: every skill degrades to paste or upload.
+See [CONNECTORS.md](CONNECTORS.md) for categories, suggested servers and the
+read-first / draft-never-send policy.
 
 ## Repo layout
 
@@ -179,7 +181,7 @@ each skill is a self-contained folder.
 ```
 .claude-plugin/plugin.json      # Claude Cowork manifest
 .codex-plugin/plugin.json       # ChatGPT Work and Codex manifest
-.mcp.json                       # bundled connectors: Slack, Atlassian
+.mcp.json                       # bundled connector: Microsoft 365 and Teams
 assets/                         # listing icon for ChatGPT
 CLAUDE.md                       # practice profile TEMPLATE (setup writes a personal copy)
 CONNECTORS.md                   # ~~category map and connector policy
