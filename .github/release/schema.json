@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "required": [
+    "bump",
+    "reason",
+    "changelog"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "bump": {
+      "type": "string",
+      "enum": [
+        "patch",
+        "minor",
+        "major"
+      ],
+      "description": "Semver component to bump."
+    },
+    "reason": {
+      "type": "string",
+      "description": "One or two sentences on why this bump size, citing the changes that decided it."
+    },
+    "changelog": {
+      "type": "string",
+      "description": "The CHANGELOG entry body: Markdown bullets only, each starting with a hyphen and a space, continuation lines indented two spaces. No heading, version or date."
+    }
+  }
+}

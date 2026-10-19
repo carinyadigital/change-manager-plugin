@@ -1,0 +1,248 @@
+name: Release
+
+# Disabled. Neither Prepare nor Publish runs. To turn this back on, restore
+# the push trigger below and replace each job's `if: false` with the condition
+# in the comment above it.
+#
+# Two stages, with a person in between.
+#
+# 1. Prepare (run by hand from the Actions tab, on main). Gates the repo with
+#    `npm run check`, then Claude reads everything since the last release tag,
+#    picks the version bump and writes the CHANGELOG entry
+#    (.github/release/prompt.md). Claude has read-only tools and answers in a
+#    fixed schema; scripts/release.ts applies the answer to every version file
+#    and CHANGELOG.md. The result goes up as a `release/vX.Y.Z` pull request
+#    for review. Nothing is tagged at this stage.
+#
+# 2. Publish (automatic, when enabled). When a change to
+#    .claude-plugin/plugin.json lands on main and its version has no tag yet,
+#    re-run the checks, then create the `vX.Y.Z` tag and GitHub release with
+#    the CHANGELOG section as notes. Restore this trigger:
+#
+#      push:
+#        branches: [main]
+#        paths:
+#          - .claude-plugin/plugin.json
+#
+# If the current version has never been tagged (the first release), Prepare
+# skips Claude and publishes that version as it stands.
+#
+# Repository setup, once enabled:
+#   - Secret ANTHROPIC_API_KEY, or CLAUDE_CODE_OAUTH_TOKEN (`claude setup-token`).
+#   - Settings > Actions > General > "Allow GitHub Actions to create and
+#     approve pull requests" must be on, or opening the release PR fails.
+#
+# Pull requests opened with the default GITHUB_TOKEN do not trigger
+# pull_request workflows, so Prepare dispatches the policy scan against the
+# release branch itself. Its result shows on the PR.
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: Version bump. "auto" lets Claude choose from the changes.
+        type: choice
+        options: [auto, patch, minor, major]
+        default: auto
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    # Disabled. Restore: github.event_name == 'workflow_dispatch'
+    if: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write
+    outputs:
+      action: ${{ steps.state.outputs.action }}
+    steps:
+      - name: Main only
+        if: github.ref != 'refs/heads/main'
+        run: |
+          echo "::error::Run the release from main."
+          exit 1
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.18'
+          cache: npm
+
+      - name: Gate
+        run: |
+          npm ci
+          npm run check
+
+      - name: Work out what to release
+        id: state
+        run: |
+          set -euo pipefail
+          current="$(node scripts/release.ts current)"
+          echo "current=$current" >> "$GITHUB_OUTPUT"
+          if ! git rev-parse -q --verify "refs/tags/v$current" > /dev/null; then
+            if node scripts/release.ts notes "$current" > /dev/null; then
+              echo "::notice::v$current has never been released. Publishing it as it stands."
+              echo "action=publish" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "::error::v$current has no tag and no CHANGELOG section. Fix the version files or CHANGELOG.md first."
+            exit 1
+          fi
+          count="$(git rev-list --count "v$current..HEAD")"
+          if [[ "$count" == "0" ]]; then
+            echo "::notice::Nothing has changed since v$current."
+            echo "action=none" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "base=v$current" >> "$GITHUB_OUTPUT"
+          echo "action=pr" >> "$GITHUB_OUTPUT"
+
+      - name: Build the release prompt
+        id: prompt
+        if: steps.state.outputs.action == 'pr'
+        env:
+          BASE: ${{ steps.state.outputs.base }}
+          CURRENT: ${{ steps.state.outputs.current }}
+          REQUESTED: ${{ inputs.bump }}
+        run: |
+          set -euo pipefail
+          schema="$(jq -c . .github/release/schema.json)"
+          if [[ "$schema" == *"'"* ]]; then
+            echo "::error::release/schema.json must not contain single quotes (it is passed on the command line)."
+            exit 1
+          fi
+          {
+            echo 'prompt<<RELEASE_PROMPT_EOF'
+            cat .github/release/prompt.md
+            printf '\n## Run details\n\n- Last release tag: %s\n- Current version: %s\n- Requested bump: %s\n' "$BASE" "$CURRENT" "$REQUESTED"
+            echo 'RELEASE_PROMPT_EOF'
+            echo "schema=$schema"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Claude chooses the bump and writes the notes
+        id: claude
+        if: steps.state.outputs.action == 'pr'
+        uses: anthropics/claude-code-action@5eb090f3c3afd701a0672cd32981197ca27688f6 # v1.0.253
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ github.token }}
+          prompt: ${{ steps.prompt.outputs.prompt }}
+          claude_args: |
+            --allowedTools "Read,Glob,Grep,Bash(git log:*),Bash(git diff:*),Bash(git show:*)"
+            --disallowedTools "Write,Edit,MultiEdit,NotebookEdit,WebFetch,WebSearch"
+            --json-schema '${{ steps.prompt.outputs.schema }}'
+
+      - name: Apply the bump
+        id: apply
+        if: steps.state.outputs.action == 'pr'
+        env:
+          RESULT: ${{ steps.claude.outputs.structured_output }}
+          REQUESTED: ${{ inputs.bump }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$RESULT" ]] || ! jq -e '.bump and .changelog' <<< "$RESULT" > /dev/null; then
+            echo "::error::Claude returned no usable answer. See the previous step's log."
+            exit 1
+          fi
+          bump="$(jq -r '.bump' <<< "$RESULT")"
+          if [[ "$REQUESTED" != "auto" && "$REQUESTED" != "$bump" ]]; then
+            echo "::notice::Using the requested $REQUESTED bump (Claude suggested $bump)."
+            bump="$REQUESTED"
+          fi
+          jq -r '.changelog' <<< "$RESULT" > "$RUNNER_TEMP/notes.md"
+          jq -r '.reason' <<< "$RESULT" > "$RUNNER_TEMP/reason.md"
+          version="$(node scripts/release.ts bump "$bump" --notes "$RUNNER_TEMP/notes.md")"
+          npm run check
+          expected=".claude-plugin/plugin.json .codex-plugin/plugin.json CHANGELOG.md package-lock.json package.json"
+          changed="$(git diff --name-only | LC_ALL=C sort | tr '\n' ' ' | sed 's/ $//')"
+          if [[ "$changed" != "$expected" ]]; then
+            echo "::error::Unexpected files changed: $changed"
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "bump=$bump" >> "$GITHUB_OUTPUT"
+
+      - name: Open the release pull request
+        if: steps.state.outputs.action == 'pr'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.apply.outputs.version }}
+          BUMP: ${{ steps.apply.outputs.bump }}
+          BASE: ${{ steps.state.outputs.base }}
+        run: |
+          set -euo pipefail
+          branch="release/v$VERSION"
+          if git ls-remote --exit-code --heads origin "$branch" > /dev/null; then
+            echo "::error::Branch $branch already exists. Merge or close its pull request, delete the branch, then run again."
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add .claude-plugin/plugin.json .codex-plugin/plugin.json CHANGELOG.md package-lock.json package.json
+          git commit -m "Release change-practice v$VERSION"
+          git push origin "$branch"
+          {
+            echo "Releases \`change-practice\` **v$VERSION** ($BUMP bump from $BASE)."
+            echo
+            echo "**Why this bump:** $(cat "$RUNNER_TEMP/reason.md")"
+            echo
+            echo "### CHANGELOG"
+            echo
+            cat "$RUNNER_TEMP/notes.md"
+            echo
+            echo "---"
+            echo "Edit CHANGELOG.md on this branch if the notes need changing; the release uses whatever is merged."
+            echo "Merging tags \`v$VERSION\` and publishes the GitHub release."
+          } > "$RUNNER_TEMP/body.md"
+          gh pr create --base main --head "$branch" \
+            --title "Release change-practice v$VERSION" --body-file "$RUNNER_TEMP/body.md"
+          gh workflow run scan-plugin.yml --ref "$branch"
+
+  publish:
+    needs: prepare
+    # Disabled. Restore: !cancelled() && (github.event_name == 'push' || needs.prepare.outputs.action == 'publish')
+    if: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.18'
+          cache: npm
+
+      - name: Tag and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          version="$(node scripts/release.ts current)"
+          if git rev-parse -q --verify "refs/tags/v$version" > /dev/null; then
+            echo "::notice::v$version is already released. Nothing to publish."
+            exit 0
+          fi
+          npm ci
+          npm run check
+          node scripts/release.ts notes "$version" > "$RUNNER_TEMP/notes.md"
+          gh release create "v$version" --target "$GITHUB_SHA" \
+            --title "change-practice v$version" --notes-file "$RUNNER_TEMP/notes.md"
+          echo "::notice::Published v$version."

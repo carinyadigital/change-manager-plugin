@@ -1,0 +1,150 @@
+name: Scan Plugin
+
+# Reviews the whole plugin for security and privacy (.github/policy/prompt.md).
+# It checks hook scope, undisclosed network calls, credential handling, prompt
+# injection, and whether the install description matches what the plugin does.
+#
+# Trust boundaries:
+#   - On a pull request the prompt and schema come from the BASE commit, so a
+#     PR cannot rewrite the rules it is judged by.
+#   - Claude gets read-only file tools and must answer in the schema.
+#   - The scan job holds only contents:read. Posting the PR comment happens in
+#     a separate job that never runs Claude.
+#   - Pull requests from forks get no secrets, so the scan skips with a notice.
+#     A maintainer can run it from the Actions tab after pulling the branch in.
+#
+# Needs one repository secret: ANTHROPIC_API_KEY, or CLAUDE_CODE_OAUTH_TOKEN
+# (from `claude setup-token`) to bill a Claude subscription instead.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: scan-plugin-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    if: github.event.pull_request.draft != true
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      verdict: ${{ steps.claude.outputs.structured_output }}
+    env:
+      HAS_CREDENTIALS: ${{ secrets.ANTHROPIC_API_KEY != '' || secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Load policy from the trusted commit
+        id: policy
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          ref="${BASE_SHA:-HEAD}"
+          load() {
+            if git cat-file -e "$ref:$1" 2>/dev/null; then
+              git show "$ref:$1"
+            else
+              echo "::warning::$1 is not on $ref yet (first PR that adds it); using this branch's copy." >&2
+              cat "$1"
+            fi
+          }
+          load .github/policy/prompt.md > "$RUNNER_TEMP/prompt.md"
+          load .github/policy/schema.json | jq -c . > "$RUNNER_TEMP/schema.json"
+          if grep -q "'" "$RUNNER_TEMP/schema.json"; then
+            echo "::error::policy/schema.json must not contain single quotes (it is passed on the command line)."
+            exit 1
+          fi
+          {
+            echo 'prompt<<POLICY_PROMPT_EOF'
+            cat "$RUNNER_TEMP/prompt.md"
+            echo 'POLICY_PROMPT_EOF'
+            echo "schema=$(cat "$RUNNER_TEMP/schema.json")"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: No credentials
+        if: env.HAS_CREDENTIALS != 'true'
+        run: echo "::notice::Skipping the policy scan. No ANTHROPIC_API_KEY or CLAUDE_CODE_OAUTH_TOKEN secret is available (expected on pull requests from forks)."
+
+      - name: Claude policy review
+        id: claude
+        if: env.HAS_CREDENTIALS == 'true'
+        uses: anthropics/claude-code-action@5eb090f3c3afd701a0672cd32981197ca27688f6 # v1.0.253
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ github.token }}
+          prompt: ${{ steps.policy.outputs.prompt }}
+          claude_args: |
+            --allowedTools "Read,Glob,Grep"
+            --disallowedTools "Bash,Write,Edit,MultiEdit,NotebookEdit,WebFetch,WebSearch"
+            --json-schema '${{ steps.policy.outputs.schema }}'
+
+      - name: Verdict
+        if: env.HAS_CREDENTIALS == 'true'
+        env:
+          VERDICT: ${{ steps.claude.outputs.structured_output }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$VERDICT" ]] || ! jq -e 'has("passes")' <<< "$VERDICT" > /dev/null; then
+            echo "::error::The review returned no verdict. See the Claude step log."
+            exit 1
+          fi
+          jq -r '
+            "## Plugin policy scan: \(if .passes then "pass" else "fail" end)\n",
+            "\(.summary)\n",
+            (if .violations != "" then "### Violations\n\n\(.violations)\n" else empty end),
+            "### Hooks\n",
+            (if (.hooks | length) == 0 then "None registered." else (.hooks[] | "- \(.)") end),
+            "\n| Check | Result |\n| --- | --- |",
+            "| Broad-scope hooks | \(.has_broad_scope_hooks) |",
+            "| Undisclosed telemetry | \(.has_undisclosed_telemetry) |",
+            "| Description matches behaviour | \(.description_matches_behavior) |",
+            "| Makes external network calls | \(.may_make_external_network_calls) |",
+            "| May download software | \(.may_download_additional_software) |",
+            (if (.notes // "") != "" then "\n### Advice (does not affect the verdict)\n\n\(.notes)" else empty end)
+          ' <<< "$VERDICT" >> "$GITHUB_STEP_SUMMARY"
+          if [[ "$(jq -r '.passes' <<< "$VERDICT")" != "true" ]]; then
+            echo "::error::Plugin policy scan failed: $(jq -r '.violations' <<< "$VERDICT" | head -c 900)"
+            exit 1
+          fi
+          echo "Plugin policy scan passed."
+
+  comment:
+    needs: scan
+    if: ${{ !cancelled() && github.event_name == 'pull_request' && needs.scan.outputs.verdict != '' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Post or update the scan comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERDICT: ${{ needs.scan.outputs.verdict }}
+          PR: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          marker='<!-- scan-plugin -->'
+          body="$(jq -r --arg marker "$marker" --arg run "$RUN_URL" '
+            "\($marker)\n**Plugin policy scan: \(if .passes then "pass ✅" else "fail ❌" end)**\n",
+            (if .violations != "" then "\(.violations)\n" else empty end),
+            (if (.notes // "") != "" then "<details><summary>Advice</summary>\n\n\(.notes)\n\n</details>\n" else empty end),
+            "[Full report](\($run))"
+          ' <<< "$VERDICT")"
+          id="$(gh api "repos/$REPO/issues/$PR/comments" --paginate \
+                --jq ".[] | select(.body | startswith(\"$marker\")) | .id" | head -n1)"
+          if [[ -n "$id" ]]; then
+            gh api --method PATCH "repos/$REPO/issues/comments/$id" -f body="$body" > /dev/null
+          else
+            gh api --method POST "repos/$REPO/issues/$PR/comments" -f body="$body" > /dev/null
+          fi
