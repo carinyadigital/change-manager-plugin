@@ -1,20 +1,14 @@
 ---
 name: sponsor-assessment
 description: >
-  Use when the user wants an evidence-based check of whether an organisational
-  change is set up to succeed across three areas — sponsorship, project
-  management and change management — with a clear verdict and the findings
-  that need fixing. Fires even when the user never says "health check": "is
-  this change on track from a people point of view?", "how healthy is the
-  program?", "is our sponsorship strong enough?", "give me a reality check
-  before the steering committee", "are we set up to succeed?". Read-only:
-  writes only its verdict to docs/change/pct-assessment.md and names the skill
-  that fixes each finding. Can be re-run at any point. Covers
-  people/organisational change only. Do NOT use for IT/ITIL change requests,
-  CAB approvals or post-implementation reviews, for a sponsor coaching plan
-  (sponsor-engagement), for a risk register (change-risk-assessment), for
-  people readiness before go-live (business-readiness), for the go-live
-  decision (readiness-review), or for project delivery status (weekly-status).
+  Evidence-based health check of whether a change is set up to succeed across
+  sponsorship, project management and change management, with a verdict and
+  the findings to fix. Use for "is our sponsorship strong enough?", "how
+  healthy is the program?", "are we set up to succeed?", "reality check before
+  steering". Read-only: writes only docs/change/pct-assessment.md and names
+  the fixing skill per finding. Do NOT use for the sponsor coaching plan
+  (sponsor-engagement), the risk register (change-risk-assessment), or people
+  readiness before go-live (business-readiness).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[area to focus on: sponsorship | project | change] [--rerun]"
