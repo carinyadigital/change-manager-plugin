@@ -1,15 +1,13 @@
 ---
 name: skills-index
 description: >
-  Routes vague organisational-change requests to the right change-practice
-  skill and says what to run next based on what already exists in the change
-  record. Use when the user asks "where do I start with this change?", "help
-  me with the change for X", "what should I do next?", "what's missing from my
-  change plan?", or describes a people-change problem without naming a
-  deliverable. Recommends one skill (and why) — produces no artefact. Do NOT
-  use when the user has already named the deliverable they want, for IT/ITIL
-  change requests or CAB approvals, or for choosing skills from other plugins
-  (skills-index:find).
+  Routes a vague people-change request to the right change-practice skill and
+  says what to run next from what already exists in the change record. Use for
+  "where do I start with this change?", "what should I do next?", "what's
+  missing from my change plan?", or any people-change problem that names no
+  deliverable. Recommends one skill and why; writes nothing. Do NOT use when
+  the deliverable is already named, or for IT change requests and CAB
+  approvals.
 license: MIT
 allowed-tools: Read Glob Grep
 argument-hint: "[what you're trying to do]"
@@ -46,7 +44,7 @@ what already exists in their change record.
 
 | Input | If missing |
 | --- | --- |
-| Practice profile | Suggest `/change-practice:setup` once, then route anyway using defaults |
+| Practice profile (`~/change-practice/CLAUDE.md`) | Suggest `/change-practice:setup` once, then route anyway using defaults |
 | Change record at the artefact root (default `docs/change/`) | Treat as a new initiative — start at `understand-change` |
 
 ## Trust spine
