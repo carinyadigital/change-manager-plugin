@@ -1,19 +1,14 @@
 ---
 name: stakeholder-analysis
 description: >
-  Use when the user needs to work out who matters to an organisational change
-  landing — impacted groups, owners, decision-makers, sponsors, influencers,
-  SMEs, advocates and likely resisters — how much influence each has, how much
-  the change affects them, and how far their commitment is from where it needs
-  to be. Fires even when the user never says "stakeholder analysis": "who do I
-  need on side?", "who could block this?", "map the stakeholders", "who are the
-  key players for the restructure?", "where is support weakest?". Writes the
-  stakeholder register to docs/change/stakeholder-register.md with a CSV and a
-  scripted influence x impact grid. Covers people/organisational change only.
-  Do NOT use for IT/ITIL change requests or CAB approvals, for a sponsor
-  coaching plan or roadmap (sponsor-engagement), for planning workshops and
-  engagement activities (stakeholder-engagement), for detailed impacts by role
-  (change-impact-assessment), or for CRM contact lists or org charts.
+  Works out who matters to a change landing — impacted groups, owners,
+  decision-makers, sponsors, influencers, likely resisters — with influence,
+  impact and the gap between current and needed commitment. Use for "who do I
+  need on side?", "who could block this?", "map the stakeholders", "where is
+  support weakest?". Writes docs/change/stakeholder-register.md with a CSV and
+  an influence × impact grid. Do NOT use for the sponsor plan
+  (sponsor-engagement), engagement sessions (stakeholder-engagement), or
+  impacts by role (change-impact-assessment).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep Bash(node:*)
 argument-hint: "[group or area to focus on] [--refresh]"
@@ -67,7 +62,7 @@ Read [change-conventions.md](references/change-conventions.md) and
 | Change definition | `docs/change/scope.md` | Offer `understand-change`, or ask for a three-line summary and mark it as an assumption |
 | Organisation structure and groups | `~~hris`, org charts via `~~office suite`, or the user | Ask the user to list groups, leaders and rough headcounts |
 | Known positions | interviews, meeting notes, the user | Rate as `[ASSUMPTION — confirm with <role>]`; never guess commitment as evidence |
-| Scales | practice profile, else `rating-scales.md` | Use defaults and say so |
+| Scales | practice profile (`~/change-practice/CLAUDE.md`), else `rating-scales.md` | Use defaults and say so |
 
 ## Trust spine
 
