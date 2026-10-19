@@ -7,12 +7,13 @@
   {"query": "log this pushback from the warehouse in the resistance log", "should_trigger": true},
   {"query": "which teams are likely to resist the move to hot desking and why?", "should_trigger": true},
   {"query": "review the open resistance items and update their status", "should_trigger": true},
-  {"query": "one of my team members keeps refusing to follow the new process, start a performance plan", "should_trigger": false, "note": "individual HR performance matter"},
-  {"query": "an employee has lodged a grievance about the restructure", "should_trigger": false, "note": "HR grievance process"},
-  {"query": "recruit champions in the depots to help with the rosters", "should_trigger": false, "note": "change-network"},
-  {"query": "are we hitting our adoption targets 90 days after go-live?", "should_trigger": false, "note": "adoption-measurement"},
-  {"query": "the CAB rejected our change request, how do we push back?", "should_trigger": false, "note": "IT change control"},
-  {"query": "what risks could stop this change landing?", "should_trigger": false, "note": "change-risk-assessment"},
-  {"query": "get the sponsor to show up more", "should_trigger": false, "note": "sponsor-engagement"},
-  {"query": "the customers are resisting the price increase", "should_trigger": false, "note": "customer/commercial issue, not organisational change"}
+  {"query": "the site is closing — plan how we help people let go of the old way", "should_trigger": true},
+  {"query": "one of my team members keeps refusing to follow the new process, start a performance plan", "should_trigger": false,"note": "individual HR performance matter"},
+  {"query": "an employee has lodged a grievance about the restructure", "should_trigger": false,"note": "HR grievance process"},
+  {"query": "recruit champions in the depots to help with the rosters", "should_trigger": false,"note": "change-network"},
+  {"query": "are we hitting our adoption targets 90 days after go-live?", "should_trigger": false,"note": "adoption-measurement"},
+  {"query": "the CAB rejected our change request, how do we push back?", "should_trigger": false,"note": "IT change control"},
+  {"query": "what risks could stop this change landing?", "should_trigger": false,"note": "change-risk-assessment"},
+  {"query": "get the sponsor to show up more", "should_trigger": false,"note": "sponsor-engagement"},
+  {"query": "the customers are resisting the price increase", "should_trigger": false,"note": "customer/commercial issue, not organisational change"}
 ]

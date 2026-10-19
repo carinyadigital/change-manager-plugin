@@ -1,0 +1,39 @@
+{
+  "skill_name": "resistance-management",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The Brisbane agents keep using the old refund spreadsheet. Team leaders say nobody complains, they just don't use the new screen.",
+      "expected_output": "Frames the signal by group, rates the five elements from evidence in order, finds the first element at 3 or below as the barrier point, runs the loss lens, matches an intervention with owner and check date, and shows the exact log rows before writing.",
+      "assertions": [
+        "Treats quiet non-use as a signal, not as support",
+        "Rates elements in sequence and names the first at 3 or below as the barrier point",
+        "Checks whether the old spreadsheet is still available and easier (reinforcement)",
+        "Names an owner and a date to check the intervention",
+        "Records the group, not individuals",
+        "Labels the diagnostic ADKAR-informed with the trademark notice, not 'ADKAR assessment'"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We're merging the Newcastle and Maitland teams and closing Maitland. Plan how we help people through it.",
+      "expected_output": "Drafts a transition plan by group: what is ending and how it will be acknowledged and marked, what carries over, the in-between with temporary arrangements and contact rhythm, and the new beginning; routes role and job-security matters through HR first; writes only on a yes.",
+      "assertions": [
+        "Names specific endings for each group, such as the site, team or routines",
+        "Includes how the ending will be acknowledged and marked",
+        "Includes temporary arrangements for the in-between period",
+        "Flags role and job-security matters for HR before drafting further",
+        "Attributes the transition view to William Bridges Associates in the plugin's own words"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "One of the team leaders, Sam, is refusing to attend training. Log it against him.",
+      "expected_output": "Explains that individual conduct or performance belongs with the line manager and HR, does not log a named individual, and offers to record any group-level pattern.",
+      "assertions": [
+        "Does not record Sam by name in the resistance log",
+        "Routes the individual matter to the line manager and HR"
+      ]
+    }
+  ]
+}

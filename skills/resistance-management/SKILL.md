@@ -2,25 +2,25 @@
 name: resistance-management
 description: >
   Use when people are pushing back on an organisational change and the user
-  needs to work out why and what to do — diagnosing the actual barrier for each
-  group (doesn't understand why, doesn't want to, doesn't know how, can't yet,
-  or not reinforced) with an ADKAR-informed barrier diagnostic and a "what's
-  ending" loss lens, matching an intervention, and tracking signal, group,
-  barrier, intervention, owner and status in a resistance log. Fires even when
+  needs to work out why and what to do — diagnosing each group's barrier
+  (doesn't understand why, doesn't want to, doesn't know how, can't yet, not
+  reinforced) with an ADKAR-informed diagnostic and a "what's ending" loss
+  lens, matching an intervention, and tracking it in a resistance log. Fires even when
   the user never says "resistance": "the drivers hate the new rosters", "why
   isn't anyone using the new process?", "the team keeps going back to the old
   spreadsheet", "people are angry about the restructure", "the managers are
-  dragging their feet". Updates docs/change/resistance-log.md in aggregate, no
-  names. Covers people/organisational change only. Do NOT use for individual
+  dragging their feet", "plan how we help people let go of the old way".
+  Updates docs/change/resistance-log.md and drafts a transition plan for loss,
+  in aggregate, no names. Covers people/organisational change only. Do NOT use for individual
   HR performance, conduct or grievance matters, champion network design
   (change-network), measuring adoption against targets (adoption-measurement), or
   IT/ITIL change control.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
-argument-hint: "[group or signal] [--review]"
+argument-hint: "[group or signal] [--review] [--transition]"
 metadata:
   author: Carinya Digital
-  version: "0.1.0"
+  version: "0.2.0"
   owner: change-practice
   review_cadence: quarterly
   work_shape: generate-draft
@@ -99,7 +99,8 @@ Say if any artefact is older than the profile's `stale_after_days`.
   write it so it could be read by the people described without causing harm —
   describe behaviour and barriers, not attitudes or character. Suggested
   messages or talking points are drafts and are never sent.
-- **Blast radius.** Writes only `docs/change/resistance-log.md`.
+- **Blast radius.** Writes only `docs/change/resistance-log.md` and
+  `docs/change/transition-plan.md`.
 
 ## Workflow
 
@@ -130,7 +131,16 @@ Say if any artefact is older than the profile's `stale_after_days`.
    per group, the intervention, anything escalated — and the exact log rows.
    Wait for yes.
 8. **Update** `docs/change/resistance-log.md`.
-9. **Hand off.** Suggest the fixing skill for each intervention, and
+9. **Transition plan (`--transition`, or when the loss lens finds real
+   endings).** For groups facing loss — roles, teams, sites, skills, a
+   well-loved system — draft `docs/change/transition-plan.md` from
+   [transition-plan.template.md](assets/transition-plan.template.md) using
+   [bridges.md](references/bridges.md): what is ending and how it will be
+   acknowledged and marked, what carries over, how long the in-between is
+   likely to last and what temporary arrangements help, and what the new
+   beginning looks like for each group. Route anything touching roles, pay or
+   job security through HR first. Show it; write on a yes.
+10. **Hand off.** Suggest the fixing skill for each intervention, and
    `weekly-status` to carry resistance themes to the sponsor.
 
 ## Gotchas
@@ -150,6 +160,7 @@ Say if any artefact is older than the profile's `stale_after_days`.
 
 | Artefact | Path |
 | --- | --- |
+| Transition plan for groups facing loss (on request) | `docs/change/transition-plan.md` |
 | Resistance log (signals, diagnosis, interventions, status) | `docs/change/resistance-log.md` |
 
 Chat summary: new and open items by group, barrier point for each, patterns
