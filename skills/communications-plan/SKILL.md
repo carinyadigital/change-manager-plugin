@@ -1,20 +1,14 @@
 ---
 name: communications-plan
 description: >
-  Use when the user needs to plan how people will hear about an organisational
-  change — who needs to know what, from whom, through which channel, when, and
-  how their questions come back. Fires even when the user never says
-  "communications plan": "how do we tell staff?", "what do we say to people
-  and when?", "who should announce this?", "build the comms calendar", "map
-  messages to audiences", "leaders need to hear before their teams". Writes
-  the plan to docs/change/comms-plan.md with a schedule CSV, and the change
-  story (core narrative, key messages, hard questions) to change-story.md.
-  Covers
-  people/organisational change only. Do NOT use for drafting a specific email,
-  post, FAQ or briefing (comms-draft), sponsor talking points and roadmap
-  (sponsor-engagement), workshops and two-way sessions (stakeholder-engagement),
-  marketing or customer campaigns, or IT release notices and CAB change
-  notifications.
+  Plans how people will hear about a change — who needs to know what, from
+  whom, through which channel, when, and how questions come back — and writes
+  the change story (core narrative, key messages, hard questions). Use for
+  "how do we tell staff?", "who should announce this?", "build the comms
+  calendar", "leaders need to hear before their teams". Writes
+  docs/change/comms-plan.md with a CSV and change-story.md. Do NOT use to
+  draft one message (comms-draft), sponsor talking points (sponsor-
+  engagement), or two-way sessions (stakeholder-engagement).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[audience or phase to plan] [--refresh]"
@@ -71,7 +65,7 @@ and laying out the phase rhythm.
 | Approach and phases | `docs/change/strategy.md` | Use Prepare / Manage / Sustain and say so |
 | Sponsor commitments | `docs/change/sponsor-plan.md` | Mark sponsor items `[ASSUMPTION — confirm with sponsor]` |
 | Channels in use | user, `~~internal comms`, `~~office suite` | Ask which channels each group actually reads |
-| Approval chain and house style | practice profile | Ask once; default to "plain English, answer first" |
+| Approval chain and house style | practice profile (`~/change-practice/CLAUDE.md`) | Ask once; default to "plain English, answer first" |
 
 ## Trust spine
 
