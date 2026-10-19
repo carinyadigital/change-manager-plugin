@@ -1,20 +1,14 @@
 ---
 name: lessons-learned
 description: >
-  Use when the user wants to capture what was learned about leading the
-  people side of a change — logging lessons as they happen through any phase,
-  and, at closeout, synthesising them into themes and recommendations for
-  future initiatives. Fires even when the user never says "lessons learned":
-  "note that for next time", "that briefing went badly — let's remember why",
-  "what would we do differently?", "what worked with the sponsors?", "pull
-  together what we learned before we close", "plan a retro for the end of
-  this phase". Appends entries to docs/change/lessons-learned.md and never
-  rewrites past entries. Covers
-  people/organisational change only. Do NOT use for sprint or delivery
-  retrospectives on build mechanics (product-management:sprint-retro), for
-  BAU ownership (bau-handover), for adoption results (adoption-measurement), for
-  IT incident post-mortems or ITIL problem reviews, or for individual
-  performance feedback.
+  Captures what was learned about leading the people side of a change —
+  logging lessons as they happen in any phase, running a retrospective
+  (--retro), and at closeout synthesising themes for future initiatives. Use
+  for "note that for next time", "what would we do differently?", "plan a
+  retro for go-live", "pull together what we learned before we close". Appends
+  to docs/change/lessons-learned.md; never rewrites past entries. Do NOT use
+  for delivery sprint retrospectives, BAU ownership (bau-handover), or
+  adoption results (adoption-measurement).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[lesson to log] | --retro [phase] | --synthesise"
