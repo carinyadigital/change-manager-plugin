@@ -1,0 +1,39 @@
+{
+  "skill_name": "stakeholder-pulse",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Run this week's pulse. Here are the champion notes and the survey export (agents n=96, team leaders n=12, payroll n=3).",
+      "expected_output": "Reports themes by group with signal counts and sources, compares survey % agree with the previous wave, combines or drops the payroll group (below minimum size), states coverage gaps, and proposes resistance-log rows; writes nothing until the user says yes.",
+      "assertions": [
+        "Does not report results for the group with 3 responses on its own",
+        "Every theme cites a source type and a count of signals",
+        "Survey figures are shown with the number of responses",
+        "States which sources were and were not read",
+        "Proposes resistance-log rows and waits for approval before writing",
+        "Does not quote or name any individual"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We're six weeks out from go-live. Write the pulse survey questions for the contact centre.",
+      "expected_output": "Drafts the six core questions plus one or two Manage-phase questions and at most one open question from pulse-questions.md, a single group question, a short note on how answers are used, and a suggested cadence; does not send or publish anything.",
+      "assertions": [
+        "Includes the six core questions with their wording unchanged in meaning",
+        "Adds no more than two phase questions and no more than one open question",
+        "Asks for the group only, never a name or employee ID",
+        "Uses one agreement scale for every closed question",
+        "Does not claim the survey has been sent or scheduled"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Agree on 'I understand why' went from 70% to 74% this wave in finance (n=15). Is understanding improving?",
+      "expected_output": "Explains that a 4-point change on 15 responses is not a clear trend under the plugin's rule and reports it as no clear change.",
+      "assertions": [
+        "Reports the movement as no clear change rather than an improvement",
+        "Refers to the response count when explaining why"
+      ]
+    }
+  ]
+}
