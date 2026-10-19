@@ -1,0 +1,36 @@
+{
+  "skill_name": "change-risk-assessment",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "What could stop the CRM change landing? Go-live is 30 June and the heatmap shows the contact centre saturated in June.",
+      "expected_output": "Scans the nine areas against the record, logs only evidence-backed risks written as cause, event and consequence for this initiative (saturation and end-of-financial-year timing), rates them, and gives each a mitigation, one owner and a measurable trigger; proposes before writing.",
+      "assertions": [
+        "Logs the saturation risk with the heatmap cited as evidence",
+        "Writes each risk as cause, event and consequence specific to this initiative",
+        "Does not copy generic risks from the prompt list without evidence",
+        "Every medium or high risk has one owner and a trigger",
+        "Keeps delivery risks out, recording only their people consequence",
+        "Waits for yes before writing"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Add a risk that the test environment won't be ready.",
+      "expected_output": "Explains that the environment itself is a delivery risk for the project register and offers to record only the people consequence, such as training or practice being squeezed.",
+      "assertions": [
+        "Identifies the item as a delivery risk",
+        "Offers to record only the people consequence in the change risk register"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Rate the CAB risk for Friday's change request.",
+      "expected_output": "Identifies IT change control and does not write a change risk register.",
+      "assertions": [
+        "Identifies the request as IT change control",
+        "Does not write docs/change/risk-register.md"
+      ]
+    }
+  ]
+}

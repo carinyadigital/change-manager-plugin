@@ -20,7 +20,7 @@ allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[risk area to focus on] [--refresh]"
 metadata:
   author: Carinya Digital
-  version: "0.1.0"
+  version: "0.2.0"
   owner: change-practice
   review_cadence: quarterly
   work_shape: generate-draft
@@ -38,7 +38,10 @@ specific, evidence-based risks with a named owner and a trigger that tells
 someone when to act — not a generic list that would fit any project.
 
 Read [change-conventions.md](references/change-conventions.md) and
-[rating-scales.md](references/rating-scales.md) before starting.
+[rating-scales.md](references/rating-scales.md) before starting. Read
+[risk-prompts.md](references/risk-prompts.md) when scanning the risk areas —
+use it to look for risks, and log only those this initiative's evidence
+supports.
 
 ## When to use
 
@@ -91,15 +94,18 @@ Read [change-conventions.md](references/change-conventions.md) and
 ## Workflow
 
 1. **Load context.** Read the profile, `scope.md`, the impact register,
-   stakeholder register, any health check and heatmap, and any existing risk
-   register. Note anything older than `stale_after_days`.
+   stakeholder register, any health check and heatmap, `org-readiness.md`
+   (areas below 3 are risk candidates), `force-field.md` (restraining forces
+   rated 3 are risk candidates), and any existing risk register. Note anything older than `stale_after_days`.
 2. **Scan the nine areas.** For each, ask "is there evidence this could stop
    people adopting?":
    competing changes and saturation; capacity to take part (workload, rosters,
    backfill); sponsorship weakness; change fatigue; complexity of the change;
    history of failed or abandoned change; resistance from specific groups;
    timing against peak periods, leave seasons or other milestones; manager
-   capability and willingness to lead the change locally.
+   capability and willingness to lead the change locally. Check the
+   "evidence that it's real" column in `risk-prompts.md` against the record,
+   and its "Also check" list.
 3. **Write each risk as cause → event → consequence.** For example: "Because
    the go-live falls in end-of-financial-year close, finance staff may not
    attend training, so they will not be able to process invoices in week one."

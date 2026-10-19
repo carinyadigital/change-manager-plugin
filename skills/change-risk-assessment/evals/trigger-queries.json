@@ -7,12 +7,12 @@
   {"query": "why might the call centre not take up the new process?", "should_trigger": true},
   {"query": "list the risks of change fatigue and capacity across the branches", "should_trigger": true},
   {"query": "rate likelihood and consequence for the people-side risks and give each an owner", "should_trigger": true},
-  {"query": "what's the risk rating for this change request at CAB?", "should_trigger": false, "note": "IT change control"},
-  {"query": "update the project risk register for the vendor delay", "should_trigger": false, "note": "project delivery risk, not people change"},
-  {"query": "score our sponsorship, project management and change management", "should_trigger": false, "note": "sponsor-assessment"},
-  {"query": "are our teams overloaded with too many changes this quarter?", "should_trigger": false, "note": "portfolio-saturation"},
-  {"query": "who does the new system affect and how badly?", "should_trigger": false, "note": "change-impact-assessment"},
-  {"query": "do a security risk assessment for the new app", "should_trigger": false, "note": "technical risk, not people change"},
-  {"query": "complete the WHS risk assessment for the warehouse move", "should_trigger": false, "note": "safety risk, generic HR/operations task"},
-  {"query": "why are the warehouse team pushing back on the new pick process?", "should_trigger": false, "note": "resistance-management"}
+  {"query": "what's the risk rating for this change request at CAB?", "should_trigger": false,"note": "IT change control"},
+  {"query": "update the project risk register for the vendor delay", "should_trigger": false,"note": "project delivery risk, not people change"},
+  {"query": "score our sponsorship, project management and change management", "should_trigger": false,"note": "sponsor-assessment"},
+  {"query": "are our teams overloaded with too many changes this quarter?", "should_trigger": false,"note": "portfolio-saturation"},
+  {"query": "who does the new system affect and how badly?", "should_trigger": false,"note": "change-impact-assessment"},
+  {"query": "do a security risk assessment for the new app", "should_trigger": false,"note": "technical risk, not people change"},
+  {"query": "complete the WHS risk assessment for the warehouse move", "should_trigger": false,"note": "safety risk, generic HR/operations task"},
+  {"query": "why are the warehouse team pushing back on the new pick process?", "should_trigger": false,"note": "resistance-management"}
 ]
