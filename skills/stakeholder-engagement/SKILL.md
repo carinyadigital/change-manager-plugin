@@ -1,20 +1,14 @@
 ---
 name: stakeholder-engagement
 description: >
-  Use when the user needs to plan two-way engagement with the groups affected
-  by an organisational change — workshops, process walkthroughs, demos and
-  showcases, feedback and listening sessions — per stakeholder group, with
-  agenda outlines, how feedback is captured, and how the loop is closed ("you
-  said, we did"). Fires even when the user never says "engagement plan": "how
-  do we get the warehouse team involved?", "plan some sessions so people can
-  see the new system", "we need to hear from the nurses before we lock the
-  design", "nobody feels consulted", "what did we do with the feedback?".
-  Writes docs/change/engagement-plan.md. Covers people/organisational change
-  only. Do NOT use for broadcast communications (communications-plan),
-  drafting one message (comms-draft), champion networks (change-network),
-  sponsor and leader plans (sponsor-engagement), working out who the
-  stakeholders are (stakeholder-analysis), general event logistics, or IT/ITIL
-  change control.
+  Plans two-way engagement with affected groups — workshops, walkthroughs,
+  demos, listening sessions — per group, with agendas, how feedback is
+  captured and how the loop is closed ("you said, we did"). Use for "how do we
+  get the warehouse team involved?", "plan sessions so people can see the new
+  system", "nobody feels consulted", "what did we do with the feedback?".
+  Writes docs/change/engagement-plan.md. Do NOT use for broadcast comms
+  (communications-plan), one message (comms-draft), champions
+  (change-network), or sponsors (sponsor-engagement).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[stakeholder group or session type] [--refresh]"
