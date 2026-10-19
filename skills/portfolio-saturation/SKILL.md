@@ -96,7 +96,11 @@ Read [change-conventions.md](references/change-conventions.md) and
    hypercare). Prefer each initiative's impact register; label every estimate.
 3. **Build the CSV.** One row per initiative × group × month with load 0–4
    (the initiative's headline impact score for that group in an active
-   month), from [portfolio.csv](assets/portfolio.csv).
+   month), from [portfolio.csv](assets/portfolio.csv). Where an initiative's
+   `impact-register.csv` has `starts` and `ends` columns, generate its rows
+   with `node ${CLAUDE_PLUGIN_ROOT}/skills/change-impact-assessment/scripts/score_impacts.ts <its impact-register.csv> --portfolio "<initiative>"`
+   rather than typing them; groups it reports as undated need months from the
+   user.
 4. **Run the grid.** Run:
    `node ${CLAUDE_PLUGIN_ROOT}/skills/portfolio-saturation/scripts/heatmap.ts docs/change/portfolio.csv --capacity <N>`
    It prints the group × month grid with status and the saturated cells with
