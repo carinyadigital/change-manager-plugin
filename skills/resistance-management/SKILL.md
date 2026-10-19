@@ -1,20 +1,15 @@
 ---
 name: resistance-management
 description: >
-  Use when people are pushing back on an organisational change, or have not
-  taken up the new way, and the user needs to work out why and what to do —
-  diagnosing each group's sticking point (doesn't understand why, doesn't want
-  to, doesn't know how, can't yet, not reinforced) with an ADKAR-informed
-  diagnostic and a "what's ending" loss lens, matching an intervention,
-  tracking it in a resistance log, and planning transitions for groups facing
-  loss. Fires on "the drivers hate the new rosters", "why isn't anyone using
-  the new process?", "the night shift never stopped using the old
-  spreadsheet", "people are angry about the restructure", "the managers are
-  dragging their feet", "help people let go of the old way". Writes
-  resistance-log.md and transition-plan.md, by group, no names. Do NOT use for
-  drift after adoption (reinforcement), scanning sentiment across sources
-  (stakeholder-pulse), individual HR matters, adoption against targets
-  (adoption-measurement), or IT/ITIL change control.
+  Diagnoses why groups are pushing back on a change or have not taken up the
+  new way — the sticking point (doesn't understand, doesn't want to, doesn't
+  know how, can't yet, not reinforced) with an ADKAR-informed diagnostic and a
+  "what's ending" lens — then matches an intervention and plans transitions
+  for groups facing loss. Use for "the drivers hate the new rosters", "why
+  isn't anyone using the new process?", "managers are dragging their feet".
+  Writes resistance-log.md and transition-plan.md, by group, no names. Do NOT
+  use for drift after adoption (reinforcement), scanning sentiment
+  (stakeholder-pulse), or individual HR matters.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[group or signal] [--review] [--transition]"
@@ -77,7 +72,7 @@ Prosci, Inc.); label outputs "individual change barrier diagnostic
 | What changes for the group | `docs/change/impact-register.md` | Ask for a one-line impact and mark as assumption |
 | Stakeholder position | `docs/change/stakeholder-register.md` | Proceed without it |
 | Existing log | `docs/change/resistance-log.md` | Start from [resistance-log.template.md](assets/resistance-log.template.md) |
-| Minimum group size | practice profile | Use 5 |
+| Minimum group size | practice profile (`~/change-practice/CLAUDE.md`) | Use 5 |
 
 Say if any artefact is older than the profile's `stale_after_days`.
 
