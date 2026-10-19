@@ -1,20 +1,15 @@
 ---
 name: change-network
 description: >
-  Use when the user needs to design or run a network of change champions —
-  local, peer-level people in each impacted team or site who carry the change
-  into their area and bring feedback back: coverage against a target ratio,
-  selection criteria, role and time, cadence, toolkit, a champion pack (role
-  description, nomination note, session plans), and logging champion feedback.
-  Fires on "we need people on the ground in each depot", "set up super users
-  for the rollout", "are we covering every team?", "log what the champions
-  said at today's huddle", "draft the champion role description". Writes
-  change-network.md, network-feedback.csv and pack drafts in
-  docs/change/network/. People/organisational change only. Do NOT use for
-  reading sentiment across champions, chat and surveys (stakeholder-pulse),
-  sponsors and senior leaders (sponsor-engagement), one-off workshops
-  (stakeholder-engagement), diagnosing resistance (resistance-management),
-  go-live floor-walker rotas (golive-transition), or IT/ITIL change control.
+  Designs and runs a network of change champions — peer-level people in each
+  affected team or site — with coverage against a target ratio, selection,
+  role, cadence, a champion pack (role description, nomination note, session
+  plans) and a feedback log. Use for "we need people on the ground in each
+  depot", "set up super users", "are we covering every team?", "log what the
+  champions said today". Writes change-network.md, network-feedback.csv and
+  docs/change/network/. Do NOT use for sentiment across sources (stakeholder-
+  pulse), sponsors and leaders (sponsor-engagement), or diagnosing resistance
+  (resistance-management).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep Bash(node:*)
 argument-hint: "[design | feedback | coverage | pack] [--per N]"
@@ -72,7 +67,7 @@ Read [change-conventions.md](references/change-conventions.md) and
 | Network approach in the strategy | `docs/change/strategy.md` | Ask whether champions are part of the plan and what time the business will release |
 | Champion roster (role, group, location) | the user, an existing `change-network.md`, `~~hris` export | Design the network first; check coverage once names come in |
 | Champion feedback | huddle notes, `~~chat` channel, `~~survey` pulses | Start an empty log from [network-feedback.csv](assets/network-feedback.csv) |
-| Minimum group size for sentiment | practice profile | Use 5 |
+| Minimum group size for sentiment | practice profile (`~/change-practice/CLAUDE.md`) | Use 5 |
 
 Say if any artefact is older than the profile's `stale_after_days`.
 
