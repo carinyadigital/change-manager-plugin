@@ -1,2 +1,14 @@
+# .gitignore
+
+# local working files
+*.local.md
+
+# Dependencies
 node_modules/
+
+# Environment variables
+.env
+
+# Operating System
 .DS_Store
+Thumbs.db
