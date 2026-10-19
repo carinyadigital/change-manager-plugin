@@ -7,12 +7,13 @@
   {"query": "build a floor-walker rota for the night shift", "should_trigger": true},
   {"query": "check comms, training and job aids are all done before cutover", "should_trigger": true},
   {"query": "what are the support and escalation routes for go-live?", "should_trigger": true},
-  {"query": "write the cutover runbook with rollback steps", "should_trigger": false, "note": "technical cutover, not people change"},
-  {"query": "book the deployment window with the CAB", "should_trigger": false, "note": "IT change control"},
-  {"query": "are we ready to go live, yes or no?", "should_trigger": false, "note": "readiness-review"},
-  {"query": "is usage where we expected three months in?", "should_trigger": false, "note": "adoption-measurement"},
-  {"query": "draft the launch-day email to all staff", "should_trigger": false, "note": "comms-draft"},
-  {"query": "hand the project over to the BAU team", "should_trigger": false, "note": "bau-handover"},
-  {"query": "set up an on-call roster for the platform engineers", "should_trigger": false, "note": "IT operations, not people change"},
-  {"query": "plan the launch party for the product", "should_trigger": false, "note": "event planning, not change management"}
+  {"query": "run today's hypercare check-in from the issue log", "should_trigger": true},
+  {"query": "write the cutover runbook with rollback steps", "should_trigger": false,"note": "technical cutover, not people change"},
+  {"query": "book the deployment window with the CAB", "should_trigger": false,"note": "IT change control"},
+  {"query": "are we ready to go live, yes or no?", "should_trigger": false,"note": "readiness-review"},
+  {"query": "is usage where we expected three months in?", "should_trigger": false,"note": "adoption-measurement"},
+  {"query": "draft the launch-day email to all staff", "should_trigger": false,"note": "comms-draft"},
+  {"query": "hand the project over to the BAU team", "should_trigger": false,"note": "bau-handover"},
+  {"query": "set up an on-call roster for the platform engineers", "should_trigger": false,"note": "IT operations, not people change"},
+  {"query": "plan the launch party for the product", "should_trigger": false,"note": "event planning, not change management"}
 ]

@@ -8,18 +8,19 @@ description: >
   check-in; capturing issue themes; and the criteria for ending hypercare.
   Fires even when the user never says "go-live support": "who's on the floor
   on launch day?", "how do people get help in week one?", "plan hypercare",
-  "set up the launch-week huddle", "when can we stand down the support team?".
-  Writes docs/change/golive-plan.md as a draft for review. Covers
+  "set up the launch-week huddle", "when can we stand down the support team?",
+  "run today's hypercare check-in". Writes docs/change/golive-plan.md, an
+  issue-theme log and daily check-in notes, as drafts. Covers
   people/organisational change only. Do NOT use for the technical cutover
   runbook, IT/ITIL deployment or release change control, for the go/no-go
   recommendation (readiness-review), or for tracking adoption after hypercare
   (adoption-measurement).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
-argument-hint: "[go-live date or wave] [--refresh]"
+argument-hint: "[go-live date or wave] [--refresh] [--daily]"
 metadata:
   author: Carinya Digital
-  version: "0.1.0"
+  version: "0.2.0"
   owner: change-practice
   review_cadence: quarterly
   work_shape: generate-draft
@@ -86,7 +87,9 @@ see [bridges.md](references/bridges.md).
   approval through the profile's comms approval chain.
 - **People data.** Rota uses names only where the user gives them; issue
   themes are aggregated — no individual's mistakes are logged by name.
-- **Blast radius.** Writes only `docs/change/golive-plan.md`.
+- **Blast radius.** Writes only `docs/change/golive-plan.md`,
+  `docs/change/hypercare-issues.csv` and
+  `docs/change/hypercare/<YYYY-MM-DD>.md`.
 
 ## Workflow
 
@@ -106,9 +109,12 @@ see [bridges.md](references/bridges.md).
 5. **Daily rhythm.** A short daily check-in: who attends, the standing
    questions (what's blocking people, top issue themes, what we're changing
    today), and how decisions and quick-fix comms flow back to staff.
-6. **Issue themes.** Set up the theme log (category, groups affected, count
-   or trend from `~~itsm` if connected, root cause type — people, process,
-   system, data — owner, action). Themes, not individual tickets.
+6. **Issue themes.** Set up `docs/change/hypercare-issues.csv` from
+   [hypercare-issues.csv](assets/hypercare-issues.csv): date, group, site or
+   shift, theme, root cause type (people, process, system, data, access),
+   signal count from `~~itsm` or floor-walkers, urgent flag, action, owner,
+   when the fix was told to staff, status. Themes, not individual tickets;
+   never a person's name.
 7. **Exit criteria.** Propose measurable hypercare exit criteria tied to the
    measurement plan (for example: issue volumes back to an agreed level,
    no open urgent themes, key tasks completed without help). Thresholds come
@@ -117,7 +123,14 @@ see [bridges.md](references/bridges.md).
    coverage gaps, unconfirmed checks. Wait for yes.
 9. **Write** `docs/change/golive-plan.md` from
    [golive-plan.template.md](assets/golive-plan.template.md).
-10. **Hand off.** `comms-draft` for launch messages and help-route notices;
+10. **Daily check-in (`--daily`, during hypercare).** Read
+    `hypercare-issues.csv` and the previous check-in, add today's themes on
+    the user's say-so, and draft `docs/change/hypercare/<YYYY-MM-DD>.md` from
+    [daily-checkin.template.md](assets/daily-checkin.template.md): open
+    themes with trend and root cause, what closed and whether staff were told,
+    messages for today (drafted with `comms-draft`), support cover gaps, and
+    progress against exit criteria. Show it; write on a yes.
+11. **Hand off.** `comms-draft` for launch messages and help-route notices;
     `adoption-measurement` after hypercare exit; `lessons-learned` to capture
     launch lessons while fresh.
 
@@ -131,12 +144,16 @@ see [bridges.md](references/bridges.md).
   go-live — plan support for it.
 - Early issues are often process or access, not training. Tag the root cause
   type before prescribing more training.
+- A fix nobody is told about isn't a fix. Track "told to staff" for every
+  closed theme.
 
 ## Outputs
 
 | Artefact | Path |
 | --- | --- |
 | Go-live support plan | `docs/change/golive-plan.md` |
+| Hypercare issue themes | `docs/change/hypercare-issues.csv` |
+| Daily check-in notes | `docs/change/hypercare/<YYYY-MM-DD>.md` |
 
 Chat summary: go-live date, unconfirmed checks, rota gaps, exit criteria, and
 the next skill.

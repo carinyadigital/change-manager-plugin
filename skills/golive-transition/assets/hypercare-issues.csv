@@ -1,0 +1,4 @@
+date,group,site_shift,theme,root_cause_type,signals,source,urgent,action,owner,fix_told_to_staff,status
+Example — 2027-03-02,Contact centre agents,Brisbane day,Refund approval button greyed out,access,14,service desk + floor-walkers,y,Bulk permission fix,IT access manager,2027-03-02 shift huddle,closed
+Example — 2027-03-02,Contact centre agents,Sydney night,Unsure which script to use for complaints,people,9,floor-walkers,n,Tip of the day + job aid update,Training lead,,open
+Example — 2027-03-03,Team leaders,All,Exception report not showing yesterday's refunds,data,5,team leader huddle,n,Raised with project BA,Project BA,,open

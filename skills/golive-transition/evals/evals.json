@@ -1,0 +1,38 @@
+{
+  "skill_name": "golive-transition",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Plan the people side of go-live on 1 March: two sites, day and night shifts, 120 agents.",
+      "expected_output": "Builds the pre-go-live checklist from the record marking anything without evidence as unconfirmed, sizes floor-walker cover for every site and shift, sets support tiers with escalation rules, a daily check-in, an issue-theme log, and exit criteria with thresholds from the measurement plan or the user.",
+      "assertions": [
+        "Marks checks without evidence as unconfirmed, never done",
+        "Covers night shifts in the rota or flags them as a gap",
+        "Does not invent phone numbers, queue names or exit thresholds",
+        "Sets up hypercare-issues.csv with themes, not individual tickets",
+        "Waits for yes before writing"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Day 3 of hypercare. Floor-walkers say 14 agents in Brisbane couldn't approve refunds this morning and night shift is confused about complaint scripts. Run the check-in.",
+      "expected_output": "Adds two themes with root cause types (access; people), flags the refund issue as urgent if customers are affected, drafts the daily check-in with trend, actions, what to tell staff today via comms-draft, and progress against exit criteria; records no names.",
+      "assertions": [
+        "Logs the two signals as themes with a root cause type each",
+        "Does not prescribe more training for the access issue",
+        "Includes what staff will be told today and through which channel",
+        "Records no individual's name",
+        "Writes docs/change/hypercare/<date>.md only after a yes"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write the technical cutover runbook for the database migration.",
+      "expected_output": "Identifies the technical cutover runbook as out of scope and does not write a go-live plan.",
+      "assertions": [
+        "Declines the technical runbook as out of scope",
+        "Does not write docs/change/golive-plan.md"
+      ]
+    }
+  ]
+}
