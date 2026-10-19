@@ -1,4 +1,4 @@
-# change-manager-plugin
+# Change Manager Plugin for Agents
 
 A reference collection of agents, skills and connector guidance for
 organisational change managers, packaged as a Claude plugin marketplace. Works
