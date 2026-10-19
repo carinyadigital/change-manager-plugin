@@ -7,7 +7,9 @@ description: >
   "communications plan": "how do we tell staff?", "what do we say to people
   and when?", "who should announce this?", "build the comms calendar", "map
   messages to audiences", "leaders need to hear before their teams". Writes
-  the plan to docs/change/comms-plan.md with a schedule CSV. Covers
+  the plan to docs/change/comms-plan.md with a schedule CSV, and the change
+  story (core narrative, key messages, hard questions) to change-story.md.
+  Covers
   people/organisational change only. Do NOT use for drafting a specific email,
   post, FAQ or briefing (comms-draft), sponsor talking points and roadmap
   (sponsor-engagement), workshops and two-way sessions (stakeholder-engagement),
@@ -18,7 +20,7 @@ allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[audience or phase to plan] [--refresh]"
 metadata:
   author: Carinya Digital
-  version: "0.1.0"
+  version: "0.2.0"
   owner: change-practice
   review_cadence: quarterly
   work_shape: generate-draft
@@ -38,6 +40,8 @@ decided.
 
 Read [change-conventions.md](references/change-conventions.md) and
 [message-principles.md](references/message-principles.md) before starting.
+Read [channel-guide.md](references/channel-guide.md) when choosing channels
+and laying out the phase rhythm.
 
 ## When to use
 
@@ -87,21 +91,27 @@ Read [change-conventions.md](references/change-conventions.md) and
   any broadcast.
 - **People data.** Audiences are groups and roles. Only sponsors and named
   senders appear by name, and only if the user supplies them.
-- **Blast radius.** Writes only `docs/change/comms-plan.md` and
-  `docs/change/comms-plan.csv`.
+- **Blast radius.** Writes only `docs/change/comms-plan.md`,
+  `docs/change/comms-plan.csv` and `docs/change/change-story.md`.
 
 ## Workflow
 
 1. **Load context.** Read the profile, `scope.md`, `stakeholder-register.md`,
    `impact-register.md`, `strategy.md` and `sponsor-plan.md` if present. Flag
    any that are older than `stale_after_days`.
-2. **Write the core narrative.** Six short answers that every message draws
-   from: why we are changing, what is changing, when, what it means for me,
-   what is not changing, and where to get help. Use the record's words; mark
-   gaps. Show it to the user first — every later item depends on it.
+2. **Write the change story.** Draft `docs/change/change-story.md` from
+   [change-story.template.md](assets/change-story.template.md): the story in
+   three sentences, the core narrative (why, why now, what, when, what it
+   means for me, what is not changing, what will be harder at first, where to
+   get help), three to five key messages with sources, the hard questions,
+   and what is not yet decided. Use the record's words; mark gaps. Show it to
+   the user and get it agreed first — every later item depends on it. If
+   `change-story.md` exists, reuse it.
 3. **Segment audiences.** One row per group that experiences the change
    differently. Higher impact score = more touchpoints, more face-to-face, and
-   manager-delivered. Low-impact groups may need only one or two items.
+   manager-delivered. Low-impact groups may need only one or two items. Ask
+   which channels each group actually uses and choose from
+   `channel-guide.md`; record groups a channel cannot reach.
 4. **Match sender to message.** Apply the sender rules in
    [message-principles.md](references/message-principles.md): business reasons
    from the most senior accountable leader; "what it means for you" from the
@@ -110,7 +120,8 @@ Read [change-conventions.md](references/change-conventions.md) and
    before their teams hear anything. Sensitive news is told in person before
    it is broadcast. Leave a gap between briefing and broadcast for questions.
 6. **Schedule by phase.** Lay items out across phases, anchored to key dates
-   (announcement, training start, go-live, hypercare exit). Each item: audience,
+   (announcement, training start, go-live, hypercare exit), starting from the
+   phase rhythm in `channel-guide.md` and the template's timeline table. Each item: audience,
    key message, channel, sender, send window, feedback loop, status. Write the
    CSV from [comms-plan.csv](assets/comms-plan.csv).
 7. **Close the loop.** For every audience, name how questions and reactions
@@ -119,7 +130,8 @@ Read [change-conventions.md](references/change-conventions.md) and
 8. **Show and confirm.** Present the answer-first summary (audiences, number
    of items, first three sends, open decisions, sensitive items) and the files
    you will write. Wait for yes.
-9. **Write** `docs/change/comms-plan.md` from
+9. **Write** `docs/change/change-story.md` (if new or changed) and
+   `docs/change/comms-plan.md` from
    [comms-plan.template.md](assets/comms-plan.template.md) and the CSV.
 10. **Hand off.** Suggest `comms-draft` for the first item due, and
     `sponsor-engagement` if sponsor items are unconfirmed.
@@ -142,6 +154,7 @@ Read [change-conventions.md](references/change-conventions.md) and
 | --- | --- |
 | Communications plan (narrative, audiences, schedule) | `docs/change/comms-plan.md` |
 | Schedule data | `docs/change/comms-plan.csv` |
+| Change story (core narrative, key messages, hard questions) | `docs/change/change-story.md` |
 
 Chat summary: core narrative status, number of audiences and items, next three
 sends with sender and date, sensitive items needing HR/legal, and the

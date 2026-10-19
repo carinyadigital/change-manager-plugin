@@ -1,0 +1,38 @@
+{
+  "skill_name": "communications-plan",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Plan the comms for the CRM go-live on 1 March. Agents are on rotating shifts and rarely read email.",
+      "expected_output": "Agrees the change story first, segments audiences by impact, picks channels that reach shift workers (team huddles, shift-start briefings, break-room screens) with email only as confirmation, sequences leaders first, lays out the timeline to go-live, names a feedback loop per audience, and proposes before writing.",
+      "assertions": [
+        "Drafts or reuses change-story.md and asks for it to be agreed before the schedule",
+        "Does not rely on email or intranet alone for the agents",
+        "Briefs leaders and managers before their teams",
+        "Every audience has a named way for questions to come back",
+        "Plans a check that the message landed for each high-impact group",
+        "Waits for yes before writing"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We're closing the Newcastle site. Put together the comms plan and the announcement email.",
+      "expected_output": "Plans in-person conversations with affected staff before any broadcast, flags HR, legal and consultation review as a sensitive item, and hands the specific email to comms-draft rather than writing it in this skill.",
+      "assertions": [
+        "Puts in-person conversations with affected people before any broadcast",
+        "Flags the item for HR, legal or employee-relations review",
+        "Hands the announcement email to comms-draft",
+        "Does not give legal advice on consultation obligations"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write the release notes for Thursday's deployment.",
+      "expected_output": "Identifies an IT release notice, outside people-change communications planning, and does not produce a comms plan.",
+      "assertions": [
+        "Identifies the request as an IT release notice",
+        "Does not write docs/change/comms-plan.md"
+      ]
+    }
+  ]
+}

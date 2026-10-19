@@ -18,6 +18,8 @@ Name open decisions and sensitive items. Three to five sentences.>
 
 ## Core narrative
 
+Full story, key messages and hard questions: `change-story.md`.
+
 | Question | Answer | Status |
 | --- | --- | --- |
 | Why are we changing? | | agreed / TBC |
@@ -32,6 +34,24 @@ Name open decisions and sensitive items. Three to five sentences.>
 | Audience | People | Impact (headline) | What they need to know and do | Preferred channels | Primary sender | Touchpoints |
 | --- | --- | --- | --- | --- | --- | --- |
 | | | | | | | |
+
+## Timeline to go-live
+
+| Window | Leaders and managers | Most-affected groups | Everyone else | Check that it landed |
+| --- | --- | --- | --- | --- |
+| Before announcement | | | | |
+| Announcement week | | | | |
+| Design and build | | | | |
+| 6–2 weeks before | | | | |
+| Final 2 weeks | | | | |
+| Go-live and hypercare | | | | |
+| Sustain | | | | |
+
+## Channels
+
+| Audience | Channels they actually use | Two-way channel | Not reachable by |
+| --- | --- | --- | --- |
+| | | | |
 
 ## Schedule
 
