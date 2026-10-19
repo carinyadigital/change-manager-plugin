@@ -41,7 +41,8 @@ check finding.
 Read [change-conventions.md](references/change-conventions.md),
 [methods.md](references/methods.md) and
 [framework-selector.md](references/framework-selector.md) before starting. Method
-cheat-sheets: [adkar.md](references/adkar.md), [kotter.md](references/kotter.md),
+cheat-sheets — load only the one for the method chosen or the lens borrowed:
+[adkar.md](references/adkar.md), [kotter.md](references/kotter.md),
 [bridges.md](references/bridges.md), [pct.md](references/pct.md). Read
 [sizing-worksheet.md](references/sizing-worksheet.md) when sizing the change,
 and [force-field.md](references/force-field.md) when running or writing up a
@@ -139,7 +140,10 @@ forces-for-and-against session.
 10. **Write** `docs/change/strategy.md` from
     [strategy.template.md](assets/strategy.template.md).
 11. **Case for change and forces (when asked, or when the sponsor lacks one).**
-    For `--case-for-change`, draft `docs/change/case-for-change.md` from
+    These can run early, before the other Prepare artefacts exist: the case
+    for change needs only `scope.md` (or the user's summary) and the business
+    case; skip steps 2–10 when only these are asked for. For
+    `--case-for-change`, draft `docs/change/case-for-change.md` from
     [case-for-change.template.md](assets/case-for-change.template.md) using
     only `scope.md`, the business case and named sources. For
     `--force-field`, give the user the session outline in `force-field.md`,

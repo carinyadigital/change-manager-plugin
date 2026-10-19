@@ -26,7 +26,8 @@ three actions that would reduce them, and what this means for the strategy.>
 | --- | --- | --- | --- | --- | --- | --- |
 | | | | | | | |
 
-**Totals:** driving <n> · restraining <n>
+*Strengths are judgements to compare forces, not scores to add up. Focus on
+the strongest restraining forces rather than the balance.*
 
 ## Actions
 
