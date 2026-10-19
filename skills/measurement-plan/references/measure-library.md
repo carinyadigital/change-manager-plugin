@@ -7,7 +7,8 @@ it a source, baseline, threshold, action and owner. None of these come with
 targets — targets come from the business case or the business owner.
 
 Every measure is reported by group, in aggregate, at or above the minimum
-group size. None tracks a named individual.
+group size. None tracks a named individual. The 30-, 90- and 180-day review
+points are plugin defaults; use the organisation's own if it has them.
 
 ## How to choose
 
@@ -65,7 +66,7 @@ group size. None tracks a named individual.
 | Leading | Consultation steps met | Consultation milestones completed as agreed | HR / employee relations |
 | Adoption | New decision rights used | Share of decisions made at the new level (sampled) | Delegation logs, governance minutes |
 | Adoption | New ways of working in place | Team routines (stand-ups, handoffs, reviews) running as designed | Team leader confirmation, observation |
-| Outcome | Retention of key roles | Voluntary exits from roles identified as critical, compared with baseline | `~~hris` (aggregate only) |
+| Outcome | Retention of key roles | Voluntary exits from roles identified as critical, compared with baseline — only where the role group meets the minimum group size; otherwise combine role groups | `~~hris` (aggregate only) |
 | Outcome | Service continuity | The service measure most at risk during the transition | Business reporting |
 
 ### Policy change
@@ -91,7 +92,7 @@ group size. None tracks a named individual.
 
 | Tier | Measure | Definition shape | Typical source |
 | --- | --- | --- | --- |
-| Leading | Leaders role-modelling | Share of leaders observed or reported doing the target behaviour | 360 or pulse items, observation |
+| Leading | Leaders role-modelling | Share of leaders, as a group, reported doing the target behaviour | Pulse items about leaders in the area, observation (never individual 360 or performance data) |
 | Adoption | Target behaviour seen | Frequency of the specific, observable behaviour (e.g. safety reports raised, ideas logged, peer reviews held) | Operational logs |
 | Adoption | Behaviour recognised | Recognition given for the target behaviour | Recognition system, team meetings |
 | Outcome | The result the behaviour drives | Incident rates, quality, customer measure | Business reporting |
