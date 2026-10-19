@@ -1,20 +1,13 @@
 ---
 name: measurement-plan
 description: >
-  Use when the user needs to decide, before go-live, how they will know an
-  organisational change is working — leading indicators (sponsor activity,
-  readiness, training effectiveness, sentiment), adoption measures (usage,
-  proficiency, compliance) and outcome measures (business results, sustained
-  adoption at 90 and 180 days), each with a baseline, target, action
-  threshold, source, owner and frequency. Fires even when the user never says
-  "measurement plan": "how will we know this has worked?", "what should we
-  track for adoption?", "set KPIs for the change", "what does success look
-  like in numbers?", "what's our baseline?". Writes
-  docs/change/measurement-plan.md with a CSV. Covers people/organisational
-  change only. Do NOT use for IT/ITIL change success criteria or CAB
-  post-implementation reviews, for reading results against the plan after
-  go-live (adoption-measurement), for readiness checks (business-readiness), for
-  the overall change approach (change-strategy), or for building dashboards.
+  Decides, before go-live, how you will know a change is working — leading,
+  adoption and outcome measures, each with baseline, target, action threshold,
+  source, owner and frequency. Use for "how will we know this has worked?",
+  "what should we track for adoption?", "set KPIs for the change", "what's our
+  baseline?". Writes docs/change/measurement-plan.md with a CSV. Do NOT use to
+  read results after go-live (adoption-measurement), readiness checks
+  (business-readiness), or the overall approach (change-strategy).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[measure type to focus on: leading | adoption | outcome] [--refresh]"
