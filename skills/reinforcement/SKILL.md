@@ -19,7 +19,7 @@ allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[group or measure to reinforce] [--refresh]"
 metadata:
   author: Carinya Digital
-  version: "0.1.0"
+  version: "0.2.0"
   owner: change-practice
   review_cadence: quarterly
   work_shape: generate-draft
@@ -93,15 +93,20 @@ Read [change-conventions.md](references/change-conventions.md) and
    what the evidence is. If there is no evidence, say so.
 3. **Sustainability check.** Rate the ten factors in
    [sustainability-check.md](references/sustainability-check.md) from
-   evidence (1–3). Factors rated 1 are where the plan must act first.
-4. **Choose mechanisms.** For each weak factor and slipping group, pick from:
+   evidence (1–3), per group where groups differ. Factors rated 1 are where
+   the plan must act first.
+4. **Choose mechanisms.** For each weak factor and slipping group, start from
+   the matching row of
+   [reinforcement-mechanisms.md](references/reinforcement-mechanisms.md) and
+   pick two or three with a named owner, from:
    recognition (specific, timely, tied to the new behaviour); success stories
    (real, with measured effect where available); leader reinforcement (what
    leaders ask about, check and praise in their routines); performance and
    process alignment (goals, role descriptions, procedures, reports);
    removing the old way (switch off, lock, archive, with a date and owner);
    coaching (by managers or champions); and corrective action when slippage
-   is found.
+   is found. Lay them out on the reinforcement calendar (weeks 1–4, months
+   2–3, months 4–6) aligned to the measurement plan's review points.
 5. **Slippage response.** Define the trigger (from the measurement plan
    threshold), who notices, and the first response — usually a conversation
    with the team's leader to find the barrier, not more communications.

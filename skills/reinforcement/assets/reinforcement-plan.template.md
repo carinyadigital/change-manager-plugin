@@ -43,6 +43,14 @@ will matter most, and who owns them.>
 | --- | --- | --- | --- | --- | --- | --- |
 | | recognition / story / leader / alignment / remove old way / coaching | | | | | |
 
+## Reinforcement calendar
+
+| When | Mechanism | Groups | Owner | Status |
+| --- | --- | --- | --- | --- |
+| Weeks 1–4 | | | | |
+| Months 2–3 | | | | |
+| Months 4–6 | | | | |
+
 ## Removing the old way
 
 | Old tool, form or path | Action | Date | Owner | Dependency (e.g. IT change) |

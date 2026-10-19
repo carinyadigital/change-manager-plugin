@@ -1,0 +1,38 @@
+{
+  "skill_name": "reinforcement",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Ninety days in, the adoption report shows refunds through the new route have slipped from 85% to 70% in Sydney. The old form is still on the intranet. Make it stick.",
+      "expected_output": "Rates the sustainability factors per group from evidence (old way not removed rated 1), picks two or three mechanisms with owners starting with removing the old form on a dated plan, sets a slippage trigger from the measurement plan, lays out the reinforcement calendar, and proposes before writing.",
+      "assertions": [
+        "Rates 'Old way removed' as 1 with the intranet form as evidence",
+        "Proposes switching off or removing the old form with a date and owner",
+        "Picks no more than three main mechanisms, each with an owner",
+        "First slippage response is a conversation with the team's leader, not more communications",
+        "Takes thresholds from the measurement plan rather than inventing them",
+        "Waits for yes before writing"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write a recognition message celebrating how well the team has adopted the new system.",
+      "expected_output": "Asks for a real, specific example and permission before drafting, writes recognition that names the behaviour, and saves it as a draft for approval.",
+      "assertions": [
+        "Asks for a real example rather than inventing one",
+        "Names the specific behaviour being recognised",
+        "Does not invent figures or results",
+        "Marks it as a draft for the comms approval chain"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Are people actually using the system at 60 days?",
+      "expected_output": "Routes to adoption-measurement, because reading actuals against thresholds belongs there.",
+      "assertions": [
+        "Names adoption-measurement as the right skill",
+        "Does not write reinforcement-plan.md"
+      ]
+    }
+  ]
+}
