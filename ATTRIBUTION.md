@@ -17,6 +17,26 @@ templates or instruments from them are bundled in this release.
 | GovS 002 Project Delivery functional standard | UK Government | Open Government Licence v3.0 | Normative reference; linked |
 | Doyle et al., "Making change last", *Implementation Science* 2013;8:127 | Authors | CC BY 2.0 | Cited for the sustainability model's evaluation |
 
+## Concepts described in our own words
+
+These ideas inform original material in the plugin. No text, questions or
+templates are taken from their owners.
+
+| Concept | Source | Where used |
+| --- | --- | --- |
+| Force-field analysis | Kurt Lewin | `change-strategy` force-field guide and template |
+| Four levels of training evaluation | Donald Kirkpatrick | `training-needs-analysis` learning-methods guide and training plan |
+| Alignment of strategy, structure, systems, values, style, staff and skills | McKinsey 7-S framework | `business-readiness` organisational readiness questions (area 6) |
+| Endings, the in-between and new beginnings | Bridges Transition Model, William Bridges Associates | `resistance-management` transition plan |
+| Five-element individual change sequence | Prosci ADKAR® | Barrier diagnostic (plugin's own scale and "sticking point" term), pulse question mapping |
+| Factors that decide whether a change lasts | NHS Sustainability Model (NHS England) | `reinforcement` ten-factor sustainability check — the plugin's own questions; NHS text not reproduced |
+
+## Adapted material in repository tooling
+
+| File | Source | Licence | How used |
+| --- | --- | --- | --- |
+| `.github/policy/prompt.md`, `.github/policy/schema.json` | anthropics/knowledge-work-plugins, `.github/policy/` | Apache License 2.0 | Adapted as this plugin's security and privacy scan. The prompt states its own checks; this table is the source and licence record |
+
 ## Bundling adapted material later
 
 If a future release adapts text from a CC BY or OGL source, the adapted file

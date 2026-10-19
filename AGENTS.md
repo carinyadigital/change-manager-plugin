@@ -19,6 +19,7 @@ not contributor guidance. This file is the contributor guide.
 | `references/` | Canonical shared references, copied into skills by `npm run sync` |
 | `.mcp.json`, `CONNECTORS.md` | Bundled connectors and the `~~category` map |
 | `scripts/`, `tests/` | Development tooling only |
+| `.github/` | MCP URL check, policy scan and release workflows; the prompts and output schemas they use live in `policy/` and `release/` |
 
 There is no `commands/` directory — commands are deprecated; everything a user
 invokes is a skill.
