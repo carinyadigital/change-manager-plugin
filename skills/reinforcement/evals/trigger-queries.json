@@ -7,12 +7,13 @@
   {"query": "will this change last once the project team leaves?", "should_trigger": true},
   {"query": "outline a success story about the new rostering process", "should_trigger": true},
   {"query": "we need to retire the old forms so people stop using them", "should_trigger": true},
-  {"query": "run the 90-day adoption review", "should_trigger": false, "note": "adoption-measurement"},
-  {"query": "hand the change over to the BAU owner and close the project", "should_trigger": false, "note": "bau-handover"},
-  {"query": "why are the branch managers resisting the change?", "should_trigger": false, "note": "resistance-management"},
-  {"query": "raise a change request to decommission the legacy server", "should_trigger": false, "note": "IT change control"},
-  {"query": "design our annual staff awards programme", "should_trigger": false, "note": "generic HR reward, not change reinforcement"},
-  {"query": "draft the go-live announcement email", "should_trigger": false, "note": "comms-draft"},
-  {"query": "what lessons should we capture from this rollout?", "should_trigger": false, "note": "lessons-learned"},
-  {"query": "put a performance improvement plan in place for this employee", "should_trigger": false, "note": "HR performance management"}
+  {"query": "run the 90-day adoption review", "should_trigger": false,"note": "adoption-measurement"},
+  {"query": "hand the change over to the BAU owner and close the project", "should_trigger": false,"note": "bau-handover"},
+  {"query": "why are the branch managers resisting the change?", "should_trigger": false,"note": "resistance-management"},
+  {"query": "raise a change request to decommission the legacy server", "should_trigger": false,"note": "IT change control"},
+  {"query": "design our annual staff awards programme", "should_trigger": false,"note": "generic HR reward, not change reinforcement"},
+  {"query": "draft the go-live announcement email", "should_trigger": false,"note": "comms-draft"},
+  {"query": "what lessons should we capture from this rollout?", "should_trigger": false,"note": "lessons-learned"},
+  {"query": "put a performance improvement plan in place for this employee", "should_trigger": false,"note": "HR performance management"},
+  {"query": "the night shift never started using the new screen", "should_trigger": false,"note": "resistance-management — never adopted"}
 ]

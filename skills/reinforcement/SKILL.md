@@ -1,19 +1,20 @@
 ---
 name: reinforcement
 description: >
-  Use when the user needs to make a change stick after go-live — recognition,
-  success stories, leaders reinforcing the new way, aligning performance
-  goals, processes and reporting, retiring old workarounds and systems,
-  coaching, and a planned response when people slip back. Fires even when the
-  user never says "reinforcement": "how do we stop people drifting back to
-  the old way?", "people are using workarounds again", "make the new process
-  stick", "plan some recognition for the teams who've adopted it", "switch
-  off the old system". Runs a sustainability check and writes
-  docs/change/reinforcement-plan.md; story and recognition copy are drafts.
-  Covers people/organisational change only. Do NOT use for measuring adoption
-  (adoption-measurement), for closing out to business-as-usual (bau-handover), for
-  diagnosing pushback (resistance-management), for decommissioning systems
-  under IT/ITIL change control, or for general staff reward programmes.
+  Use when a change has been adopted and the user needs it to stick — after
+  go-live and hypercare, when people who were using the new way start drifting
+  back: recognition, success stories, leaders reinforcing the new way,
+  aligning goals, processes and reporting, retiring old workarounds and
+  systems, coaching, and a planned response to slippage. Fires on "how do we
+  stop people drifting back to the old way?", "adoption was good but it's
+  slipping", "make the new process stick", "plan some recognition for the
+  teams who've adopted it", "switch off the old system". Runs a sustainability
+  check and writes docs/change/reinforcement-plan.md; story and recognition
+  copy are drafts. People/organisational change only. Do NOT use when people
+  never adopted the new way or are pushing back before or around go-live
+  (resistance-management), for measuring adoption (adoption-measurement),
+  closing out to BAU (bau-handover), decommissioning under IT/ITIL change
+  control, or general staff reward programmes.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[group or measure to reinforce] [--refresh]"
@@ -66,7 +67,7 @@ Read [change-conventions.md](references/change-conventions.md) and
 | Measures and thresholds | `docs/change/measurement-plan.md` | Ask what "stuck" looks like; mark as an assumption |
 | Sponsor and leader roles | `docs/change/sponsor-plan.md` | Ask who leads each group |
 | Resistance themes | `docs/change/resistance-log.md` | Note as unavailable |
-| Old ways still available | `golive-plan.md` issue themes, the user | Ask directly: what old tools, forms or reports still exist? |
+| Old ways still available | `hypercare-issues.csv` themes, `golive-plan.md`, the user | Ask directly: what old tools, forms or reports still exist? |
 | Success examples | `~~chat`, `~~internal comms`, the user | Ask; never invent a story or quote |
 
 ## Trust spine
