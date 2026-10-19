@@ -115,7 +115,7 @@ building the training plan or naming how ability will be checked.
    environment) plus a job aid; behaviour or judgement change → coaching by
    the manager. Self-paced alone is weak for gaps of 2 or more.
 6. **Set timing and assessment.** Schedule learning close to go-live (usually
-   within two to three weeks) so it is not forgotten. Name how ability is
+   within two to three weeks — the plugin's planning default) so it is not forgotten. Name how ability is
    checked — observed task, scenario, supervisor sign-off — not just
    attendance.
 7. **Run the summary.** Write the CSV from [tna.csv](assets/tna.csv), then run:

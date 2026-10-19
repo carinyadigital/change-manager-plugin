@@ -22,7 +22,7 @@ Start from the gap (required minus current proficiency, 0–3 scale in
 | Briefing or demo | Awareness of what changes; small gaps | Building ability | Counts as communication, not training |
 | Job aid / quick reference | Rare tasks; step-by-step; support on the day | Judgement, complex decisions | Needs SME review and to be where people work |
 | Self-paced module | Knowledge, policy, consistent content at scale | Gaps of 2 or more on their own | Completion is not ability |
-| Instructor-led, classroom or virtual | Practice with feedback; questions; groups of 8–15 | Very large populations on a short timeline | Release time and shifts; trainer capacity |
+| Instructor-led, classroom or virtual | Practice with feedback; questions; small groups where everyone gets hands-on time | Very large populations on a short timeline | Release time and shifts; trainer capacity |
 | Practice environment / sandbox | System tasks that need repetition | Process or behaviour change alone | Must be ready and loaded with realistic data |
 | Train-the-trainer / super-user | Scale; local credibility; floor support | Highly technical content | Super-users need time released and depth beyond end users |
 | On-the-job coaching | Behaviour, judgement, proficiency after go-live | Initial knowledge | Managers need coaching guidance and time |
@@ -30,8 +30,9 @@ Start from the gap (required minus current proficiency, 0–3 scale in
 
 ### Design checks
 
-- **Closest to use.** Most hands-on training lands best in the two to three
-  weeks before go-live; earlier is forgotten.
+- **Closest to use.** Hands-on training is best held close to go-live so it
+  isn't forgotten. The plugin's planning default is the two to three weeks
+  before go-live; adjust to the organisation's experience.
 - **Managers first.** Leaders learn the process before their teams, plus how
   to coach it.
 - **Real tasks, real data.** Practise the group's actual work, not a generic

@@ -53,6 +53,9 @@ Full schedule: `training-schedule.csv`.
 
 ## Evaluation
 
+*Four levels — reaction, learning, behaviour, results — after the evaluation
+idea first described by Donald Kirkpatrick, in the plugin's own words.*
+
 | Level | What we will check | How | When | Owner | Reported in |
 | --- | --- | --- | --- | --- | --- |
 | Reaction | | | End of session | | training-plan.md |
