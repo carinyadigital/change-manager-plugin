@@ -22,9 +22,6 @@ the right-hand column.
 | ACMP Standard for Change Management | ACMP | A method-neutral set of process groups: evaluate impact and readiness; formulate strategy; develop the plan; execute; complete. | used as the plugin's lifecycle map | Free download, business use needs licence. Paraphrase and link: https://www.acmpglobal.org/page/the_standard |
 | McKinsey Influence Model | McKinsey & Company | Four conditions for behaviour change: understanding and conviction, formal reinforcement, skills, role models. | conviction, reinforcement mechanisms, capability, role modelling | Proprietary. Cite: https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/the-four-building-blocks--of-change |
 | Lewin | Kurt Lewin (academic) | Unfreeze, change, refreeze; weigh driving against restraining forces. | force-field analysis | Classic concept; describe freely |
-| APS Change Framework | Australian Government, Department of Home Affairs | Stage-based public-sector framework with templates for impact, readiness and planning. | used as structural reference for impact and readiness | CC BY 4.0 (framework PDF). Further reading: https://www.apsacademy.gov.au/resources/aps-change-framework |
-| NHS Change Model and Sustainability Model | NHS England | Eight components of large-scale change; a ten-factor self-assessment of whether a change will last. | sustainability factors | Open Government Licence (verify per PDF). Further reading: https://www.england.nhs.uk/publication/the-change-model-guide/ |
-| Queensland PSC "Communicating for change" | Queensland Public Service Commission | Principles and a plan structure for change communication; lists visible sponsorship as the top contributor to success. | used for comms principles | CC BY 4.0 presumed (site default; confirm). Further reading: https://www.forgov.qld.gov.au/__data/assets/pdf_file/0023/182615/change-communication-guide.pdf |
 
 ## Using a framework in an artefact
 
