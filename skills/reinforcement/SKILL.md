@@ -1,20 +1,15 @@
 ---
 name: reinforcement
 description: >
-  Use when a change has been adopted and the user needs it to stick — after
-  go-live and hypercare, when people who were using the new way start drifting
-  back: recognition, success stories, leaders reinforcing the new way,
-  aligning goals, processes and reporting, retiring old workarounds and
-  systems, coaching, and a planned response to slippage. Fires on "how do we
-  stop people drifting back to the old way?", "adoption was good but it's
-  slipping", "make the new process stick", "plan some recognition for the
-  teams who've adopted it", "switch off the old system". Runs a sustainability
-  check and writes docs/change/reinforcement-plan.md; story and recognition
-  copy are drafts. People/organisational change only. Do NOT use when people
-  never adopted the new way or are pushing back before or around go-live
-  (resistance-management), for measuring adoption (adoption-measurement),
-  closing out to BAU (bau-handover), decommissioning under IT/ITIL change
-  control, or general staff reward programmes.
+  Makes an adopted change stick when people start drifting back — recognition,
+  success stories, leaders reinforcing the new way, aligned goals and
+  reporting, retiring old workarounds, and a response to slippage. Use for
+  "how do we stop people drifting back?", "adoption was good but it's
+  slipping", "make the new process stick", "switch off the old system". Runs a
+  sustainability check and writes docs/change/reinforcement-plan.md. Do NOT
+  use when people never adopted or are pushing back before go-live
+  (resistance-management), to measure adoption (adoption-measurement), or for
+  BAU closeout (bau-handover).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[group or measure to reinforce] [--refresh]"
