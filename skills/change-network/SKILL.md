@@ -7,9 +7,9 @@ description: >
   plans) and a feedback log. Use for "we need people on the ground in each
   depot", "set up super users", "are we covering every team?", "log what the
   champions said today". Writes change-network.md, network-feedback.csv and
-  docs/change/network/. Do NOT use for sentiment across sources (stakeholder-
-  pulse), sponsors and leaders (sponsor-engagement), or diagnosing resistance
-  (resistance-management).
+  docs/change/network/. Do NOT use for sentiment across sources
+  (stakeholder-pulse), sponsors and leaders (sponsor-engagement), or
+  diagnosing resistance (resistance-management).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep Bash(node:*)
 argument-hint: "[design | feedback | coverage | pack] [--per N]"
