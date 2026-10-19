@@ -27,8 +27,8 @@ steps, tools or wording.
 | The change needs leaders to build momentum across a large organisation, and urgency is low | Leader-led campaign (Kotter-style) | Puts weight on urgency, a guiding group, volunteers and visible early wins | Can become a top-down announcement plan; still plan for individual capability |
 | The change involves loss — roles, teams, identity, a familiar way of working, a closing site | Transition view (Bridges) | Separates the external event from the internal adjustment and makes "what's ending" explicit | Proprietary materials; describe and link. Not a planning method on its own |
 | The change is about behaviour and culture more than tools | Four conditions for behaviour (McKinsey Influence Model) | Checks conviction, formal reinforcement, skills and role models together | Cite; don't reproduce diagnostics |
-| Public sector or a regulated environment wanting a documented, stage-based approach | APS Change Framework, ACMP Standard as a lifecycle map | Gives a recognised structure and artefact set that governance bodies accept | Check licence terms for business use of the ACMP Standard |
-| The worry is whether the change will last after the project ends | Sustainability factors (NHS Sustainability Model) | A short self-check of the conditions that keep a change in place | Verify licence per document; use the plugin's own sustainability check for scoring |
+| Public sector or a regulated environment wanting a documented, stage-based approach | A stage-based lifecycle (ACMP Standard as a lifecycle map) | Gives a recognised structure and artefact set that governance bodies accept | Check licence terms for business use of the ACMP Standard |
+| The worry is whether the change will last after the project ends | Sustainability factors (the plugin's sustainability check) | A short self-check of the conditions that keep a change in place | Rate from evidence, per group |
 | Strong forces for and against the change need weighing | Force-field analysis (Lewin) | Simple way to list driving and restraining forces with leaders | Classic concept; free to describe |
 
 ## Sizing the change
