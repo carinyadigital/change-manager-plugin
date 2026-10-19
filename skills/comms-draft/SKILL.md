@@ -1,20 +1,14 @@
 ---
 name: comms-draft
 description: >
-  Use when the user needs one specific change communication written — an
-  email, Teams or Slack post, intranet article, FAQ, manager briefing pack,
-  town-hall speaking notes or a shift-start briefing — for people affected by
-  an organisational change. Fires even when the user never says "comms":
-  "write the go-live email", "something for team leaders to read out at shift
-  start", "put together an FAQ for staff", "a Teams post about the training
-  dates", "speaking notes for the COO's town hall", "help me word the
-  announcement". Saves a draft with audience, sender, channel, send date and
-  approver to docs/change/comms/; never sends, posts or publishes. Do NOT use
-  for the change story, key messages or comms schedule (communications-plan),
-  sponsor roadmaps and leader talking points across phases
-  (sponsor-engagement), status reports (weekly-status), reinforcement success
-  stories (reinforcement), marketing copy, or IT release notes, outage notices
-  and CAB notifications.
+  Writes one specific change communication — email, Teams or Slack post,
+  intranet article, FAQ, manager briefing, town-hall speaking notes, shift
+  briefing — for people affected by a change. Use for "write the go-live
+  email", "an FAQ for staff", "speaking notes for the COO's town hall", "help
+  me word the announcement". Draft only — never sends or posts. Do NOT use for
+  the change story or comms schedule (communications-plan), the sponsor
+  roadmap across phases (sponsor- engagement), status reports (weekly-status),
+  or IT release notes.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[comms-plan item ID or audience + format] [--send-date YYYY-MM-DD]"
@@ -70,7 +64,7 @@ before starting.
 | Core narrative and key messages | `docs/change/change-story.md`, else the core narrative in `comms-plan.md` | Offer `communications-plan` to write the change story; for a one-off, ask for the three facts the message needs |
 | Core narrative and facts | `comms-plan.md`, `scope.md`, `impact-register.md` | Ask for the facts the message needs; mark gaps `[TBC — confirm with <role>]` |
 | What changes for this audience | `impact-register.md` row for the group | Ask; never invent personal impact |
-| Approver | practice profile (comms approval chain) | Ask who approves before drafting is finished; do not leave blank |
+| Approver | practice profile (`~/change-practice/CLAUDE.md`) (comms approval chain) | Ask who approves before drafting is finished; do not leave blank |
 | House style | practice profile path or `~~office suite` file | Default to plain English, answer first, and say so |
 
 ## Trust spine
