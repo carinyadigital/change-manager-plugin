@@ -1,19 +1,13 @@
 ---
 name: meeting-prep
 description: >
-  Use when the user has a sponsor, steering committee, leadership or
-  stakeholder meeting about an organisational change coming up, or has just
-  had one. Prepares a one-page brief from the change record — who is in the
-  room, their position and commitment gap, decisions needed, key messages,
-  likely hard questions with honest answers — and, with --follow-up, turns
-  notes or a transcript into decisions, actions and signals for the change
-  record. Triggers on "prep me for steerco", "brief for my meeting with the
-  sponsor", "what do I need for Thursday's leadership session", "write up the
-  actions from today's steering meeting". Covers people/organisational change
-  only. Do NOT use for the weekly status report (weekly-status), planning
-  workshops and showcases (stakeholder-engagement), the sponsor roadmap
-  (sponsor-engagement), drafting the follow-up email itself (comms-draft), or
-  IT change advisory board (CAB) meetings.
+  Prepares a one-page brief for a sponsor, steering or leadership meeting
+  about a change — who is in the room, their commitment gap, decisions needed,
+  key messages, hard questions — and with --follow-up turns notes into
+  decisions and actions. Use for "prep me for steerco", "brief for my meeting
+  with the sponsor", "write up the actions from today's steering meeting". Do
+  NOT use for the periodic status report (weekly-status), workshops
+  (stakeholder-engagement), or the sponsor roadmap (sponsor-engagement).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "<meeting name or date> [--follow-up]"
