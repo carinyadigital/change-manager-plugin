@@ -7,12 +7,14 @@
   {"query": "RAG each team against trained, briefed and access ready", "should_trigger": true},
   {"query": "has readiness improved since last fortnight's assessment?", "should_trigger": true},
   {"query": "pull the LMS and pulse results into a readiness view by group", "should_trigger": true},
-  {"query": "should we go live or delay? give me a go/no-go recommendation", "should_trigger": false, "note": "readiness-review"},
-  {"query": "what training does each role need?", "should_trigger": false, "note": "training-needs-analysis"},
-  {"query": "is the test environment and data migration ready for cutover?", "should_trigger": false, "note": "technical readiness, not people change"},
-  {"query": "is this change ready for CAB approval?", "should_trigger": false, "note": "IT change control"},
-  {"query": "three months after go-live, are people actually using it?", "should_trigger": false, "note": "adoption-measurement"},
-  {"query": "define the measures we'll track before and after go-live", "should_trigger": false, "note": "measurement-plan"},
-  {"query": "how healthy is sponsorship and project management on this initiative?", "should_trigger": false, "note": "sponsor-assessment"},
-  {"query": "is the new hire ready for their probation review?", "should_trigger": false, "note": "generic HR task"}
+  {"query": "is the organisation actually ready to take on this change?", "should_trigger": true},
+  {"query": "assess our change history, capacity and culture before we plan the rollout", "should_trigger": true},
+  {"query": "should we go live or delay? give me a go/no-go recommendation", "should_trigger": false,"note": "readiness-review"},
+  {"query": "what training does each role need?", "should_trigger": false,"note": "training-needs-analysis"},
+  {"query": "is the test environment and data migration ready for cutover?", "should_trigger": false,"note": "technical readiness, not people change"},
+  {"query": "is this change ready for CAB approval?", "should_trigger": false,"note": "IT change control"},
+  {"query": "three months after go-live, are people actually using it?", "should_trigger": false,"note": "adoption-measurement"},
+  {"query": "define the measures we'll track before and after go-live", "should_trigger": false,"note": "measurement-plan"},
+  {"query": "how healthy is sponsorship and project management on this initiative?", "should_trigger": false,"note": "sponsor-assessment"},
+  {"query": "is the new hire ready for their probation review?", "should_trigger": false,"note": "generic HR task"}
 ]

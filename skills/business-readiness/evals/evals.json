@@ -1,0 +1,39 @@
+{
+  "skill_name": "business-readiness",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Run this week's readiness check for the CRM go-live. LMS says 82 of 120 agents completed training; the PM says access is all sorted.",
+      "expected_output": "Rates 'trained' Amber unless there is a practice or assessment result, keeps access Amber as asserted evidence, runs readiness_rag.ts, and shows the summary before writing.",
+      "assertions": [
+        "Does not rate 'trained' Green on completion alone",
+        "Records the PM's statement as asserted evidence and does not rate access Green on it",
+        "Runs readiness_rag.ts rather than hand-calculating",
+        "Does not give a go/no-go recommendation",
+        "Waits for yes before writing the checklist"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Before we plan anything — is the organisation ready for the restructure? The last two restructures were rolled back and staff survey trust scores are low.",
+      "expected_output": "Runs the organisational readiness mode: rates change history low from the evidence given, leaves areas without evidence unrated, applies the verdict rules, names implications for change-risk-assessment and change-strategy, and writes org-readiness.md only on approval.",
+      "assertions": [
+        "Uses the organisational readiness questions, not the go-live criteria",
+        "Rates change history at 2 or below with the rollbacks and survey cited as evidence",
+        "Leaves questions without evidence as gaps rather than guessing",
+        "Applies the plugin's verdict rules",
+        "Names change-risk-assessment and change-strategy as where findings go",
+        "Writes only docs/change/org-readiness.md, and only after a yes"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Is the test environment ready for cutover next week?",
+      "expected_output": "Explains this is technical readiness, outside the skill, and offers to record any people-side dependency.",
+      "assertions": [
+        "Identifies the request as technical readiness",
+        "Does not write a readiness checklist"
+      ]
+    }
+  ]
+}

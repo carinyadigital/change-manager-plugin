@@ -2,25 +2,25 @@
 name: business-readiness
 description: >
   Use when the user needs to know whether the business — the people, not the
-  system — is ready for an organisational change to land: group by group,
-  against criteria like understands why, trained, leader briefed, access
-  ready and support route known, rated Red/Amber/Green with evidence, with
-  trend and owned actions. Run on a cadence before go-live. Fires even when
-  the user never says "readiness": "are the teams ready for Monday?", "where
-  are we with people readiness?", "which groups aren't ready yet?", "run this
-  week's readiness check".
-  Writes docs/change/readiness-checklist.md with a CSV. Covers
-  people/organisational change only. Do NOT use for the final go/no-go
-  recommendation (readiness-review), fixing the gaps it finds (training-needs-analysis,
-  comms-draft, sponsor-engagement and others), post-go-live adoption tracking
-  (adoption-measurement), technical or operational readiness (environments, data
-  migration, cutover runbooks), or IT change approval and CAB readiness.
+  system — is ready for an organisational change: group by group before
+  go-live (understands why, trained, leader briefed, access ready, support
+  route known — RAG with evidence and trend), or, early on, whether the
+  organisation is ready to take the change on at all (change history,
+  capacity, culture, leadership, alignment). Fires on "are the teams ready
+  for Monday?", "which groups aren't ready yet?", "run this week's readiness
+  check", "is the organisation ready for this change?", "how have past
+  changes gone here?". Writes readiness-checklist.md with a CSV, or
+  org-readiness.md. People/organisational change only. Do NOT use for the
+  go/no-go recommendation (readiness-review), fixing the gaps it finds
+  (training-needs-analysis, comms-draft and others), adoption after go-live
+  (adoption-measurement), technical readiness (environments, data
+  migration, cutover), or IT change approval and CAB readiness.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep Bash(node:*)
-argument-hint: "[group or criterion focus] [--date YYYY-MM-DD]"
+argument-hint: "[group or criterion focus] [--date YYYY-MM-DD] [--organisational]"
 metadata:
   author: Carinya Digital
-  version: "0.1.0"
+  version: "0.2.0"
   owner: change-practice
   review_cadence: quarterly
   work_shape: monitor-and-report
@@ -38,7 +38,10 @@ without evidence is worse than an Amber, because decisions get made on it.
 You report status and name who fixes what; you do not decide whether to go.
 
 Read [change-conventions.md](references/change-conventions.md) and
-[rating-scales.md](references/rating-scales.md) before starting.
+[rating-scales.md](references/rating-scales.md) before starting. Read
+[readiness-evidence.md](references/readiness-evidence.md) before rating any
+criterion, and [org-readiness-questions.md](references/org-readiness-questions.md)
+for an organisational readiness assessment.
 
 ## When to use
 
@@ -46,6 +49,9 @@ Read [change-conventions.md](references/change-conventions.md) and
   in the last six weeks before go-live).
 - Before `readiness-review`, which reads the latest assessment.
 - When a sponsor or steering group asks "are people ready?".
+- Early in Prepare, to judge whether the organisation is ready to take the
+  change on at all (`--organisational`) — before `change-strategy` sets the
+  approach.
 
 ## What this skill does not do
 
@@ -71,6 +77,7 @@ Read [change-conventions.md](references/change-conventions.md) and
 | Evidence | `docs/change/tna.md`, `~~lms` completions, `~~survey` pulse results, `~~project tracker` / `~~itsm` (access), `comms/` drafts sent, `sponsor-plan.md`, user | Ask; criteria without evidence stay Amber at best |
 | Previous assessments | `docs/change/readiness/` | First assessment — no trend; say so |
 | Go-live date | `docs/change/scope.md` | Ask; "days to go-live" frames urgency |
+| For `--organisational`: change history, capacity, culture, HR context | `lessons-learned.md` from past initiatives, `portfolio-heatmap.md`, staff survey results, HR partner, interviews with leaders | Ask; unrated questions are evidence gaps |
 
 ## Trust spine
 
@@ -93,11 +100,14 @@ Read [change-conventions.md](references/change-conventions.md) and
   says yes; status starts `draft`.
 - **Blast radius.** Writes only `docs/change/readiness-checklist.md`,
   `docs/change/readiness-checklist.csv` and the one-run snapshot
-  `docs/change/readiness-checklist.previous.csv`. Earlier runs are kept as rows
+  `docs/change/readiness-checklist.previous.csv`, or for `--organisational`
+  only `docs/change/org-readiness.md`. Earlier runs are kept as rows
   in the checklist's History table, never rewritten. Never edits other
   artefacts. Runs only the bundled script.
 
 ## Workflow
+
+### Group readiness before go-live (default)
 
 1. **Load context.** Read the profile (criteria, critical set, cadence,
    minimum group size), `impact-register`, `scope.md`, the current
@@ -107,7 +117,10 @@ Read [change-conventions.md](references/change-conventions.md) and
    the user narrows), criteria, which are critical, assessment date, days to
    go-live. Confirm with the user.
 3. **Gather evidence.** For each group × criterion, collect evidence from the
-   record and connectors, or ask the user. Record source and date. Note gaps.
+   record and connectors, or ask the user, using the Green / Amber tests and
+   sources in `readiness-evidence.md`. Record source, date and evidence
+   quality (observed, reported or asserted). Note gaps. If no pulse is
+   running, offer the four confidence questions there for the user to run.
 4. **Rate.** Apply the RAG definitions in `rating-scales.md`. Amber needs an
    action with an owner and date; Red means not met or no owner. If a
    `readiness-checklist.csv` already exists, keep it as
@@ -129,6 +142,25 @@ Read [change-conventions.md](references/change-conventions.md) and
    `weekly-status` to carry the trend. Name the fixing skills for the top
    actions.
 
+### Organisational readiness (`--organisational`)
+
+1. **Load context.** `scope.md`, `stakeholder-register.md`, any
+   `pct-assessment.md`, `portfolio-heatmap.md`, and lessons-learned from past
+   initiatives the user can share.
+2. **Gather evidence** for the 24 questions in `org-readiness-questions.md`
+   from documents, connectors and short interviews the user runs with
+   leaders, HR and two or three frontline people. Offer the user the
+   questions to take into those conversations.
+3. **Rate** each question 1–5 from evidence; leave unrated questions as gaps.
+4. **Apply the rules** in `org-readiness-questions.md` for area scores and
+   the verdict. Do not round up.
+5. **Name implications.** For each area below 3, say what it means for the
+   approach and which skill carries it (`change-risk-assessment`,
+   `change-strategy`) and what the sponsor needs to decide.
+6. **Show and confirm**, then write `docs/change/org-readiness.md` from
+   [org-readiness.template.md](assets/org-readiness.template.md) on a yes.
+7. **Hand off** to `change-risk-assessment` and `change-strategy`.
+
 ## Gotchas
 
 - Training completion is not "able to do it". Look for a practice or
@@ -139,6 +171,10 @@ Read [change-conventions.md](references/change-conventions.md) and
   change team — chase evidence from IT early.
 - Averages hide trouble: one Red group matters more than a Green overall.
 - Self-reported confidence is useful but is not evidence of ability.
+- Organisational readiness is about the organisation, not one group; don't
+  rate it from the view of a single team.
+- A poor change history is the strongest predictor of cynicism. If C1–C3
+  are low, the strategy needs early proof that this time is different.
 
 ## Outputs
 
@@ -146,6 +182,7 @@ Read [change-conventions.md](references/change-conventions.md) and
 | --- | --- |
 | Readiness assessment report | `docs/change/readiness-checklist.md` |
 | Readiness data | `docs/change/readiness-checklist.csv` (+ `.previous.csv` snapshot for the trend) |
+| Organisational readiness (`--organisational`) | `docs/change/org-readiness.md` |
 
 Chat summary: overall RAG and reason, blocking Reds by group, trend since the
 last assessment, top three actions with owners, evidence gaps, and the
