@@ -1,19 +1,13 @@
 ---
 name: adoption-measurement
 description: >
-  Use when the user needs to know whether a change has actually been adopted
-  after go-live — comparing real usage, proficiency, behaviour, compliance
-  and business outcomes against the thresholds in the measurement plan,
-  separating activity from adoption, and finding where and why groups are
-  behind. Fires even when the user never says "adoption review": "is anyone
-  actually using the new system?", "how's the rollout going three months
-  in?", "are people still using the old spreadsheet?", "did the change
-  stick?", "30/60/90-day check on the new process". Writes a read-only review
-  to docs/change/adoption-report.md with a verdict per measure. Covers
-  people/organisational change only. Do NOT use for defining measures or
-  targets (measurement-plan), for pre-go-live readiness (business-readiness),
-  for planning reinforcement actions (reinforcement), for IT/ITIL
-  post-implementation reviews of a release, or for product analytics.
+  Measures whether a people change has actually been adopted after go-live —
+  usage, proficiency, behaviour and outcomes against the measurement plan,
+  separating activity from adoption and finding where groups lag. Use for "is
+  anyone actually using the new system?", "did the change stick?", "90-day
+  check". Writes a read-only review to docs/change/adoption-report.md. Do NOT
+  use to define measures (measurement-plan), pre-go-live readiness
+  (business-readiness), or planning reinforcement (reinforcement).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[review point, e.g. 30-day | 90-day] [--group <name>]"
