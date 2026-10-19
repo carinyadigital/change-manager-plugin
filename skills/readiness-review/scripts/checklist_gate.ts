@@ -14,10 +14,16 @@ Impact headline per group = highest dimension score (0-4).
 Rule (references/rating-scales.md defaults):
   NO-GO              if any critical criterion is Red for a group whose
                      headline is >= threshold (default 3), or for a group
-                     with no impact score (treated as high).
+                     with no impact score (treated as high); or if a group
+                     with headline >= threshold has no readiness rows at all
+                     (never assessed is not ready).
   GO WITH CONDITIONS if no such Red exists but any Amber or any other Red
-                     exists.
-  GO                 if every criterion is Green.
+                     exists, a group below the threshold was never assessed,
+                     or a critical criterion assessed for other groups is
+                     missing for a group (treated as Amber, as readiness_rag
+                     does).
+  GO                 if every critical criterion is Green for every group in
+                     the impact register.
 
 A criterion is critical if its critical column is y/yes, or (when --critical
 is given) its name matches one of the listed criteria (case-insensitive).
@@ -459,8 +465,33 @@ function main(argv: string[]): number {
   for (const g of groups.keys()) {
     if (!heads.has(g)) notes.push(`${g}: has readiness rows but no impact score (treated as high)`);
   }
-  for (const g of heads.keys()) {
-    if (!groups.has(g)) notes.push(`${g}: in impact register but has no readiness rows`);
+  // A group in the impact register that was never assessed is not ready.
+  for (const [g, head] of heads) {
+    if (groups.has(g)) continue;
+    if (BigInt(head) >= threshold) {
+      reasonsBlock.push(`${g}: in impact register (headline ${head}) but never assessed — no readiness rows`);
+    } else {
+      reasonsCond.push(`${g}: in impact register (headline ${head}, below ${threshold}) but never assessed — no readiness rows`);
+    }
+  }
+  // A critical criterion assessed for some groups but missing for another is
+  // Amber for that group (matches readiness_rag.ts).
+  const critSet = new Set<string>(critical ?? []);
+  const seen = new Map<string, Set<string>>();
+  for (const r of ready) {
+    const g = strip(get(r, "group"));
+    const c = lower(strip(get(r, "criterion")));
+    if (["y", "yes"].includes(lower(strip(get(r, "critical"))))) critSet.add(c);
+    if (!seen.has(g)) seen.set(g, new Set());
+    seen.get(g)!.add(c);
+  }
+  for (const [g, rec] of groups) {
+    for (const c of critSet) {
+      if (!seen.get(g)?.has(c)) {
+        rec.Amber += 1;
+        reasonsCond.push(`${g}: critical criterion '${c}' not assessed (treated as Amber)`);
+      }
+    }
   }
 
   const verdict = reasonsBlock.length ? "NO-GO" : reasonsCond.length ? "GO WITH CONDITIONS" : "GO";

@@ -78,6 +78,28 @@ test("score_impacts rejects malformed months", () => {
   assert.notEqual(res.status, 0);
 });
 
+const GATE = join(ROOT, "skills/readiness-review/scripts/checklist_gate.ts");
+
+test("checklist_gate blocks on a high-impact group that was never assessed", () => {
+  const ready = tmpCsv("group,criterion,rag,evidence,critical\nAgents,trained,Green,done,y\n");
+  const impact = tmpCsv("group,headcount,dimension,score\nAgents,120,process,3\nFinance,30,roles,4\n");
+  const res = run([GATE, ready, impact]);
+  assert.equal(res.status, 0, res.stderr);
+  assert.match(res.stdout, /Verdict \(readiness rule only\): NO-GO/);
+  assert.match(res.stdout, /Finance: in impact register \(headline 4\) but never assessed/);
+});
+
+test("checklist_gate treats a critical criterion missing for one group as Amber", () => {
+  const ready = tmpCsv("group,criterion,rag,evidence,critical\n" +
+    "Agents,trained,Green,done,y\nAgents,access ready,Green,done,y\nLeaders,trained,Green,done,y\n");
+  const impact = tmpCsv("group,headcount,dimension,score\nAgents,120,process,3\nLeaders,14,roles,2\n");
+  const res = run([GATE, ready, impact]);
+  assert.equal(res.status, 0, res.stderr);
+  assert.match(res.stdout, /GO WITH CONDITIONS/);
+  assert.match(res.stdout, /Leaders: critical criterion 'access ready' not assessed \(treated as Amber\)/);
+  assert.match(res.stdout, /\| Leaders \| 2 \| 0 \| 0 \| 1 \| 1 \|/);
+});
+
 function hookDecision(script: string, payload: unknown): string {
   const res = run([join(HOOKS, script)], typeof payload === "string" ? payload : JSON.stringify(payload));
   assert.equal(res.status, 0);

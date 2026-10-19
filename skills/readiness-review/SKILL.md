@@ -1,18 +1,15 @@
 ---
 name: readiness-review
 description: >
-  Use when someone needs a people-readiness recommendation before a change goes
-  live — whether the affected groups are ready enough to switch on, switch on
-  with conditions, or hold. Fires even when the user never says "go/no-go":
-  "are we ready to go live?", "can we cut over on Monday?", "should we delay
-  the launch?", "is the business ready for this?", "prep the readiness
-  decision for steerco". Reads the latest readiness assessment, impact
-  register, health check, risk register and measurement plan, and writes a
-  read-only verdict to docs/change/go-no-go.md. The decision belongs to a
-  named decision-maker. Covers people/organisational change only. Do NOT use
-  for IT/ITIL release approvals, CAB or deployment go/no-go, for running a
-  readiness check (business-readiness), for planning cutover support
-  (golive-transition), or for the technical cutover runbook.
+  Gives the people-readiness go/no-go recommendation before a change goes live
+  — switch on, switch on with conditions, or hold — from the latest readiness
+  assessment, impact register, health check, risks and measures. Use when a
+  decision is being made: "should we go live on Monday?", "can we cut over?",
+  "should we delay the launch?", "prep the go/no-go for steerco". Writes a
+  read-only verdict to docs/change/go-no-go.md; the decision stays with a
+  named person. Do NOT use to run the readiness check itself
+  (business-readiness), plan cutover support (golive-transition), or for IT
+  release approvals.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep Bash(node:*)
 argument-hint: "[go-live date or release name] [--group <name>]"
@@ -60,12 +57,12 @@ Read [change-conventions.md](references/change-conventions.md) and
 
 | Input | Source | If missing |
 | --- | --- | --- |
-| Latest readiness assessment | `docs/change/readiness-checklist.md` + `readiness-<date>.csv` | Offer `business-readiness`. Without it, the verdict cannot be better than NO-GO (insufficient evidence) |
+| Latest readiness assessment | `docs/change/readiness-checklist.md` + `readiness-checklist.csv` | Offer `business-readiness`. Without it, the verdict cannot be better than NO-GO (insufficient evidence) |
 | Impact scores | `docs/change/impact-register.csv` | Offer `change-impact-assessment`, or treat every group as headline 3+ and say so |
 | Health check | `docs/change/pct-assessment.md` | Note as a gap; ask the user for current sponsor commitment |
 | Change risks | `docs/change/risk-register.md` | Note as a gap |
 | Measures and thresholds | `docs/change/measurement-plan.md` | Note that adoption cannot be tracked after go-live; non-blocking finding |
-| Thresholds and critical criteria | practice profile, else `rating-scales.md` | Use defaults and say so |
+| Thresholds and critical criteria | practice profile (`~/change-practice/CLAUDE.md`), else `rating-scales.md` | Use defaults and say so |
 | Decision-maker and go-live date | `scope.md`, `strategy.md` or the user | Ask; do not guess |
 
 Check `last_updated` on every input. A readiness assessment older than the
@@ -103,7 +100,7 @@ go-live is within two weeks — is a blocking finding on its own.
 2. **Confirm the decision frame.** Go-live date, scope (all groups or a wave),
    and the named decision-maker. Ask once if unknown.
 3. **Apply the rule.** Run:
-   `node ${CLAUDE_PLUGIN_ROOT}/skills/readiness-review/scripts/checklist_gate.ts docs/change/readiness-<date>.csv docs/change/impact-register.csv`
+   `node ${CLAUDE_PLUGIN_ROOT}/skills/readiness-review/scripts/checklist_gate.ts docs/change/readiness-checklist.csv docs/change/impact-register.csv`
    (point it at the readiness CSV you found; pass `--critical "trained,access ready,..."`
    if the profile overrides critical criteria). It prints the rule-based
    verdict and the reasons. Use its output — do not hand-apply the rule.

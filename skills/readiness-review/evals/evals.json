@@ -3,7 +3,7 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Go-live for the new rostering system is Monday. The readiness check from last Friday is in docs/change/readiness/. Nurses on night shift are Red on 'trained'. Are we good to go?",
+      "prompt": "Go-live for the new rostering system is Monday. The readiness check from last Friday is in docs/change/readiness-checklist.md. Nurses on night shift are Red on 'trained'. Are we good to go?",
       "expected_output": "Runs checklist_gate.ts on the readiness and impact CSVs, recommends NO-GO if night-shift nurses have impact headline 3+, lists the Red as a blocking finding naming training-needs-analysis or business-readiness as the fix, names the decision-maker as owning the call, and writes only docs/change/go-no-go.md after confirmation.",
       "assertions": [
         "Runs checklist_gate.ts rather than hand-applying the rule",
