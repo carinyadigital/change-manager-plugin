@@ -7,8 +7,9 @@ description: >
   future initiatives. Fires even when the user never says "lessons learned":
   "note that for next time", "that briefing went badly — let's remember why",
   "what would we do differently?", "what worked with the sponsors?", "pull
-  together what we learned before we close". Appends entries to
-  docs/change/lessons-learned.md and never rewrites past entries. Covers
+  together what we learned before we close", "plan a retro for the end of
+  this phase". Appends entries to docs/change/lessons-learned.md and never
+  rewrites past entries. Covers
   people/organisational change only. Do NOT use for sprint or delivery
   retrospectives on build mechanics (product-management:sprint-retro), for
   BAU ownership (bau-handover), for adoption results (adoption-measurement), for
@@ -16,10 +17,10 @@ description: >
   performance feedback.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
-argument-hint: "[lesson to log] | --synthesise"
+argument-hint: "[lesson to log] | --retro [phase] | --synthesise"
 metadata:
   author: Carinya Digital
-  version: "0.1.0"
+  version: "0.2.0"
   owner: change-practice
   review_cadence: quarterly
   work_shape: generate-draft
@@ -37,7 +38,9 @@ and phrased as something a future team can act on. The log is a record: you
 add to it, you do not tidy history.
 
 Read [change-conventions.md](references/change-conventions.md) before
-starting.
+starting. Read [retrospective-guide.md](references/retrospective-guide.md)
+when planning or writing up a retrospective session, and for examples of
+turning raw notes into usable lessons.
 
 ## When to use
 
@@ -46,6 +49,7 @@ starting.
 - At a phase boundary (end of Prepare, after go-live) to sweep recent
   lessons from the record.
 - At closeout, to synthesise themes and recommendations (`--synthesise`).
+- To plan or write up a retrospective session for a phase (`--retro`).
 
 ## What this skill does not do
 
@@ -81,7 +85,8 @@ starting.
   "sponsor briefings were cancelled three times" not "<name> didn't turn
   up". Sensitive matters (HR cases, individual conduct) are left out and the
   user is told why.
-- **Blast radius.** Writes only `docs/change/lessons-learned.md`.
+- **Blast radius.** Writes only `docs/change/lessons-learned.md` and
+  `docs/change/retros/<YYYY-MM-DD>-<phase>.md`.
 
 ## Workflow
 
@@ -106,6 +111,20 @@ starting.
    adoption reviews since the last sweep.
 2. Propose candidate lessons with the source artefact for each. The user
    picks which to log. Append as above.
+
+### Run a retrospective (`--retro [phase]`)
+
+1. **Plan.** Draft the session sheet from
+   [retro-session.template.md](assets/retro-session.template.md): ground
+   rules, who to invite, the timeline of the phase from the record, and five
+   or six prompts chosen from the matching phase in `retrospective-guide.md`.
+   Show it; on a yes, save to `docs/change/retros/<YYYY-MM-DD>-<phase>.md`.
+2. **Write up.** When the user brings back the notes, turn each lesson into
+   an actionable entry with evidence and an owner (see "Turning notes into
+   entries"). Route anything that is not a lesson — defects, individual
+   matters — and record only where it went.
+3. **Append** the agreed entries to the log as in "Log a lesson", and update
+   the session sheet's "Lessons to log" table.
 
 ### Synthesise (`--synthesise`, at closeout)
 
@@ -134,6 +153,7 @@ starting.
 | Artefact | Path |
 | --- | --- |
 | Lessons learned log (appended) | `docs/change/lessons-learned.md` |
+| Retrospective session sheets | `docs/change/retros/<YYYY-MM-DD>-<phase>.md` |
 
 Chat summary: entries added (numbers), or for synthesis the top three
 recommendations and the themes found.

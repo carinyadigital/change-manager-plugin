@@ -1,0 +1,36 @@
+{
+  "skill_name": "lessons-learned",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Note for next time: comms could have been better.",
+      "expected_output": "Asks what specifically happened and its effect, rewrites the lesson into an action a future team could take, asks for evidence and an owner, shows the exact entry and appends only on a yes.",
+      "assertions": [
+        "Turns the vague note into a specific action for next time",
+        "Asks for evidence and an owner, or leaves evidence blank and says 'believed'",
+        "Shows the exact entry before appending",
+        "Does not edit any earlier entry"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Plan a retro for the end of go-live and hypercare.",
+      "expected_output": "Drafts a session sheet with ground rules, who to invite, the timeline from the record, and five or six go-live prompts from the guide; saves it to docs/change/retros/ on a yes.",
+      "assertions": [
+        "Uses go-live and hypercare prompts, not generic ones",
+        "Includes the ground rules about approaches rather than people",
+        "Proposes inviting frontline voices or gathering their input through champions",
+        "Writes only to docs/change/retros/ after a yes"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write up the post-mortem for last night's CRM outage.",
+      "expected_output": "Identifies an IT incident post-mortem and does not log it as a change lesson.",
+      "assertions": [
+        "Identifies the request as an IT post-mortem",
+        "Does not append to lessons-learned.md"
+      ]
+    }
+  ]
+}

@@ -7,12 +7,13 @@
   {"query": "synthesise the lessons learned into recommendations for the next rollout", "should_trigger": true},
   {"query": "what worked well with our sponsors this time?", "should_trigger": true},
   {"query": "sweep the readiness reports for lessons at the end of Prepare", "should_trigger": true},
-  {"query": "run a sprint retro for the dev team", "should_trigger": false, "note": "product-management:sprint-retro"},
-  {"query": "write the post-mortem for yesterday's outage", "should_trigger": false, "note": "IT incident review, not people change"},
-  {"query": "hand the change over to the BAU owner", "should_trigger": false, "note": "bau-handover"},
-  {"query": "is adoption on track at 90 days?", "should_trigger": false, "note": "adoption-measurement"},
-  {"query": "give feedback to the analyst who missed the deadline", "should_trigger": false, "note": "individual performance feedback"},
-  {"query": "what risks could stop this change landing?", "should_trigger": false, "note": "change-risk-assessment"},
-  {"query": "draft the fortnightly change status", "should_trigger": false, "note": "weekly-status"},
-  {"query": "run a problem review on the recurring login failures", "should_trigger": false, "note": "ITIL problem management"}
+  {"query": "plan a retro for the end of the Prepare phase", "should_trigger": true},
+  {"query": "run a sprint retro for the dev team", "should_trigger": false,"note": "product-management:sprint-retro"},
+  {"query": "write the post-mortem for yesterday's outage", "should_trigger": false,"note": "IT incident review, not people change"},
+  {"query": "hand the change over to the BAU owner", "should_trigger": false,"note": "bau-handover"},
+  {"query": "is adoption on track at 90 days?", "should_trigger": false,"note": "adoption-measurement"},
+  {"query": "give feedback to the analyst who missed the deadline", "should_trigger": false,"note": "individual performance feedback"},
+  {"query": "what risks could stop this change landing?", "should_trigger": false,"note": "change-risk-assessment"},
+  {"query": "draft the fortnightly change status", "should_trigger": false,"note": "weekly-status"},
+  {"query": "run a problem review on the recurring login failures", "should_trigger": false,"note": "ITIL problem management"}
 ]
