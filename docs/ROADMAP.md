@@ -86,10 +86,13 @@ digital-adoption connectors.
 4. `npm run check` passes.
 5. Trademark notices current in `TRADEMARKS.md`.
 
+## Decisions
+
+- Stays standalone. It does not install into another product's bootstrap, and
+  it does not read or write an instance config. The name Carinya appears only
+  in the licence.
+
 ## Open questions
 
-- Install under the Carinya `agency-hub` / instance bootstrap (as the design
-  suggests), or keep standalone? v0.1.0 reads `config/instance.json` if present
-  and never writes it.
 - Which marketplace lists it once field-tested?
 - Non-code templates under CC BY 4.0 instead of MIT?
