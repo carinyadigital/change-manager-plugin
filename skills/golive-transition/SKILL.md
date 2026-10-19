@@ -1,19 +1,14 @@
 ---
 name: golive-transition
 description: >
-  Use when the user needs to plan the people side of cutover and the first
-  weeks after a change goes live — final checks that comms went out, training
-  is done, job aids and procedures are live and leaders are briefed; a
-  floor-walker and super-user rota; support and escalation routes; a daily
-  check-in; capturing issue themes; and the criteria for ending hypercare.
-  Fires even when the user never says "go-live support": "who's on the floor
-  on launch day?", "how do people get help in week one?", "plan hypercare",
-  "set up the launch-week huddle", "when can we stand down the support team?",
-  "run today's hypercare check-in". Writes docs/change/golive-plan.md, an
-  issue-theme log and daily check-in notes, as drafts. Covers
-  people/organisational change only. Do NOT use for the technical cutover
-  runbook, IT/ITIL deployment or release change control, for the go/no-go
-  recommendation (readiness-review), or for tracking adoption after hypercare
+  Plans the people side of cutover and the first weeks live — final checks,
+  floor-walker and super-user rota, support and escalation routes, daily
+  check-in (--daily), issue themes and the criteria for ending hypercare. Use
+  for "who's on the floor on launch day?", "plan hypercare", "how do people
+  get help in week one?", "run today's check-in". Writes
+  docs/change/golive-plan.md, hypercare-issues.csv and hypercare/ notes as
+  drafts. Do NOT use for the technical cutover runbook, the go/no-go
+  recommendation (readiness-review), or adoption after hypercare
   (adoption-measurement).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
