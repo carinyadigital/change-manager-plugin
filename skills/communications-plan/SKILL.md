@@ -97,8 +97,10 @@ and laying out the phase rhythm.
 ## Workflow
 
 1. **Load context.** Read the profile, `scope.md`, `stakeholder-register.md`,
-   `impact-register.md`, `strategy.md` and `sponsor-plan.md` if present. Flag
-   any that are older than `stale_after_days`.
+   `impact-register.md`, `strategy.md`, `sponsor-plan.md`,
+   `case-for-change.md` (the change story starts from it) and
+   `transition-plan.md` (groups facing loss hear about endings first) if
+   present. Flag any that are older than `stale_after_days`.
 2. **Write the change story.** Draft `docs/change/change-story.md` from
    [change-story.template.md](assets/change-story.template.md): the story in
    three sentences, the core narrative (why, why now, what, when, what it
