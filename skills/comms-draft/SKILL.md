@@ -2,8 +2,9 @@
 name: comms-draft
 description: >
   Use when the user needs one specific change communication written — an
-  email, Teams or Slack post, intranet article, FAQ, manager briefing pack or
-  talking points — for people affected by an organisational change. Fires even
+  email, Teams or Slack post, intranet article, FAQ, manager briefing pack,
+  town-hall speaking notes or a shift-start briefing — for people affected by
+  an organisational change. Fires even
   when the user never says "comms": "write the go-live email", "draft
   something for the team leaders to read out", "can you put together an FAQ
   for staff?", "we need a Teams post about the training dates", "help me word
@@ -19,7 +20,7 @@ allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[comms-plan item ID or audience + format] [--send-date YYYY-MM-DD]"
 metadata:
   author: Carinya Digital
-  version: "0.1.0"
+  version: "0.2.0"
   owner: change-practice
   review_cadence: quarterly
   work_shape: generate-draft
@@ -104,8 +105,9 @@ before starting.
 1. **Identify the item.** From the comms-plan ID or the user, confirm
    audience, format, channel, sender, send date and approver. Ask for any of
    these that are missing — approver especially.
-2. **Gather facts.** Pull the core narrative, the audience's impacts and key
-   dates from the record. List any fact the message needs that you do not
+2. **Gather facts.** Pull the core narrative and key messages from
+   `docs/change/change-story.md` if it exists (otherwise `comms-plan.md`), the
+   audience's impacts and key dates from the record. List any fact the message needs that you do not
    have.
 3. **Check sensitivity.** If the topic touches role, job security, location,
    pay, hours or consultation, set `sensitivity: hr-legal-review`, tell the
@@ -114,11 +116,18 @@ before starting.
    [email.template.md](assets/email.template.md); chat post →
    [chat-post.template.md](assets/chat-post.template.md); FAQ →
    [faq.template.md](assets/faq.template.md); manager briefing pack or
-   talking points → [manager-briefing.template.md](assets/manager-briefing.template.md).
+   talking points → [manager-briefing.template.md](assets/manager-briefing.template.md);
+   sponsor announcement, town hall or all-hands → speaking notes and run sheet
+   in [town-hall.template.md](assets/town-hall.template.md); frontline
+   shift-start briefing or toolbox talk →
+   [shift-briefing.template.md](assets/shift-briefing.template.md).
 5. **Draft.** Answer first. Cover the core-narrative points this audience
    needs, especially "what it means for you", "what isn't changing" and
    "where to get help". Write in the sender's voice. Keep chat posts short;
-   keep emails to one screen where possible.
+   keep emails to one screen where possible. Speaking notes are points to say
+   in the speaker's own voice, never a script; shift briefings fit in under
+   five minutes. Any story or example in speaking notes comes from the user,
+   never invented.
 6. **Self-check.** Before showing: first two sentences carry the point and the
    action; no jargon or acronyms unexplained; no unsupported claims; every
    `[TBC]` is visible; the sender is right for the message type (see

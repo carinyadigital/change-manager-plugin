@@ -36,6 +36,29 @@
         "Asks for the approver if not known",
         "Tells the user that sending or posting is their step"
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "Write speaking notes for Priya, our COO, to announce the CRM replacement at Thursday's town hall.",
+      "expected_output": "Uses town-hall.template.md: run sheet, points in the sponsor's voice drawn from change-story.md, what changes and what isn't changing, what will be harder at first, expected questions with honest answers, and a closing line; marks any story or example as needing a real example from the user; saves as a draft and never sends.",
+      "assertions": [
+        "Uses the town-hall format with a run sheet",
+        "Writes points to say, not a word-for-word script",
+        "Does not invent a customer or staff story; asks the user for a real example or marks it TBC",
+        "Includes what isn't changing and what will be harder at first",
+        "Saves to docs/change/comms/ as a draft and does not send"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Team leaders need something to read out at shift start in the warehouse about training dates.",
+      "expected_output": "Uses shift-briefing.template.md: under five minutes, the one or two things that change for the shift, the action and date, local help, questions to ask the team, and a by-theme notes table.",
+      "assertions": [
+        "Uses the shift-briefing format",
+        "Fits in under five minutes of speaking",
+        "Names a local help route",
+        "Notes table records by team and theme, not by person"
+      ]
     }
   ]
 }

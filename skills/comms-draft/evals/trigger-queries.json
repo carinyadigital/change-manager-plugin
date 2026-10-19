@@ -7,12 +7,13 @@
   {"query": "draft item C04 from the comms plan", "should_trigger": true},
   {"query": "write talking points the ops manager can use at Monday's huddle", "should_trigger": true},
   {"query": "rewrite this intranet article so it's plain English", "should_trigger": true},
-  {"query": "plan who hears what and when across the whole rollout", "should_trigger": false, "note": "communications-plan"},
-  {"query": "build the sponsor roadmap for the next three phases", "should_trigger": false, "note": "sponsor-engagement"},
-  {"query": "write this week's change status report for the steering committee", "should_trigger": false, "note": "weekly-status"},
-  {"query": "write release notes for version 4.2", "should_trigger": false, "note": "IT release management, not people change"},
-  {"query": "draft the outage notice for tonight's maintenance window", "should_trigger": false, "note": "IT change control / incident comms"},
-  {"query": "write a success story to recognise the team that adopted early", "should_trigger": false, "note": "reinforcement"},
-  {"query": "draft a marketing email to customers about our new app", "should_trigger": false, "note": "external marketing"},
-  {"query": "write a job ad for the new team leader role", "should_trigger": false, "note": "generic HR recruitment task"}
+  {"query": "write speaking notes for the CEO town hall announcing the merger", "should_trigger": true},
+  {"query": "plan who hears what and when across the whole rollout", "should_trigger": false,"note": "communications-plan"},
+  {"query": "build the sponsor roadmap for the next three phases", "should_trigger": false,"note": "sponsor-engagement"},
+  {"query": "write this week's change status report for the steering committee", "should_trigger": false,"note": "weekly-status"},
+  {"query": "write release notes for version 4.2", "should_trigger": false,"note": "IT release management, not people change"},
+  {"query": "draft the outage notice for tonight's maintenance window", "should_trigger": false,"note": "IT change control / incident comms"},
+  {"query": "write a success story to recognise the team that adopted early", "should_trigger": false,"note": "reinforcement"},
+  {"query": "draft a marketing email to customers about our new app", "should_trigger": false,"note": "external marketing"},
+  {"query": "write a job ad for the new team leader role", "should_trigger": false,"note": "generic HR recruitment task"}
 ]
