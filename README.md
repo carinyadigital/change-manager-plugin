@@ -1,13 +1,13 @@
-# Change Practice
+# AI Agent skills for Change Practitioners
 
-A practice plugin for change managers working in **Claude Cowork** and
-**ChatGPT Work**. One install gives you and your team a skill library for the
+**A practice plugin for change managers and organisational change practitioners working in Claude Cowork and ChatGPT Work.**
+
+Built from leading change management practice across the private and public sectors.
+
+One install gives you and your team a skill library for the
 full Prepare → Manage → Sustain lifecycle. Each piece of work writes to one
 shared **change record** in `docs/change/`, so the next conversation builds on
 the last.
-
-Built from leading change management practice across the private and public
-sectors.
 
 It covers **people change** — helping groups of people adopt a new system,
 process, structure or policy. It does **not** cover IT change control (change
