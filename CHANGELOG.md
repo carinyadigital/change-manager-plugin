@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.3.0 — 2026-10-19
+
+- Getting started guide for a first install: working folder, setup, and what
+  the plugin will and will not do.
+- Stays standalone. Setup no longer reads an instance config, and skills name
+  the practice profile as `~/change-practice/CLAUDE.md` rather than the plugin
+  template.
+- `readiness-review` treats a high-impact group that was never assessed as not
+  ready, scores the candidate outside the record, and writes the checklist only
+  after a yes.
+- Draft guard treats Work IQ question-and-answer tools as reads. The
+  people-data guard no longer reads dates, weeks or clock times as phone
+  numbers.
+- Skill descriptions no longer fold a line in the middle of a sibling skill
+  name. The leader-facing case for change stays with `change-strategy`.
+- Shared change-record conventions synced into the skills that link them.
+
 ## 0.2.0 — 2026-10-19 (alpha)
 
 Artefact uplift across 14 skills so change managers start from leading-practice

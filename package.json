@@ -1,6 +1,6 @@
 {
   "name": "change-practice",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "Change Practice — a single, multi-persona organisational change management plugin for Claude Cowork and ChatGPT Work.",
   "type": "module",
@@ -17,6 +17,6 @@
   },
   "devDependencies": {
     "@types/node": "^22.18.0",
-    "typescript": "^5.9.3"
+    "typescript": "^7.0.2"
   }
 }
