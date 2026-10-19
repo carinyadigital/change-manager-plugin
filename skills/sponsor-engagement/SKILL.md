@@ -1,19 +1,15 @@
 ---
 name: sponsor-engagement
 description: >
-  Use when the user needs to plan what the executive sponsor and the leaders
-  beneath them will visibly do and say across the life of an organisational
-  change — a sponsor roadmap by phase, a coalition map from the primary sponsor
-  down to frontline managers, talking points, and preparation for leaders
-  briefing their own teams. Fires even when the user never says "sponsor":
-  "what should the GM actually be doing?", "our exec has gone quiet", "help the
-  directors brief their teams", "get senior leaders behind this", "what do I
-  ask the sponsor for?". Writes docs/change/sponsor-plan.md; talking points are
-  drafts, never sent. Covers people/organisational change only. Do NOT use for
-  scoring sponsorship strength (sponsor-assessment), mass communications
-  (communications-plan), drafting one specific message (comms-draft), wider
-  stakeholder workshops (stakeholder-engagement), champion networks
-  (change-network), or IT/ITIL change approvals and CAB.
+  Plans what the sponsor and the leaders beneath them will visibly do and say
+  across the life of a change — roadmap by phase, coalition map down to
+  frontline managers, talking points per phase, and prep for leaders briefing
+  their teams. Use for "what should the GM actually be doing?", "our exec has
+  gone quiet", "help the directors brief their teams", "what do I ask the
+  sponsor for?". Writes docs/change/sponsor-plan.md; talking points are
+  drafts. Do NOT use to score sponsorship (sponsor-assessment), for one
+  message or one event's speaking notes (comms-draft), or mass comms
+  (communications-plan).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[sponsor or leader group] [--refresh]"
