@@ -1,20 +1,14 @@
 ---
 name: stakeholder-pulse
 description: >
-  Use for the regular (often daily or weekly) stakeholder pulse on an
-  organisational change — reading across champion feedback, nominated chat
-  channels and pulse survey results for emerging barriers, grouped by impacted
-  team and reported in aggregate — and for designing the pulse survey itself.
-  Triggers on "run the daily pulse", "what are people saying about the
-  change", "any new pushback this week", "what's coming through from champions
-  and the survey", "how is sentiment tracking", "write pulse survey
-  questions", "what should we ask staff in the pulse". Writes a pulse summary
-  and proposes resistance-log rows, only on approval. People/organisational
-  change only. Do NOT use for logging champion meeting notes into the network
-  log (change-network), diagnosing and planning interventions for a known
-  resistance issue in depth (resistance-management), adoption metrics after
-  go-live (adoption-measurement), go-live readiness status
-  (business-readiness), or monitoring IT incidents or service tickets.
+  Regular (daily or weekly) read of what people are saying about a change —
+  across champion feedback, nominated chat channels and pulse survey results —
+  grouped by team, reported in aggregate, flagging emerging barriers; also
+  designs the pulse survey (--design-survey). Use for "run the daily pulse",
+  "what are people saying about the change?", "any new pushback this week?",
+  "write pulse survey questions". Do NOT use to log champion huddle notes
+  (change-network), diagnose a known issue in depth (resistance-management),
+  or for adoption metrics (adoption-measurement).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "[--since YYYY-MM-DD] [--design-survey]"
@@ -66,7 +60,7 @@ are in scope or the user asks for survey questions.
 | Survey results | latest `~~survey` export, aggregated by group, in the layout of [pulse-results.csv](assets/pulse-results.csv) | Skip or ask for an aggregated export |
 | Previous pulse | latest `docs/change/pulse/<date>.md` | First pulse — no trend; say so |
 | Impacted groups | `docs/change/stakeholder-register.md`, `impact-register.csv` | Ask for the groups to report against |
-| Minimum group size | practice profile, default 5 | Use 5 and say so |
+| Minimum group size | practice profile (`~/change-practice/CLAUDE.md`), default 5 | Use 5 and say so |
 
 ## Trust spine
 
