@@ -7,7 +7,7 @@ description: >
   email", "an FAQ for staff", "speaking notes for the COO's town hall", "help
   me word the announcement". Draft only — never sends or posts. Do NOT use for
   the change story or comms schedule (communications-plan), the sponsor
-  roadmap across phases (sponsor- engagement), status reports (weekly-status),
+  roadmap across phases (sponsor-engagement), status reports (weekly-status),
   or IT release notes.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
