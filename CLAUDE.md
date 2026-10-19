@@ -39,7 +39,7 @@ template, not contributor guidance.
 
 ## Method
 
-- **Primary method:** [PLACEHOLDER — method-neutral (default) | Prosci/ADKAR | Kotter | Bridges | ACMP | APS Change Framework | in-house]
+- **Primary method:** [PLACEHOLDER — method-neutral (default) | Prosci/ADKAR | Kotter | Bridges | ACMP | in-house]
 - **Prosci licence held:** [PLACEHOLDER — yes | no] — if no, outputs use plain-English labels only
 - **In-house templates to follow:** [PLACEHOLDER — paths or "none"]
 

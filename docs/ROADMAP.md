@@ -76,10 +76,10 @@ digital-adoption connectors.
 
 ## Release gates (before any public release)
 
-1. Licences confirmed for anything adapted rather than linked: Queensland
-   "Communicating for change" (CC BY 4.0 presumed), NHS Change Model and
-   Sustainability guides (OGL presumed; check third-party diagrams), individual
-   APS template files (framework PDF is CC BY 4.0).
+1. No skill, reference, template or user-facing document names, links to or
+   cites a government body, public-sector publication or client organisation;
+   all material is in the plugin's own words. Named methods are credited per
+   `ATTRIBUTION.md` and `TRADEMARKS.md`, with no licensed material included.
 2. Connector availability and the bundled `.mcp.json` URLs re-checked.
 3. Cited figures carry a named source and edition (e.g. Prosci saturation 78%
    vs ~73% by edition).

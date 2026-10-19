@@ -22,7 +22,8 @@
 ## Third-party material
 
 Do not paste text, templates or assessment instruments from Prosci, Kotter,
-ACMP, CMI, McKinsey, William Bridges Associates or UC Berkeley. Open-licence
-government material (CC BY, OGL) may be adapted only after its licence is
-confirmed, with a file header and an entry in
-[ATTRIBUTION.md](ATTRIBUTION.md).
+ACMP, CMI, McKinsey or William Bridges Associates. Write all material in the
+plugin's own words. Do not name, link to or cite government bodies, public
+sector publications or client organisations in any skill, reference, template
+or user-facing document. Methods are named and credited as set out in
+[ATTRIBUTION.md](ATTRIBUTION.md) and [TRADEMARKS.md](TRADEMARKS.md).

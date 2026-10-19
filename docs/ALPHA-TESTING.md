@@ -115,8 +115,5 @@ want shared first.
   the build team. Expect rough edges.
 - Templates are markdown and CSV. Word, Excel and PowerPoint exports are not
   included yet.
-- Licences for adapting some government material (APS, Queensland, NHS) are
-  still being confirmed, so the plugin links to those sources rather than
-  including their text.
 - In ChatGPT Work on the web, the safety hooks (ask before sending, people
   data, profile changes) do not run.
