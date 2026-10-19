@@ -1,0 +1,4 @@
+session_id,role,tasks,method,format,location,date,start,duration_hours,capacity,learners_planned,trainer,round,status
+Example T01,Contact centre agents,Log a call in the new CRM; Approve refunds up to $200,instructor-led + practice environment,classroom,Brisbane training room 2,2027-02-15,09:00,3,12,12,Super-user (Brisbane),first,planned
+Example T02,Contact centre agents,Log a call in the new CRM; Approve refunds up to $200,instructor-led + practice environment,virtual,Teams,2027-02-16,14:00,3,12,10,Super-user (Sydney),first,planned
+Example T09,Contact centre agents,Log a call in the new CRM; Approve refunds up to $200,instructor-led + practice environment,classroom,Brisbane training room 2,2027-02-24,09:00,3,12,0,Super-user (Brisbane),catch-up,planned

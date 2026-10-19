@@ -8,19 +8,19 @@ description: >
   Fires even when the user never says "TNA": "what training does each team
   need?", "who needs to learn what before go-live?", "do the agents need a
   classroom session or is a cheat sheet enough?", "write a quick reference
-  guide for the new approval step", "estimate training hours". Writes
-  docs/change/tna.md with a CSV, and job aids to docs/change/qrg/.
-  Covers people/organisational change only. Do NOT use for confirming people
-  are ready to go live (business-readiness), go/no-go decisions (readiness-review),
-  mapping impacts (change-impact-assessment), building courses in an LMS or
-  e-learning authoring, general HR capability frameworks or performance
-  reviews, or IT system admin runbooks.
+  guide for the new approval step", "estimate training hours", "build the
+  training schedule", "how will we know the training worked?". Writes
+  tna.md with a CSV, training-plan.md with a schedule, and job aids to
+  qrg/. People/organisational change only. Do NOT use for go-live readiness
+  (business-readiness), go/no-go (readiness-review), mapping impacts
+  (change-impact-assessment), building LMS or e-learning courses, HR
+  capability frameworks, or IT admin runbooks.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep Bash(node:*)
-argument-hint: "[role or scope] [--job-aid <task>] [--refresh]"
+argument-hint: "[role or scope] [--plan] [--job-aid <task>] [--refresh]"
 metadata:
   author: Carinya Digital
-  version: "0.1.0"
+  version: "0.2.0"
   owner: change-practice
   review_cadence: quarterly
   work_shape: generate-draft
@@ -37,7 +37,9 @@ on day one. The aim is ability at go-live, not course completion: right
 method, close to when it is needed, with a real check that people can do it.
 
 Read [change-conventions.md](references/change-conventions.md) and
-[rating-scales.md](references/rating-scales.md) before starting.
+[rating-scales.md](references/rating-scales.md) before starting. Read
+[learning-methods.md](references/learning-methods.md) before choosing methods,
+building the training plan or naming how ability will be checked.
 
 ## When to use
 
@@ -47,6 +49,8 @@ Read [change-conventions.md](references/change-conventions.md) and
 - Scope, design or go-live date has moved and the TNA needs refreshing
   (`--refresh`).
 - A task needs a quick reference guide or job aid (`--job-aid <task>`).
+- The TNA is agreed and delivery needs planning — curriculum, sessions,
+  capacity, catch-up round and evaluation (`--plan`).
 
 ## What this skill does not do
 
@@ -86,8 +90,9 @@ Read [change-conventions.md](references/change-conventions.md) and
   to an LMS or intranet by this skill.
 - **People data.** Roles and groups only; no individual learner records or
   results.
-- **Blast radius.** Writes only `docs/change/tna.md`, `docs/change/tna.csv`
-  and `docs/change/qrg/<slug>.md`. Runs only the bundled script.
+- **Blast radius.** Writes only `docs/change/tna.md`, `docs/change/tna.csv`,
+  `docs/change/training-plan.md`, `docs/change/training-schedule.csv` and
+  `docs/change/qrg/<slug>.md`. Runs only the bundled script.
 
 ## Workflow
 
@@ -104,11 +109,11 @@ Read [change-conventions.md](references/change-conventions.md) and
    0–3: 0 none; 1 aware, needs help; 2 can do with a guide or support; 3 can
    do unaided and help others. Not every task needs a 3 — rarely used tasks
    may need a 2 with a job aid.
-5. **Choose method.** Match method to gap and frequency: gap 1 or rare task →
-   job aid or briefing; gap 2+ on a frequent task → hands-on practice
-   (instructor-led or practice environment) plus a job aid; behaviour or
-   judgement change → coaching by the manager. Self-paced alone is weak for
-   gaps of 2 or more.
+5. **Choose method.** Match method to gap and frequency using the grid in
+   `learning-methods.md`: gap 1 or rare task → job aid or briefing; gap 2+ on
+   a frequent task → hands-on practice (instructor-led or practice
+   environment) plus a job aid; behaviour or judgement change → coaching by
+   the manager. Self-paced alone is weak for gaps of 2 or more.
 6. **Set timing and assessment.** Schedule learning close to go-live (usually
    within two to three weeks) so it is not forgotten. Name how ability is
    checked — observed task, scenario, supervisor sign-off — not just
@@ -126,7 +131,16 @@ Read [change-conventions.md](references/change-conventions.md) and
     `docs/change/qrg/<slug>.md` from
     [qrg.template.md](assets/qrg.template.md), show it, and write on a
     yes. Mark it for SME review.
-11. **Hand off.** Suggest `business-readiness` (the "trained" and "job aids
+11. **Plan delivery (`--plan`, or when the user agrees the TNA).** Group
+    tasks into modules; size sessions from headcount and capacity (trainers,
+    rooms, practice-environment seats, release time); schedule managers and
+    super-users first; add a catch-up round; set the four evaluation checks
+    from `learning-methods.md`. Write
+    [training-schedule.csv](assets/training-schedule.csv) and
+    `docs/change/training-plan.md` from
+    [training-plan.template.md](assets/training-plan.template.md) on a yes.
+    Never put named learners in the schedule — only counts.
+12. **Hand off.** Suggest `business-readiness` (the "trained" and "job aids
     available" criteria draw on this) and `comms-draft` for training
     invitations.
 
@@ -139,6 +153,8 @@ Read [change-conventions.md](references/change-conventions.md) and
   catch up absentees. Plan a catch-up round.
 - Shift, part-time and leave patterns can halve the time available — ask.
 - A practice environment that isn't ready is a top timing risk; log it.
+- Session count is a calculation: people ÷ seats, rounded up, plus catch-up.
+  Show the arithmetic; check it against trainer and room availability.
 
 ## Outputs
 
@@ -146,6 +162,7 @@ Read [change-conventions.md](references/change-conventions.md) and
 | --- | --- |
 | Training needs analysis (narrative + plan) | `docs/change/tna.md` |
 | TNA data | `docs/change/tna.csv` |
+| Training plan and session schedule | `docs/change/training-plan.md`, `docs/change/training-schedule.csv` |
 | Job aids / quick reference guides | `docs/change/qrg/<slug>.md` |
 
 Chat summary: roles with the largest gaps, tasks with gap 2+, learner-hours

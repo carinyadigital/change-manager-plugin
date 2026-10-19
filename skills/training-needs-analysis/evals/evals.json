@@ -1,0 +1,40 @@
+{
+  "skill_name": "training-needs-analysis",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Here's the impact register. What does each role need to learn before the CRM go-live on 1 March?",
+      "expected_output": "Breaks impacts into role tasks, rates current and required proficiency 0-3 with evidence or assumptions, picks methods using the gap/frequency grid, schedules close to go-live, names an ability check for each task, runs gap_summary.ts, and proposes before writing.",
+      "assertions": [
+        "Lists specific tasks per role rather than whole systems",
+        "Does not choose self-paced learning alone for any gap of 2 or more",
+        "Names an ability check for each task, not just attendance or completion",
+        "Gives managers their own rows",
+        "Runs gap_summary.ts for totals",
+        "Waits for yes before writing tna.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "The TNA is agreed. Plan the training: 120 agents, 12 seats per session, two super-user trainers, go-live 1 March.",
+      "expected_output": "Writes a training plan with modules, shows the session arithmetic (120 / 12 = 10 sessions plus a catch-up round), schedules managers and super-users first and sessions in the two to three weeks before go-live, sets four evaluation checks, and keeps the schedule to counts, not names.",
+      "assertions": [
+        "Shows the session calculation, including a catch-up round",
+        "Schedules managers and super-users before agents",
+        "Includes evaluation at reaction, learning, behaviour and results",
+        "Links the learning check to the 'trained' readiness criterion",
+        "Does not put named learners in training-schedule.csv",
+        "Does not cite unsourced percentages for absence or completion"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write the admin runbook for resetting user passwords in the new CRM.",
+      "expected_output": "Identifies an IT admin runbook, outside the skill, and does not draft it as a job aid.",
+      "assertions": [
+        "Declines the IT admin runbook as out of scope",
+        "Does not write to docs/change/qrg/"
+      ]
+    }
+  ]
+}
