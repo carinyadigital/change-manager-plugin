@@ -2,25 +2,25 @@
 name: change-strategy
 description: >
   Use when the user needs the overall approach and high-level plan for the
-  people side of an organisational change — how big it is, the approach for
-  sponsorship, engagement, comms, training, champions, readiness, resistance
-  and reinforcement, roles and governance, a phase timeline, success measures
-  in summary, and which change method to use. Fires even when the user never
-  says "change strategy": "how should we approach the people side of this?",
-  "what's our change plan?", "how much change effort does this need?", "pull
-  it together for the steering committee", "which change model should we
-  use?". Writes docs/change/strategy.md from the scope, stakeholder, impact,
-  risk and health check artefacts. Covers people/organisational change only.
-  Do NOT use for IT/ITIL change requests or release plans, for the detailed
-  comms plan (communications-plan), for training needs by role
-  (training-needs-analysis), for measures in detail (measurement-plan), for
-  the sponsor roadmap (sponsor-engagement), or for a project schedule.
+  people side of an organisational change — how big it is, the approach per
+  area (sponsorship, engagement, comms, training, champions, readiness,
+  resistance, reinforcement), roles and governance, a phase timeline, success
+  measures in summary, and which method to use. Fires on "how should we
+  approach the people side of this?", "what's our change plan?", "how much
+  change effort does this need?", "pull it together for steering", "which
+  change model should we use?", "write the case for change", "run a force-field analysis". Writes
+  docs/change/strategy.md, plus case-for-change.md and force-field.md when
+  asked. Covers people/organisational change only.
+  Do NOT use for IT/ITIL change requests or release plans, the detailed
+  comms plan (communications-plan), training needs (training-needs-analysis),
+  measures in detail (measurement-plan), the sponsor roadmap
+  (sponsor-engagement), or a project schedule.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
-argument-hint: "[--refresh] [method to use, if already decided]"
+argument-hint: "[--refresh] [--case-for-change] [--force-field] [method, if decided]"
 metadata:
   author: Carinya Digital
-  version: "0.1.0"
+  version: "0.2.0"
   owner: change-practice
   review_cadence: quarterly
   work_shape: generate-draft
@@ -42,7 +42,10 @@ Read [change-conventions.md](references/change-conventions.md),
 [methods.md](references/methods.md) and
 [framework-selector.md](references/framework-selector.md) before starting. Method
 cheat-sheets: [adkar.md](references/adkar.md), [kotter.md](references/kotter.md),
-[bridges.md](references/bridges.md), [pct.md](references/pct.md).
+[bridges.md](references/bridges.md), [pct.md](references/pct.md). Read
+[sizing-worksheet.md](references/sizing-worksheet.md) when sizing the change,
+and [force-field.md](references/force-field.md) when running or writing up a
+forces-for-and-against session.
 
 ## When to use
 
@@ -52,6 +55,9 @@ cheat-sheets: [adkar.md](references/adkar.md), [kotter.md](references/kotter.md)
   be handled.
 - When scope, timing or the health check verdict shifts enough that the
   approach needs revisiting (`--refresh`).
+- When the sponsor needs a leader-facing case for change and vision
+  (`--case-for-change`), or leaders need to weigh the forces for and against
+  the change (`--force-field`). Both feed the strategy.
 
 ## What this skill does not do
 
@@ -94,7 +100,8 @@ cheat-sheets: [adkar.md](references/adkar.md), [kotter.md](references/kotter.md)
 - **Brand and audience safety.** The strategy is for the sponsor and
   governance, not staff. Flag sensitive content (role removals, consultation
   steps) for HR review before it circulates.
-- **Blast radius.** Writes only `docs/change/strategy.md`. Never edits the
+- **Blast radius.** Writes only `docs/change/strategy.md`,
+  `docs/change/case-for-change.md` and `docs/change/force-field.md`. Never edits the
   registers or health check it reads.
 
 ## Workflow
@@ -102,10 +109,11 @@ cheat-sheets: [adkar.md](references/adkar.md), [kotter.md](references/kotter.md)
 1. **Load context.** Read the profile and every Prepare artefact. Note
    anything older than `stale_after_days` and any open assumptions that the
    strategy depends on.
-2. **Size the change.** Use the sizing table in
-   [framework-selector.md](references/framework-selector.md) with evidence from
-   the registers and health check. State the size (smaller / medium / larger)
-   and the reasons.
+2. **Size the change.** Score the ten signals in `sizing-worksheet.md` from
+   evidence in the registers, health check, organisational readiness and
+   heatmap. Apply its bands and overrides; state the size (smaller / medium /
+   larger), the scores and the reasons. Fewer than six scored signals makes the
+   size provisional — say so.
 3. **Choose the method.** Use the profile's method if set; otherwise
    recommend method-neutral, optionally borrowing one lens, and explain why in
    two sentences.
@@ -130,7 +138,15 @@ cheat-sheets: [adkar.md](references/adkar.md), [kotter.md](references/kotter.md)
    file you will write. Wait for yes.
 10. **Write** `docs/change/strategy.md` from
     [strategy.template.md](assets/strategy.template.md).
-11. **Hand off.** Suggest `measurement-plan` next, then the planning skills
+11. **Case for change and forces (when asked, or when the sponsor lacks one).**
+    For `--case-for-change`, draft `docs/change/case-for-change.md` from
+    [case-for-change.template.md](assets/case-for-change.template.md) using
+    only `scope.md`, the business case and named sources. For
+    `--force-field`, give the user the session outline in `force-field.md`,
+    then write up their outputs in
+    [force-field.template.md](assets/force-field.template.md). Show, then
+    write on a yes. Restraining forces rated 3 go to `change-risk-assessment`.
+12. **Hand off.** Suggest `measurement-plan` next, then the planning skills
     named in the approach table.
 
 ## Gotchas
@@ -143,12 +159,18 @@ cheat-sheets: [adkar.md](references/adkar.md), [kotter.md](references/kotter.md)
   time after go-live for reinforcement — projects tend to compress both.
 - If the health check is Material concern, the strategy cannot compensate
   alone; say so plainly to the sponsor.
+- The case for change is for leaders; the change story is for staff. Don't
+  send the leader version to employees.
+- Reducing restraining forces usually works better than pushing harder on
+  driving ones.
 
 ## Outputs
 
 | Artefact | Path |
 | --- | --- |
 | Change strategy and plan | `docs/change/strategy.md` |
+| Case for change and vision (on request) | `docs/change/case-for-change.md` |
+| Forces for and against (on request) | `docs/change/force-field.md` |
 
 Chat summary: change size, method, top three approach choices, decisions needed
 from the sponsor, and the recommended next skill.

@@ -21,14 +21,31 @@ sponsor. Three to five sentences.>
 
 **Size:** smaller | medium | larger
 
-| Signal | Evidence | Source |
-| --- | --- | --- |
-| | | |
+| # | Signal | Score (1–3) | Evidence | Source |
+| --- | --- | --- | --- | --- |
+| 1 | Highest group headline impact | | | |
+| 2 | Groups at high priority | | | |
+| 3 | People affected | | | |
+| 4 | Roles redesigned, removed or created | | | |
+| 5 | How different the new way is | | | |
+| 6 | Sponsor and health check | | | |
+| 7 | Organisational readiness | | | |
+| 8 | Competing change for the same groups | | | |
+| 9 | Timeline | | | |
+| 10 | Employee relations | | | |
+
+**Average:** <n> from <n> signals · **Override applied:** <none / which> ·
+**Provisional?** <yes if fewer than six signals scored>
 
 ## Method
 
 <Method used and why, in two sentences. Name any framework once, with
 attribution.>
+
+## Forces for and against (summary)
+
+<Strongest restraining forces and the actions that reduce them, from
+`force-field.md` if a session was run.>
 
 ## Approach by area
 

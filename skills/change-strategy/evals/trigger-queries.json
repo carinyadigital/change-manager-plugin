@@ -7,12 +7,14 @@
   {"query": "what's our approach to comms, training, champions and reinforcement at a high level?", "should_trigger": true},
   {"query": "the health check came back with concerns, refresh the change approach", "should_trigger": true},
   {"query": "set out roles, governance and a phase timeline for the change work", "should_trigger": true},
-  {"query": "write the release plan for the change advisory board", "should_trigger": false, "note": "IT change control"},
-  {"query": "build the detailed comms plan with audiences, channels and dates", "should_trigger": false, "note": "communications-plan"},
-  {"query": "what training does each role need and when?", "should_trigger": false, "note": "training-needs-analysis"},
-  {"query": "set baselines and targets for adoption measures", "should_trigger": false, "note": "measurement-plan"},
-  {"query": "plan what our sponsor should say and do each month", "should_trigger": false, "note": "sponsor-engagement"},
-  {"query": "write our three-year business strategy", "should_trigger": false, "note": "not a change-practice artefact"},
-  {"query": "build the project schedule in MS Project", "should_trigger": false, "note": "project management, not people change"},
-  {"query": "design the workforce plan and org structure for next year", "should_trigger": false, "note": "generic HR task"}
+  {"query": "write the case for change for the exec team", "should_trigger": true},
+  {"query": "run a force-field analysis with the leadership team", "should_trigger": true},
+  {"query": "write the release plan for the change advisory board", "should_trigger": false,"note": "IT change control"},
+  {"query": "build the detailed comms plan with audiences, channels and dates", "should_trigger": false,"note": "communications-plan"},
+  {"query": "what training does each role need and when?", "should_trigger": false,"note": "training-needs-analysis"},
+  {"query": "set baselines and targets for adoption measures", "should_trigger": false,"note": "measurement-plan"},
+  {"query": "plan what our sponsor should say and do each month", "should_trigger": false,"note": "sponsor-engagement"},
+  {"query": "write our three-year business strategy", "should_trigger": false,"note": "not a change-practice artefact"},
+  {"query": "build the project schedule in MS Project", "should_trigger": false,"note": "project management, not people change"},
+  {"query": "design the workforce plan and org structure for next year", "should_trigger": false,"note": "generic HR task"}
 ]

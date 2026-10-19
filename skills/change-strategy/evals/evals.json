@@ -1,0 +1,40 @@
+{
+  "skill_name": "change-strategy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Pull the change strategy together for steering committee. The impact register, stakeholder register and health check are in docs/change.",
+      "expected_output": "Scores the sizing signals from the record, states the size with scores and any override, sets an approach per area with a driver for each, responds to blocking health findings, sets roles and a phase timeline, and proposes before writing strategy.md.",
+      "assertions": [
+        "Scores sizing signals from evidence and reports the average and size",
+        "Marks the size provisional if fewer than six signals could be scored",
+        "Each approach choice cites the artefact entry that drives it",
+        "Marks at least one area light touch where evidence says it needs little, or explains why none does",
+        "Does not use Prosci, ADKAR or PCT labels unless the profile records a licence",
+        "Waits for yes before writing"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write the case for change for the exec team. We're consolidating three payroll teams into one shared service.",
+      "expected_output": "Drafts case-for-change.md for leaders: from/to, why now, cost of standing still and success, using only scope and named sources; no invented savings figures; honest about costs; shows before writing.",
+      "assertions": [
+        "Does not invent savings, headcount or benefit figures",
+        "Includes what will be harder for whom",
+        "States that the employee-facing story belongs in communications-plan",
+        "Writes only docs/change/case-for-change.md, after a yes"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We ran a force-field session — here are the sticky notes. Write it up.",
+      "expected_output": "Writes up driving and restraining forces with 1-3 strengths and evidence, names forces as conditions not people, proposes actions focused on reducing the strongest restraining forces, and routes 3-rated restraining forces to change-risk-assessment.",
+      "assertions": [
+        "Names forces as conditions, not individuals",
+        "Proposes actions to reduce the strongest restraining forces",
+        "Routes restraining forces rated 3 to change-risk-assessment",
+        "Records roles present, not names"
+      ]
+    }
+  ]
+}
