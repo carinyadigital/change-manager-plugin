@@ -1,0 +1,18 @@
+[
+  {"query": "who does the new payroll system affect?", "should_trigger": true},
+  {"query": "what's changing for staff when we move to the hub model?", "should_trigger": true},
+  {"query": "do a change impact assessment for the restructure", "should_trigger": true},
+  {"query": "rate the people impacts for each team", "should_trigger": true},
+  {"query": "what does the new CRM mean for the call centre day to day?", "should_trigger": true},
+  {"query": "current state vs future state by role for the finance transformation", "should_trigger": true},
+  {"query": "refresh the impact register, scope changed", "should_trigger": true},
+  {"query": "map how the policy change hits frontline managers", "should_trigger": true},
+  {"query": "raise a change request for the database patch", "should_trigger": false, "note": "IT change control"},
+  {"query": "what's the CAB impact rating for this release?", "should_trigger": false, "note": "IT change control"},
+  {"query": "are our teams overloaded with too many changes this quarter?", "should_trigger": false, "note": "portfolio-saturation"},
+  {"query": "what could stop this change landing?", "should_trigger": false, "note": "change-risk-assessment"},
+  {"query": "what training does each role need?", "should_trigger": false, "note": "training-needs-analysis"},
+  {"query": "who are the stakeholders and how much influence do they have?", "should_trigger": false, "note": "stakeholder-analysis"},
+  {"query": "what's the business impact of this outage?", "should_trigger": false, "note": "incident, not people change"},
+  {"query": "write the business case for the CRM", "should_trigger": false, "note": "not a change-practice artefact"}
+]

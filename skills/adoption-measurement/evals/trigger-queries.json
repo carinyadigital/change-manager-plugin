@@ -1,0 +1,18 @@
+[
+  {"query": "is anyone actually using the new expenses system?", "should_trigger": true},
+  {"query": "how's the rollout going three months in?", "should_trigger": true},
+  {"query": "are people still using the old spreadsheet instead of the new tool?", "should_trigger": true},
+  {"query": "did the new triage process stick?", "should_trigger": true},
+  {"query": "run the 90-day adoption review", "should_trigger": true},
+  {"query": "compare usage against the targets we set before go-live", "should_trigger": true},
+  {"query": "training completion is 95% so adoption is great, right?", "should_trigger": true},
+  {"query": "which teams are behind on using the new CRM and why?", "should_trigger": true},
+  {"query": "what should we measure to know if the change worked?", "should_trigger": false, "note": "measurement-plan"},
+  {"query": "is the warehouse ready for go-live next week?", "should_trigger": false, "note": "business-readiness"},
+  {"query": "plan recognition and leader reinforcement to make it stick", "should_trigger": false, "note": "reinforcement"},
+  {"query": "run the post-implementation review for last night's release", "should_trigger": false, "note": "IT change control / release review"},
+  {"query": "what's our monthly active users trend for the app?", "should_trigger": false, "note": "product analytics, not people change"},
+  {"query": "hand monitoring over to the operations manager", "should_trigger": false, "note": "bau-handover"},
+  {"query": "why is the finance team pushing back on the change?", "should_trigger": false, "note": "resistance-management"},
+  {"query": "run the staff engagement survey analysis", "should_trigger": false, "note": "generic HR survey, not change adoption"}
+]

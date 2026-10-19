@@ -1,0 +1,35 @@
+{
+  "skill_name": "skills-index",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I've just been handed the change work for a new rostering system. Where do I start?",
+      "expected_output": "Reads the change record, finds it empty, and recommends understand-change with a one-line reason, plus up to two alternatives.",
+      "assertions": [
+        "Checks the artefact root before recommending",
+        "Recommends /change-practice:understand-change",
+        "Gives at most two alternatives",
+        "Writes no files"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "What should I do next? We've done scope, stakeholders and impacts.",
+      "expected_output": "Reads front blocks, notes scope, stakeholder and impact registers exist, recommends change-risk-assessment or change-strategy following the phase order, and flags any stale artefact.",
+      "assertions": [
+        "Reads front blocks of existing artefacts",
+        "Recommendation follows the phase order in change-conventions.md",
+        "Flags artefacts older than stale_after_days if any"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Help me with the CAB submission for Saturday's release.",
+      "expected_output": "Says IT change control is out of scope for this plugin in one line and does not route to a people-change skill.",
+      "assertions": [
+        "Identifies the request as IT change control",
+        "Does not recommend a change-practice skill for it"
+      ]
+    }
+  ]
+}

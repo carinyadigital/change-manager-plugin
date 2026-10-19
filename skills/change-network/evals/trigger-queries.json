@@ -1,0 +1,18 @@
+[
+  {"query": "design a change champion network for the payroll rollout", "should_trigger": true},
+  {"query": "we need people on the ground in each depot to help with the change", "should_trigger": true},
+  {"query": "set up super users in every ward for the new clinical system", "should_trigger": true},
+  {"query": "are we covering every team with champions? here's the nomination list", "should_trigger": true},
+  {"query": "what are the champions hearing this fortnight? log these huddle notes", "should_trigger": true},
+  {"query": "how much time should our change agents commit each week?", "should_trigger": true},
+  {"query": "build a toolkit for the change ambassadors", "should_trigger": true},
+  {"query": "check champion ratio is 1 in 20 across the sites", "should_trigger": true},
+  {"query": "get the divisional heads visibly backing the change", "should_trigger": false, "note": "sponsor-engagement"},
+  {"query": "plan a walkthrough workshop with the claims team", "should_trigger": false, "note": "stakeholder-engagement"},
+  {"query": "the depot staff are resisting the new rosters, what's the real barrier?", "should_trigger": false, "note": "resistance-management"},
+  {"query": "build the floor-walker rota for go-live week", "should_trigger": false, "note": "golive-transition"},
+  {"query": "set up the change advisory board membership", "should_trigger": false, "note": "IT change control"},
+  {"query": "start an employee wellbeing ambassador program", "should_trigger": false, "note": "general HR program, not a change network"},
+  {"query": "what training does each role need?", "should_trigger": false, "note": "training-needs-analysis"},
+  {"query": "who are the stakeholders and how much influence do they have?", "should_trigger": false, "note": "stakeholder-analysis"}
+]

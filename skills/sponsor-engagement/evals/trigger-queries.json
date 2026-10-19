@@ -1,0 +1,18 @@
+[
+  {"query": "build a sponsor roadmap for the ERP rollout", "should_trigger": true},
+  {"query": "what should our GM actually be doing to back this change?", "should_trigger": true},
+  {"query": "our executive sponsor has gone quiet, how do I get them visible again?", "should_trigger": true},
+  {"query": "help the directors prepare to brief their teams on the new operating model", "should_trigger": true},
+  {"query": "draft talking points for the CEO for the town hall phase of the change", "should_trigger": true},
+  {"query": "map the leadership coalition from the sponsor down to team leaders", "should_trigger": true},
+  {"query": "what do I need to ask our sponsor to commit to?", "should_trigger": true},
+  {"query": "new sponsor just took over the program, refresh the sponsor plan", "should_trigger": true},
+  {"query": "how strong is our sponsorship? rate it", "should_trigger": false, "note": "sponsor-assessment"},
+  {"query": "plan all the communications for the restructure by audience and channel", "should_trigger": false, "note": "communications-plan"},
+  {"query": "write the email from the CEO announcing go-live", "should_trigger": false, "note": "comms-draft"},
+  {"query": "set up workshops with the finance team to walk through the new process", "should_trigger": false, "note": "stakeholder-engagement"},
+  {"query": "recruit change champions in each depot", "should_trigger": false, "note": "change-network"},
+  {"query": "get the change sponsor to approve the RFC at CAB", "should_trigger": false, "note": "IT change control"},
+  {"query": "who are the stakeholders and what's their influence?", "should_trigger": false, "note": "stakeholder-analysis"},
+  {"query": "prepare the executive's performance review", "should_trigger": false, "note": "HR task, not change management"}
+]

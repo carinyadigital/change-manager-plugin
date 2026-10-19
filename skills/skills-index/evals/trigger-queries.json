@@ -1,0 +1,18 @@
+[
+  {"query": "where do I start with the change for the new rostering system?", "should_trigger": true},
+  {"query": "what should I do next on the restructure change?", "should_trigger": true},
+  {"query": "what's missing from my change plan?", "should_trigger": true},
+  {"query": "help me with the people side of our ERP rollout", "should_trigger": true},
+  {"query": "I've just been made change lead on a merger, what now?", "should_trigger": true},
+  {"query": "which change skill should I use for this?", "should_trigger": true},
+  {"query": "staff are confused about the new policy, not sure what to do", "should_trigger": true},
+  {"query": "what's the next step after the impact assessment?", "should_trigger": true},
+  {"query": "draft the announcement email for the restructure", "should_trigger": false, "note": "comms-draft"},
+  {"query": "do the stakeholder map for project Atlas", "should_trigger": false, "note": "stakeholder-analysis"},
+  {"query": "raise a change request for the firewall rule", "should_trigger": false, "note": "IT change control"},
+  {"query": "which plugin should I install for SEO?", "should_trigger": false, "note": "skills-index:find"},
+  {"query": "write this week's change status", "should_trigger": false, "note": "weekly-status"},
+  {"query": "are we ready for go-live on Monday?", "should_trigger": false, "note": "readiness-review"},
+  {"query": "set up the change practice", "should_trigger": false, "note": "setup"},
+  {"query": "plan the sprint", "should_trigger": false, "note": "product-management:sprint-planning"}
+]

@@ -1,0 +1,18 @@
+[
+  {"query": "run the daily pulse", "should_trigger": true},
+  {"query": "what are people saying about the new rostering system?", "should_trigger": true},
+  {"query": "any new pushback this week on the restructure?", "should_trigger": true},
+  {"query": "check the champion feedback since Monday", "should_trigger": true},
+  {"query": "how is sentiment tracking in the call centre?", "should_trigger": true},
+  {"query": "scan the change channel for emerging concerns", "should_trigger": true},
+  {"query": "summarise this week's pulse survey by team", "should_trigger": true},
+  {"query": "is resistance building anywhere before go-live?", "should_trigger": true},
+  {"query": "the finance team won't use the new tool — plan an intervention", "should_trigger": false, "note": "resistance-management"},
+  {"query": "set up a change champion network", "should_trigger": false, "note": "change-network"},
+  {"query": "are people actually using the system 60 days in?", "should_trigger": false, "note": "adoption-measurement"},
+  {"query": "monitor the incident queue for the new CRM", "should_trigger": false, "note": "IT incident monitoring"},
+  {"query": "run an employee engagement survey", "should_trigger": false, "note": "HR survey design, not change pulse"},
+  {"query": "who said what in the #general channel yesterday?", "should_trigger": false, "note": "identifies individuals"},
+  {"query": "write this week's change status", "should_trigger": false, "note": "weekly-status"},
+  {"query": "map the stakeholders for project Atlas", "should_trigger": false, "note": "stakeholder-analysis"}
+]

@@ -1,0 +1,18 @@
+[
+  {"query": "how do we stop people drifting back to the old way?", "should_trigger": true},
+  {"query": "people are using spreadsheet workarounds again — make the new process stick", "should_trigger": true},
+  {"query": "plan some recognition for the teams who've adopted the new system", "should_trigger": true},
+  {"query": "build a reinforcement plan for the sustain phase", "should_trigger": true},
+  {"query": "what should leaders keep doing so the change lasts?", "should_trigger": true},
+  {"query": "will this change last once the project team leaves?", "should_trigger": true},
+  {"query": "outline a success story about the new rostering process", "should_trigger": true},
+  {"query": "we need to retire the old forms so people stop using them", "should_trigger": true},
+  {"query": "run the 90-day adoption review", "should_trigger": false, "note": "adoption-measurement"},
+  {"query": "hand the change over to the BAU owner and close the project", "should_trigger": false, "note": "bau-handover"},
+  {"query": "why are the branch managers resisting the change?", "should_trigger": false, "note": "resistance-management"},
+  {"query": "raise a change request to decommission the legacy server", "should_trigger": false, "note": "IT change control"},
+  {"query": "design our annual staff awards programme", "should_trigger": false, "note": "generic HR reward, not change reinforcement"},
+  {"query": "draft the go-live announcement email", "should_trigger": false, "note": "comms-draft"},
+  {"query": "what lessons should we capture from this rollout?", "should_trigger": false, "note": "lessons-learned"},
+  {"query": "put a performance improvement plan in place for this employee", "should_trigger": false, "note": "HR performance management"}
+]

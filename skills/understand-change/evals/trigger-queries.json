@@ -1,0 +1,18 @@
+[
+  {"query": "review this business case and tell me what's actually changing", "should_trigger": true},
+  {"query": "what is this project actually changing for people?", "should_trigger": true},
+  {"query": "help me write the case for change for the shared services move", "should_trigger": true},
+  {"query": "scope the change for the new rostering system", "should_trigger": true},
+  {"query": "I've just been put on the finance transformation, where do I start?", "should_trigger": true},
+  {"query": "summarise the charter: why, what, when and what success looks like", "should_trigger": true},
+  {"query": "the go-live moved and two sites dropped out, refresh the change definition", "should_trigger": true},
+  {"query": "what's in and out of scope from a people point of view?", "should_trigger": true},
+  {"query": "raise an RFC for the CRM release next week", "should_trigger": false, "note": "IT change control"},
+  {"query": "rate how badly each team is affected", "should_trigger": false, "note": "change-impact-assessment"},
+  {"query": "what's our change approach and plan?", "should_trigger": false, "note": "change-strategy"},
+  {"query": "map the stakeholders by influence and impact", "should_trigger": false, "note": "stakeholder-analysis"},
+  {"query": "write the business case with NPV and payback for the new CRM", "should_trigger": false, "note": "not a change-practice artefact"},
+  {"query": "draft the project charter and work breakdown structure", "should_trigger": false, "note": "project management, not people change"},
+  {"query": "write the all-staff email announcing the change", "should_trigger": false, "note": "comms-draft"},
+  {"query": "update the job description for the team leader role", "should_trigger": false, "note": "generic HR task"}
+]

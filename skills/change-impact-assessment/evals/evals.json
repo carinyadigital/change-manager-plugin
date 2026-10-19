@@ -1,0 +1,38 @@
+{
+  "skill_name": "change-impact-assessment",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We're replacing our CRM in the contact centre in March. Here's the solution design. Who does this affect and how badly?",
+      "expected_output": "Confirms groups and headcounts before rating, then proposes docs/change/impact-register.md and .csv with current vs future state per changed dimension, 0-4 scores, scripted roll-up, and proposed support; waits for confirmation before writing.",
+      "assertions": [
+        "Asks the user to confirm impacted groups and headcounts before scoring",
+        "Every rated dimension has both a today and an after-go-live statement",
+        "Scores use the 0-4 scale from rating-scales.md",
+        "Runs score_impacts.ts rather than hand-calculating priority",
+        "Shows a summary and waits for yes before writing files",
+        "Writes only docs/change/impact-register.md and docs/change/impact-register.csv"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Do an impact assessment for the restructure. I don't have headcounts yet.",
+      "expected_output": "Proceeds with groups the user names, leaves headcounts blank or marked as assumptions to confirm, and does not invent numbers.",
+      "assertions": [
+        "Does not invent headcounts",
+        "Marks missing information as [ASSUMPTION — confirm with ...]",
+        "Lists assumptions in the Assumptions to confirm table",
+        "Records groups and roles, not named individuals"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Raise an impact assessment for the database patch going to CAB on Thursday.",
+      "expected_output": "Recognises this as IT change control, says so in one line, and does not produce a people-change impact register.",
+      "assertions": [
+        "Identifies the request as IT/ITIL change control",
+        "Does not write docs/change/impact-register.md"
+      ]
+    }
+  ]
+}

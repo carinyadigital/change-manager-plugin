@@ -1,0 +1,18 @@
+[
+  {"query": "what training does each team need for the new CRM?", "should_trigger": true},
+  {"query": "do a training needs analysis for the finance transformation", "should_trigger": true},
+  {"query": "who needs to learn what before go-live?", "should_trigger": true},
+  {"query": "do the warehouse pickers need a classroom session or is a cheat sheet enough?", "should_trigger": true},
+  {"query": "write a quick reference guide for the new approval step", "should_trigger": true},
+  {"query": "estimate how many learner hours the rollout needs", "should_trigger": true},
+  {"query": "turn the knowledge and skill impacts into a learning plan by role", "should_trigger": true},
+  {"query": "the go-live moved, refresh the training plan timing", "should_trigger": true},
+  {"query": "are the teams ready to go live next week?", "should_trigger": false, "note": "business-readiness"},
+  {"query": "should we go or not go on Monday?", "should_trigger": false, "note": "readiness-review"},
+  {"query": "what's changing for each role across process and systems?", "should_trigger": false, "note": "change-impact-assessment"},
+  {"query": "build the e-learning module in Articulate and load it into the LMS", "should_trigger": false, "note": "course authoring / LMS admin, not in scope"},
+  {"query": "set up our annual capability framework and performance reviews", "should_trigger": false, "note": "generic HR task"},
+  {"query": "write the runbook for the DBA team to apply the patch", "should_trigger": false, "note": "IT change / operations"},
+  {"query": "draft the training invitation email to agents", "should_trigger": false, "note": "comms-draft"},
+  {"query": "is training completion telling us people have adopted it?", "should_trigger": false, "note": "adoption-measurement"}
+]

@@ -1,0 +1,18 @@
+[
+  {"query": "prep me for steerco on Thursday", "should_trigger": true},
+  {"query": "I'm meeting the sponsor tomorrow about the restructure — what do I need?", "should_trigger": true},
+  {"query": "brief for the leadership team session on the ERP change", "should_trigger": true},
+  {"query": "who's in the room for the change board and what do we need from them?", "should_trigger": true},
+  {"query": "write up the actions from today's steering meeting", "should_trigger": true},
+  {"query": "here are my notes from the sponsor catch-up, capture the decisions", "should_trigger": true},
+  {"query": "what hard questions will the exec team ask about go-live?", "should_trigger": true},
+  {"query": "get me ready for the HR director meeting on the new roster", "should_trigger": true},
+  {"query": "write this week's change status report", "should_trigger": false, "note": "weekly-status"},
+  {"query": "plan a showcase for the warehouse teams", "should_trigger": false, "note": "stakeholder-engagement"},
+  {"query": "draft the follow-up email to attendees", "should_trigger": false, "note": "comms-draft"},
+  {"query": "build the sponsor roadmap", "should_trigger": false, "note": "sponsor-engagement"},
+  {"query": "prepare the CAB pack for Saturday's release", "should_trigger": false, "note": "IT change control"},
+  {"query": "schedule a meeting with the sponsor next week", "should_trigger": false, "note": "calendar booking, not prep"},
+  {"query": "summarise this podcast transcript", "should_trigger": false, "note": "unrelated"},
+  {"query": "agenda for our sprint planning meeting", "should_trigger": false, "note": "product-management:sprint-planning"}
+]
