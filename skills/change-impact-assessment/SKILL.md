@@ -5,10 +5,10 @@ description: >
   process, systems, roles, skills, behaviours, structure, location, data,
   customers, controls — and how severe it is (0–4). Use for "who does this
   affect?", "what's changing for staff?", "what does the new system mean for
-  the call centre?", "rate the people impacts". Writes docs/change/impact-
-  register.md with a scored CSV. Do NOT use for change load across initiatives
-  (portfolio-saturation), landing risks (change-risk-assessment), or training
-  design (training-needs-analysis).
+  the call centre?", "rate the people impacts". Writes
+  docs/change/impact-register.md with a scored CSV. Do NOT use for change load
+  across initiatives (portfolio-saturation), landing risks
+  (change-risk-assessment), or training design (training-needs-analysis).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep Bash(node:*)
 argument-hint: "[group or scope to assess] [--refresh]"
