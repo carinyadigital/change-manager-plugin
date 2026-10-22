@@ -1,7 +1,7 @@
 {
   "name": "change-practice",
   "displayName": "Change Practice",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Single, multi-persona organisational change management practice — setup interview, change definition, stakeholder and impact analysis, change risks, sponsor health check, strategy and measurement plan, sponsor and stakeholder engagement, champion network, communications (draft-never-send), training needs, business readiness and go/no-go review, resistance, go-live transition, portfolio saturation, adoption, reinforcement, BAU handover, lessons learned, weekly status, meeting prep and stakeholder pulse. Five personas over one shared change record in docs/change/. People change only — not IT change control.",
   "author": {
     "name": "Carinya Digital"

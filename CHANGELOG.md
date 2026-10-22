@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.3 — 2026-10-22
+
+- Removes `CLAUDE.md` from the plugin root, which the Claude directory rejects
+  (`ROOT_CLAUDE_MD`) because installed plugins don't load it. The practice
+  profile template now ships inside setup as `skills/setup/CLAUDE.template.md`;
+  setup still writes the filled profile to `~/change-practice/CLAUDE.md`.
+- The validator fails on a root `CLAUDE.md` or `CLAUDE.local.md` and requires
+  the setup template.
+
 ## 0.3.2 — 2026-10-22
 
 - Directory review no longer reads the HTTPS check or the readiness-review

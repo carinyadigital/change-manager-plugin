@@ -239,7 +239,8 @@ function checkManifest(): void {
     if (onboarding !== "./skills/setup/SKILL.md") fail('.codex-plugin/plugin.json onboarding skill must be "./skills/setup/SKILL.md"');
     codexPath(onboarding, "onboardingSkill");
   }
-  for (const f of ["README.md", "CONNECTORS.md", "CLAUDE.md", ".mcp.json", "LICENSE"]) if (!existsSync(join(ROOT, f))) fail(`missing ${f}`);
+  for (const f of ["README.md", "CONNECTORS.md", ".mcp.json", "LICENSE", "skills/setup/CLAUDE.template.md"]) if (!existsSync(join(ROOT, f))) fail(`missing ${f}`);
+  for (const f of ["CLAUDE.md", "CLAUDE.local.md"]) if (existsSync(join(ROOT, f))) fail(`${f} at the plugin root is rejected by the Claude directory (ROOT_CLAUDE_MD); ship context in a skill`);
   if (existsSync(join(ROOT, ".codex-plugin/marketplace.json"))) fail("ChatGPT has no marketplace catalogue; .codex-plugin/marketplace.json should not exist");
   checkClaudeMarketplace(a);
   const pkg = existsSync(join(ROOT, "package.json")) ? (loadJson(join(ROOT, "package.json")) as Record<string, unknown> | undefined) : undefined;

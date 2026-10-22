@@ -26,9 +26,8 @@ ChatGPT Work). Read it first in every skill: it sets `artefact_root`,
 thresholds, cadence, the comms approval chain and the minimum group size for
 sentiment. If the file is missing or its Status is `template`, say so once,
 suggest `/change-practice:setup`, and use the defaults in
-[rating-scales.md](rating-scales.md). Never treat the plugin's own root
-`CLAUDE.md` as the profile — it is the unfilled template, and only `setup`
-writes the real one.
+[rating-scales.md](rating-scales.md). Only `setup` writes the profile, from
+the template it ships as `CLAUDE.template.md`.
 
 **Artefact root:** `docs/change/` in the working folder, unless the practice
 profile sets `artefact_root` to something else. One working folder = one

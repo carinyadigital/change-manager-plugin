@@ -189,7 +189,6 @@ each skill is a self-contained folder.
 .codex-plugin/plugin.json       # ChatGPT Work and Codex manifest
 .mcp.json                       # bundled connector: Microsoft 365 and Teams
 assets/                         # listing icon for ChatGPT
-CLAUDE.md                       # practice profile TEMPLATE (setup writes a personal copy)
 CONNECTORS.md                   # ~~category map and connector policy
 agents/                         # five persona agents
 hooks/                          # hooks.json + draft, people-data and profile guards (TypeScript)

@@ -45,7 +45,7 @@ Read before proceeding:
 - [change-conventions.md](references/change-conventions.md)
 - [rating-scales.md](references/rating-scales.md)
 - [methods.md](references/methods.md)
-- The profile template at `${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`
+- [CLAUDE.template.md](CLAUDE.template.md) — the profile template
 
 Honour flags: `--quick`, `--full`, `--redo`, `--resume`, `--check-integrations`.
 
@@ -111,7 +111,8 @@ Show the filled profile in plain language, list deliberate skips, and ask:
 ### Step 5 — Write
 
 Write `~/change-practice/CLAUDE.md`
-from the template with answers filled and `Status: complete`. Delete the resume
+from [CLAUDE.template.md](CLAUDE.template.md) with answers filled, the
+template comment removed and `Status: complete`. Delete the resume
 file if present.
 
 ### Step 6 — Next steps

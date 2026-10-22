@@ -7,8 +7,10 @@ Claude marketplace catalogue and lists that same root (`source`: `./`), so
 the repository can be added as a marketplace. There is no Codex marketplace
 catalogue.
 
-`CLAUDE.md` at the root is the practice-profile **template** shipped to users,
-not contributor guidance. This file is the contributor guide.
+This file is the contributor guide. There is no `CLAUDE.md` at the plugin root — the Claude directory rejects
+it (`ROOT_CLAUDE_MD`) because installed plugins don't load it. The
+practice-profile template is `skills/setup/CLAUDE.template.md`; setup
+fills it in and writes `~/change-practice/CLAUDE.md`.
 
 ## Layout
 

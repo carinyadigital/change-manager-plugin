@@ -1,17 +1,14 @@
 <!--
 TEMPLATE — do not write user data here.
 
-This file ships with the plugin and shows the structure the practice profile should have.
+This file ships with the setup skill and shows the structure the practice profile should have.
 It is replaced on every plugin update. Never write user data here.
 
-The `setup` skill copies or updates the user profile at:
+The `setup` skill fills it in and writes the user profile at:
   ~/change-practice/CLAUDE.md
 
 Change artefacts live in the working folder under docs/change/ —
 see references/change-conventions.md.
-
-Contributing to this plugin? Read AGENTS.md — this file is the user-profile
-template, not contributor guidance.
 -->
 
 # Change Management — Practice Profile
