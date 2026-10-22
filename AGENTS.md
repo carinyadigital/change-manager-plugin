@@ -2,7 +2,10 @@
 
 A single, multi-persona practice plugin — `change-practice` — for
 organisational change management in Claude Cowork and ChatGPT Work.
-The repo root is the plugin root; there is no marketplace manifest.
+The repo root is the plugin root. `.claude-plugin/marketplace.json` is the
+Claude marketplace catalogue and lists that same root (`source`: `./`), so
+the repository can be added as a marketplace. There is no Codex marketplace
+catalogue.
 
 `CLAUDE.md` at the root is the practice-profile **template** shipped to users,
 not contributor guidance. This file is the contributor guide.
@@ -12,6 +15,7 @@ not contributor guidance. This file is the contributor guide.
 | Path | What it holds |
 | --- | --- |
 | `.claude-plugin/plugin.json` | Claude Cowork manifest |
+| `.claude-plugin/marketplace.json` | Claude marketplace catalogue. One entry, `change-practice`, sourced from `./` |
 | `.codex-plugin/plugin.json` | ChatGPT Work and Codex manifest. Listing text is `interface`; setup is `extensions.com.openai.onboardingSkill`. No `.cursor-plugin/` |
 | `skills/<name>/` | Self-contained [Agent Skills](https://agentskills.io/specification): `SKILL.md`, `references/`, `assets/`, `scripts/`, `evals/` |
 | `agents/` | Five persona agents; each lists the skills it owns and its least-privilege scope |

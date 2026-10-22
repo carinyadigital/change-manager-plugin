@@ -34,9 +34,11 @@ When Change Practice is available for your organisation:
 5. Start a new Cowork task. Ask in plain language — for example, "Help me
    understand the rostering change" — or type `/` and choose a skill.
 
-If it is not in Discover, ask your Claude administrator to add it for your
-organisation, or to send you the plugin file. On the Plugins page, use the
-upload option and select that file.
+If it is not in Discover, ask your Claude administrator to add this GitHub
+repository as a marketplace. Claude reads `.claude-plugin/marketplace.json`
+and installs Change Practice from the repository root. They can also send you
+the plugin file: on the Plugins page, use the upload option and select that
+file.
 
 ### ChatGPT Work
 
@@ -183,6 +185,7 @@ each skill is a self-contained folder.
 
 ```
 .claude-plugin/plugin.json      # Claude Cowork manifest
+.claude-plugin/marketplace.json # Claude marketplace; the plugin source is ./
 .codex-plugin/plugin.json       # ChatGPT Work and Codex manifest
 .mcp.json                       # bundled connector: Microsoft 365 and Teams
 assets/                         # listing icon for ChatGPT
@@ -206,8 +209,9 @@ tests/                          # node:test suite (development only)
 
 ## Develop
 
-This repo is one plugin; the repo root is the plugin root. Load it locally
-while developing:
+This repo is one plugin; the repo root is the plugin root. The Claude
+marketplace catalogue points at that same root. Load it locally while
+developing:
 
 ```bash
 claude --plugin-dir ~/Projects/change-manager-plugin

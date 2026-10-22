@@ -6,7 +6,8 @@ Usage: node scripts/validate.ts [--warn-only]
 
 Checks:
   1. All JSON files parse
-  2. Plugin manifests (Claude <-> Codex identity, Codex listing fields, root files)
+  2. Plugin manifests (Claude <-> Codex identity, Codex listing fields, root files,
+     Claude marketplace catalogue pointing at this repo)
   3. .mcp.json shape
   4. hooks/hooks.json shape; referenced scripts exist
   5. SKILL.md frontmatter, budgets, metadata enums, required headings,
@@ -230,12 +231,36 @@ function checkManifest(): void {
     codexPath(onboarding, "onboardingSkill");
   }
   for (const f of ["README.md", "CONNECTORS.md", "CLAUDE.md", ".mcp.json", "LICENSE"]) if (!existsSync(join(ROOT, f))) fail(`missing ${f}`);
-  for (const extra of [".claude-plugin/marketplace.json", ".codex-plugin/marketplace.json"]) {
-    if (existsSync(join(ROOT, extra))) fail(`single plugin: ${extra} should not exist`);
-  }
+  if (existsSync(join(ROOT, ".codex-plugin/marketplace.json"))) fail("ChatGPT has no marketplace catalogue; .codex-plugin/marketplace.json should not exist");
+  checkClaudeMarketplace(a);
   const pkg = existsSync(join(ROOT, "package.json")) ? (loadJson(join(ROOT, "package.json")) as Record<string, unknown> | undefined) : undefined;
   if (pkg && pkg.version !== a.version) fail("package.json version differs from plugin.json");
   ok();
+}
+
+/** This repo is the plugin. Claude still needs a marketplace catalogue to add the repository. */
+function checkClaudeMarketplace(plugin: Record<string, unknown>): void {
+  const path = ".claude-plugin/marketplace.json";
+  const file = join(ROOT, path);
+  if (!existsSync(file)) return fail(`${path} missing`);
+  const data = loadJson(file) as Record<string, unknown> | undefined;
+  if (!data) return;
+  if (data.name !== PLUGIN_NAME) fail(`${path} name must be '${PLUGIN_NAME}'`);
+  const owner = data.owner;
+  const ownerName = owner && typeof owner === "object" && !Array.isArray(owner) ? (owner as Record<string, unknown>).name : "";
+  if (ownerName !== authorName(plugin)) fail(`${path} owner.name must match plugin author.name`);
+  const plugins = data.plugins;
+  if (!Array.isArray(plugins) || plugins.length !== 1) return fail(`${path} must list exactly one plugin`);
+  const entry = plugins[0] as Record<string, unknown>;
+  if (entry.name !== plugin.name) fail(`${path} plugin name must match plugin.json`);
+  if (entry.source !== "./") fail(`${path} plugin source must be "./" — this repository is the plugin`);
+  if (entry.description !== plugin.description) fail(`${path} description differs from plugin.json`);
+  if (authorName(entry) !== authorName(plugin)) fail(`${path} plugin author.name differs from plugin.json`);
+  if (entry.license !== plugin.license) fail(`${path} license differs from plugin.json`);
+  if (entry.repository !== plugin.repository) fail(`${path} repository differs from plugin.json`);
+  if (JSON.stringify(entry.keywords) !== JSON.stringify(plugin.keywords)) fail(`${path} keywords differ from plugin.json`);
+  if (entry.version !== undefined && entry.version !== plugin.version) fail(`${path} version differs from plugin.json`);
+  if (typeof entry.category !== "string" || !entry.category.trim()) fail(`${path} plugin category missing`);
 }
 
 function checkMcp(): void {
