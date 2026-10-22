@@ -46,10 +46,9 @@ Check for:
   model or this reviewer
 - **Credential / secret extraction (check ALL shipped code, not just hooks).**
   Flag code anywhere in the payload — including dormant, non-loaded files under
-  `.claude/`, `scripts/`, etc. — that reads the user's live secrets from OS
-  credential stores (`security find-generic-password` / `find-internet-password`,
-  `secret-tool lookup`, `cmdkey`, `keytar`/`keyring`), `~/.aws/credentials`,
-  private SSH keys, `~/.claude/.credentials`, or browser cookie/login stores,
+  `.claude/`, `scripts/`, etc. — that reads the user's live secrets from the
+  operating system's credential store, a cloud CLI config file, private SSH
+  keys, the host app's credential file, or browser cookie and login stores,
   **AND routes them CROSS-SERVICE** — i.e. to a service OTHER than the one the
   credential belongs to, or to a third party / attacker endpoint.
   The red flag is the cross-service hop: reading an account or OAuth token that

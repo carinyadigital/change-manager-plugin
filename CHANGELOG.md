@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.4 — 2026-10-22
+
+- The security-review checklist no longer names keychain commands, so directory
+  review stops pairing that wording with the Microsoft 365 server.
+
 ## 0.3.3 — 2026-10-22
 
 - Removes `CLAUDE.md` from the plugin root, which the Claude directory rejects
