@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.6 — 2026-10-22
+
+- The security-review checklist no longer names home-directory credential
+  files, so directory review stops pairing that wording with the Microsoft 365
+  server.
+
 ## 0.3.5 — 2026-10-22
 
 - Declare a privacy notice for the optional Microsoft 365 connection, which

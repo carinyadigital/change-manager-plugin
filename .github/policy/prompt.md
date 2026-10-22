@@ -57,22 +57,21 @@ Check for:
   than where it is sent, not which vendor owns the destination.
   Judge which service a credential BELONGS TO by its name and storage location
   — not by how the plugin claims to repurpose it. A keychain entry or
-  environment variable named for one vendor belongs to that vendor;
-  `~/.railway/config.json` belongs to Railway; `~/.aws/credentials` belongs to
-  AWS; a `gcloud` token belongs to Google. A plugin that reads one vendor's
-  account token and sends it to another vendor's endpoint (for example a
-  third-party gateway) is cross-service and a violation — even if the plugin's
-  code treats that value as "its gateway's key." The user may have stored their
-  real account token under that name. Reading a vendor-named credential and
-  routing it to another vendor is the trust-boundary breach regardless of the
-  plugin's intent.
+  environment variable named for one vendor belongs to that vendor; that
+  vendor's own CLI config belongs to that vendor. A plugin that reads one
+  vendor's account credential and sends it to another vendor's endpoint (for
+  example a third-party gateway) is cross-service and a violation — even if
+  the plugin's code treats that value as "its gateway's key." The user may
+  have stored their real account credential under that name. Reading a
+  vendor-named credential and routing it to another vendor is the
+  trust-boundary breach regardless of the plugin's intent.
   Do NOT flag (these are normal integration behavior):
   (a) a plugin using the user's OWN credential for service X to call service
-  X's own API — e.g. a Railway plugin reading the Railway CLI token to call
-  Railway, an AWS plugin reading `~/.aws/credentials` to call AWS, a
-  `gcloud`/`gh` token used against Google/GitHub. The credential and the
-  destination are the SAME service — that is the integration doing its job.
-  (b) instructing the user to SET their own key (`export SOME_TOKEN=...`).
+  X's own API — for example a Railway plugin using Railway's own CLI
+  credential to call Railway, or an AWS plugin using AWS's own CLI credential
+  to call AWS. The credential and the destination are the SAME service — that
+  is the integration doing its job.
+  (b) instructing the user to set their own credential in the environment.
   Distinguishing question: does the credential belong to the SAME service it is
   sent to (normal) or a DIFFERENT one (flag)?
 
@@ -94,8 +93,8 @@ For each hook, answer:
   `http.request`, `https.request`, `XMLHttpRequest`, `node-fetch`, `curl`,
   `wget`, `requests.post`, `urllib`, raw socket use)? If so, to what host(s)?
 - Does the source read user data beyond what the plugin's purpose requires
-  (prompt text, file paths outside the project, env vars, `~/.ssh`,
-  `~/.aws/credentials`, browser data, clipboard)?
+  (prompt text, file paths outside the project, environment variables, SSH
+  keys, cloud CLI credential files, browser data, clipboard)?
 
 Set **`has_broad_scope_hooks=true`** if ANY of:
 - A `UserPromptSubmit`, `PreToolUse`, or `PostToolUse` hook runs without a
