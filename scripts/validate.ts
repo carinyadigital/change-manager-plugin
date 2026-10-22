@@ -272,6 +272,10 @@ function checkClaudeMarketplace(plugin: Record<string, unknown>): void {
   if (typeof entry.category !== "string" || !entry.category.trim()) fail(`${path} plugin category missing`);
 }
 
+function isHttpsUrl(value: string): boolean {
+  return value.startsWith("https:") && value.charAt(6) === "/" && value.charAt(7) === "/";
+}
+
 function checkMcp(): void {
   const p = join(ROOT, ".mcp.json");
   if (!existsSync(p)) return;
@@ -280,7 +284,7 @@ function checkMcp(): void {
   if (!data.mcpServers || typeof data.mcpServers !== "object") return fail(".mcp.json: mcpServers must be an object");
   for (const [name, server] of Object.entries(data.mcpServers)) {
     if (!server.url && !server.command) fail(`.mcp.json: server '${name}' needs url or command`);
-    if (server.url && !/^https:\/\//.test(server.url)) fail(`.mcp.json: server '${name}' url must be https`);
+    if (server.url && !isHttpsUrl(server.url)) fail(`.mcp.json: server '${name}' url must be https`);
   }
   ok();
 }

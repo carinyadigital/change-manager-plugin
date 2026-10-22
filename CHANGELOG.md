@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.2 — 2026-10-22
+
+- Directory review no longer reads the HTTPS check or the readiness-review
+  wording as a credential being sent to the Microsoft 365 server.
+
 ## 0.3.1 — 2026-10-22
 
 - Skills that run a bundled script now pre-approve only that script, so

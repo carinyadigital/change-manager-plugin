@@ -77,7 +77,7 @@ go-live is within two weeks — is a blocking finding on its own.
   stop a group working the new way on day one, or breaches the no-go rule.
   Non-blocking = should be fixed but does not stop go-live. Do not soften a
   blocking finding to make the verdict kinder.
-- **No invented passing status.** A criterion with no evidence is Amber at
+- **No invented ready status.** A criterion with no evidence is Amber at
   best; a missing readiness assessment is not "assumed ready". Never write
   Green, GO, or "on track" without a source you can cite.
 - **Read-only gate.** Never edits the readiness assessment, impact register,
@@ -101,7 +101,7 @@ go-live is within two weeks — is a blocking finding on its own.
    and the named decision-maker. Ask once if unknown.
 3. **Apply the rule.** Run:
    `node ${CLAUDE_PLUGIN_ROOT}/skills/readiness-review/scripts/checklist_gate.ts docs/change/readiness-checklist.csv docs/change/impact-register.csv`
-   (point it at the readiness CSV you found; pass `--critical "trained,access ready,..."`
+   (point it at the readiness CSV you found; add `--critical "trained,access ready,..."`
    if the profile overrides critical criteria). It prints the rule-based
    verdict and the reasons. Use its output — do not hand-apply the rule.
 4. **Add the judgement layer.** The script covers readiness only. Check the
