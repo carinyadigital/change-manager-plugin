@@ -10,7 +10,7 @@ description: >
   across initiatives (portfolio-saturation), landing risks
   (change-risk-assessment), or training design (training-needs-analysis).
 license: MIT
-allowed-tools: Read Write Edit Glob Grep Bash(node:*)
+allowed-tools: Read Write Edit Glob Grep Bash(node ${CLAUDE_PLUGIN_ROOT}/skills/change-impact-assessment/scripts/score_impacts.ts *)
 argument-hint: "[group or scope to assess] [--refresh]"
 metadata:
   author: Carinya Digital

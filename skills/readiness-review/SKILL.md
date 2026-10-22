@@ -11,7 +11,7 @@ description: >
   (business-readiness), plan cutover support (golive-transition), or for IT
   release approvals.
 license: MIT
-allowed-tools: Read Write Edit Glob Grep Bash(node:*)
+allowed-tools: Read Write Edit Glob Grep Bash(node ${CLAUDE_PLUGIN_ROOT}/skills/readiness-review/scripts/checklist_gate.ts *)
 argument-hint: "[go-live date or release name] [--group <name>]"
 metadata:
   author: Carinya Digital

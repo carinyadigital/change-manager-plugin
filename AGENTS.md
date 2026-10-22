@@ -51,7 +51,8 @@ invokes is a skill.
   erasable syntax only (no enums, namespaces or parameter properties), `node:`
   standard library only, no runtime dependencies. Skills call
   `node ${CLAUDE_PLUGIN_ROOT}/skills/<skill>/scripts/<file>.ts` and declare
-  `Bash(node:*)`.
+  `Bash(node ${CLAUDE_PLUGIN_ROOT}/skills/<skill>/scripts/<file>.ts *)` —
+  that script only, never `Bash(node:*)`.
 - **Ownership.** Every skill except `setup` and `skills-index` is owned by
   exactly one persona agent (its `skills` list).
 - **Original content only.** Describe proprietary methods in our own words;

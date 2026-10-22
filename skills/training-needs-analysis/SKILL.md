@@ -11,7 +11,7 @@ description: >
   (business-readiness), impacts (change-impact-assessment), or building
   e-learning courses.
 license: MIT
-allowed-tools: Read Write Edit Glob Grep Bash(node:*)
+allowed-tools: Read Write Edit Glob Grep Bash(node ${CLAUDE_PLUGIN_ROOT}/skills/training-needs-analysis/scripts/gap_summary.ts *)
 argument-hint: "[role or scope] [--plan] [--job-aid <task>] [--refresh]"
 metadata:
   author: Carinya Digital

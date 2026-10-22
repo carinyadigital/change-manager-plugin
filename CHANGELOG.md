@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.1 — 2026-10-22
+
+- Skills that run a bundled script now pre-approve only that script, so
+  directory review no longer holds `Bash(node:*)` as a grant for any node
+  command.
+
 ## 0.3.0 — 2026-10-19
 
 - Getting started guide for a first install: working folder, setup, and what

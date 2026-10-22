@@ -11,7 +11,7 @@ description: >
   (stakeholder-pulse), sponsors and leaders (sponsor-engagement), or
   diagnosing resistance (resistance-management).
 license: MIT
-allowed-tools: Read Write Edit Glob Grep Bash(node:*)
+allowed-tools: Read Write Edit Glob Grep Bash(node ${CLAUDE_PLUGIN_ROOT}/skills/change-network/scripts/coverage.ts *)
 argument-hint: "[design | feedback | coverage | pack] [--per N]"
 metadata:
   author: Carinya Digital

@@ -10,7 +10,7 @@ description: >
   for one initiative's impacts (change-impact-assessment) or risks
   (change-risk-assessment), or IT change calendars.
 license: MIT
-allowed-tools: Read Write Edit Glob Grep Bash(node:*)
+allowed-tools: Read Write Edit Glob Grep Bash(node ${CLAUDE_PLUGIN_ROOT}/skills/portfolio-saturation/scripts/heatmap.ts *) Bash(node ${CLAUDE_PLUGIN_ROOT}/skills/change-impact-assessment/scripts/score_impacts.ts *)
 argument-hint: "[period, e.g. 2026-11..2027-06] [--capacity N] [--group <name>]"
 metadata:
   author: Carinya Digital
@@ -80,7 +80,8 @@ Read [change-conventions.md](references/change-conventions.md) and
   across initiatives, or when the user asks for loads to be lowered to make
   the picture look better without new evidence.
 - **Blast radius.** Writes only `docs/change/portfolio-heatmap.md` and
-  `docs/change/portfolio.csv`. Runs only the bundled script.
+  `docs/change/portfolio.csv`. Runs only `scripts/heatmap.ts` and, to build
+  rows from a dated impact register, `change-impact-assessment/scripts/score_impacts.ts`.
 
 ## Workflow
 

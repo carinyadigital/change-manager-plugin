@@ -10,7 +10,7 @@ description: >
   and CSV, or org-readiness.md. Do NOT use for the go/no-go recommendation
   (readiness-review) or technical cutover readiness.
 license: MIT
-allowed-tools: Read Write Edit Glob Grep Bash(node:*)
+allowed-tools: Read Write Edit Glob Grep Bash(node ${CLAUDE_PLUGIN_ROOT}/skills/business-readiness/scripts/readiness_rag.ts *)
 argument-hint: "[group or criterion focus] [--date YYYY-MM-DD] [--organisational]"
 metadata:
   author: Carinya Digital

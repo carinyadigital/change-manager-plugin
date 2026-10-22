@@ -10,7 +10,7 @@ description: >
   (sponsor-engagement), engagement sessions (stakeholder-engagement), or
   impacts by role (change-impact-assessment).
 license: MIT
-allowed-tools: Read Write Edit Glob Grep Bash(node:*)
+allowed-tools: Read Write Edit Glob Grep Bash(node ${CLAUDE_PLUGIN_ROOT}/skills/stakeholder-analysis/scripts/grid.ts *)
 argument-hint: "[group or area to focus on] [--refresh]"
 metadata:
   author: Carinya Digital

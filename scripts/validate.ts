@@ -11,7 +11,8 @@ Checks:
   3. .mcp.json shape
   4. hooks/hooks.json shape; referenced scripts exist
   5. SKILL.md frontmatter, budgets, metadata enums, required headings,
-     ${CLAUDE_PLUGIN_ROOT} references resolve, scripts declare Bash(node:*)
+     ${CLAUDE_PLUGIN_ROOT} references resolve, scripts declare a Bash grant
+     for that script only (never Bash(node:*))
   6. Persona agents (agents/*.md) frontmatter contracts
   7. Agent Skills self-containment: SKILL.md and skill files link only inside
      their own skill folder; synced shared references match the canonical
@@ -129,6 +130,14 @@ const asList = (v: YamlValue | undefined): string[] => {
   if (typeof v === "string") return v.replaceAll(",", " ").split(/\s+/).filter(Boolean);
   return [];
 };
+
+/** Bash grants, kept intact so a rule with spaces is one entry. */
+function bashRules(raw: string): string[] {
+  return [...raw.matchAll(/Bash\([^)]*\)/g)].map((m) => m[0]);
+}
+
+/** `Bash(node:*)`, `Bash(node *)`, and `Bash(node*)` pre-approve every node command. */
+const BROAD_NODE = /^Bash\(node(?::\*|\*|\s+\*)\)$/;
 const asMap = (v: YamlValue | undefined): Record<string, Scalar> =>
   v && typeof v === "object" && !Array.isArray(v) ? v : {};
 
@@ -318,7 +327,19 @@ function checkSkills(): void {
     const heads = (body.match(/^## .+$/gm) ?? []).map((h) => h.trim());
     for (const h of HEADINGS) if (!heads.includes(h)) fail(`${r}: missing heading '${h}'`);
     if (body.split("\n").length > BODY_MAX_LINES) fail(`${r}: body over ${BODY_MAX_LINES} lines`);
-    if (existsSync(join(dir, "scripts")) && !tools.some((t) => t.includes("Bash(node"))) fail(`${r}: ships scripts/ but allowed-tools lacks Bash(node:*)`);
+    const rawTools = String(fm["allowed-tools"] ?? "");
+    for (const rule of bashRules(rawTools)) {
+      if (BROAD_NODE.test(rule)) fail(`${r}: ${rule} pre-approves any node command; name the script`);
+    }
+    if (existsSync(join(dir, "scripts"))) {
+      for (const file of readdirSync(join(dir, "scripts")).filter((f) => f.endsWith(".ts"))) {
+        const pluginRule = `Bash(node \${CLAUDE_PLUGIN_ROOT}/skills/${name}/scripts/${file} *)`;
+        const skillRule = `Bash(node \${CLAUDE_SKILL_DIR}/scripts/${file} *)`;
+        if (!rawTools.includes(pluginRule) && !rawTools.includes(skillRule)) {
+          fail(`${r}: scripts/${file} needs allowed-tools ${pluginRule}`);
+        }
+      }
+    }
     for (const ref of pluginRefs(body)) if (!existsSync(join(ROOT, ref))) fail(`${r}: references missing ${ref}`);
     if (/python3?\s|\.py\b|\.mjs\b/i.test(body)) fail(`${r}: mentions Python or .mjs — scripts are TypeScript`);
     ok();
