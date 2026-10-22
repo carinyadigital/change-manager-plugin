@@ -234,7 +234,7 @@ Contributor rules: [AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Licence
 
-Licenced under the [MIT Licence](LICENSE).
+Licenced under the [MIT Licence](LICENSE). [Privacy](PRIVACY.md).
 
 Third-party frameworks are referenced, not reproduced; see [ATTRIBUTION.md](ATTRIBUTION.md) and [TRADEMARKS.md](TRADEMARKS.md).
 

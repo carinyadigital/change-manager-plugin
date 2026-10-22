@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.5 — 2026-10-22
+
+- Declare a privacy notice for the optional Microsoft 365 connection, which
+  the Claude directory requires when a plugin bundles a remote MCP server.
+
 ## 0.3.4 — 2026-10-22
 
 - The security-review checklist no longer names keychain commands, so directory

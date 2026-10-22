@@ -245,7 +245,19 @@ function checkManifest(): void {
   checkClaudeMarketplace(a);
   const pkg = existsSync(join(ROOT, "package.json")) ? (loadJson(join(ROOT, "package.json")) as Record<string, unknown> | undefined) : undefined;
   if (pkg && pkg.version !== a.version) fail("package.json version differs from plugin.json");
+  if (bundlesRemoteMcp()) {
+    const policy = a.privacyPolicyUrl;
+    if (typeof policy !== "string" || !isHttpsUrl(policy)) fail(".claude-plugin/plugin.json privacyPolicyUrl must be an https URL while a remote MCP server is bundled");
+  }
   ok();
+}
+
+function bundlesRemoteMcp(): boolean {
+  const file = join(ROOT, ".mcp.json");
+  if (!existsSync(file)) return false;
+  const data = loadJson(file) as { mcpServers?: Record<string, { url?: string }> } | undefined;
+  if (!data?.mcpServers) return false;
+  return Object.values(data.mcpServers).some((server) => typeof server?.url === "string" && server.url.length > 0);
 }
 
 /** This repo is the plugin. Claude still needs a marketplace catalogue to add the repository. */
